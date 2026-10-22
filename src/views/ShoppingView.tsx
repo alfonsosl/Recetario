@@ -230,7 +230,7 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
       {/* ---------- Lista activa ---------- */}
       {activeList && (
         <>
-          <div className="sticky top-[calc(env(safe-area-inset-top)+3.5rem)] z-20 -mx-4 bg-sand-50/95 px-4 py-2 backdrop-blur md:top-16">
+          <div className="sticky top-[calc(var(--safe-area-inset-top,env(safe-area-inset-top))+3.5rem)] z-20 -mx-4 bg-sand-50/95 px-4 py-2 backdrop-blur md:top-16">
             <div className="rounded-2xl border border-sand-200 bg-white p-3 shadow-sm">
               <div className="flex items-baseline justify-between gap-2">
                 <p className="min-w-0 truncate text-sm font-semibold text-stone-800">

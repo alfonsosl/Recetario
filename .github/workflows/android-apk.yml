@@ -1,0 +1,75 @@
+name: APK Android
+
+# Compila la app Android (Capacitor) y publica el APK como Release de GitHub.
+# Descarga directa del último APK:
+#   https://github.com/<usuario>/<repo>/releases/latest/download/Mediterraneo5.apk
+on:
+  push:
+    branches: [main, master, 'claude/**']
+    paths-ignore: ['**.md']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apk-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Compilar la web
+        run: npm run build
+        env:
+          # Opcional: define estos secretos en el repo para sincronizar la lista entre móviles con Supabase.
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+
+      - name: Copiar la web al proyecto Android
+        run: npx cap sync android
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+
+      - name: Compilar APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease --no-daemon --stacktrace
+
+      - name: Preparar APK
+        run: cp android/app/build/outputs/apk/release/app-release.apk Mediterraneo5.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Mediterraneo5-apk
+          path: Mediterraneo5.apk
+
+      - name: Publicar en Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk-v1.0.${{ github.run_number }}
+          target_commitish: ${{ github.sha }}
+          name: Mediterráneo 5 · Android v1.0.${{ github.run_number }}
+          make_latest: true
+          files: Mediterraneo5.apk
+          body: |
+            APK de Mediterráneo 5 para Android (compilación ${{ github.run_number }}).
+
+            **Instalar:** descarga `Mediterraneo5.apk` desde el móvil, ábrelo y permite
+            "Instalar apps de origen desconocido" para tu navegador o gestor de archivos.
+            Las nuevas versiones se instalan encima de la anterior sin perder tus datos.

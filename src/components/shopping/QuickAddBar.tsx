@@ -31,7 +31,7 @@ export function QuickAddBar({ onAdd }: Props) {
   return (
     <form
       onSubmit={submit}
-      className="fixed inset-x-0 bottom-[calc(4rem+env(safe-area-inset-bottom))] z-30 border-t border-sand-200 bg-white/95 px-3 py-2 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] backdrop-blur md:sticky md:bottom-4 md:mx-auto md:max-w-3xl md:rounded-2xl md:border"
+      className="fixed inset-x-0 bottom-[calc(4rem+var(--safe-area-inset-bottom,env(safe-area-inset-bottom)))] z-30 border-t border-sand-200 bg-white/95 px-3 py-2 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] backdrop-blur md:sticky md:bottom-4 md:mx-auto md:max-w-3xl md:rounded-2xl md:border"
     >
       {name.trim() && (
         <div className="scrollbar-none -mx-3 mb-2 flex gap-1.5 overflow-x-auto px-3" role="radiogroup" aria-label="Pasillo / categoría">

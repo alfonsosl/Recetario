@@ -44,7 +44,7 @@ export function RecipesView({ onOpen }: Props) {
         <p className="text-sm text-stone-500">56 platos de dieta mediterránea · cantidades para 5 personas</p>
       </div>
 
-      <div className="sticky top-[calc(env(safe-area-inset-top)+3.5rem)] z-20 -mx-4 space-y-2 bg-sand-50/95 px-4 py-2 backdrop-blur md:top-16">
+      <div className="sticky top-[calc(var(--safe-area-inset-top,env(safe-area-inset-top))+3.5rem)] z-20 -mx-4 space-y-2 bg-sand-50/95 px-4 py-2 backdrop-blur md:top-16">
         <label className="relative block">
           <Search className="pointer-events-none absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-stone-400" />
           <input

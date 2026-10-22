@@ -9,8 +9,9 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 );
 
-// Service worker: solo en producción, para instalación PWA y uso sin conexión del recetario.
-if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+// Service worker: solo en la web publicada (PWA). En la app Android los archivos ya van dentro del APK.
+const isNativeApp = Boolean((window as { Capacitor?: { isNativePlatform?: () => boolean } }).Capacitor?.isNativePlatform?.());
+if (import.meta.env.PROD && !isNativeApp && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch(() => {
       /* sin SW la app sigue funcionando online */
