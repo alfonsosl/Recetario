@@ -1,0 +1,23 @@
+{
+  "name": "Mediterráneo 5: Planificador Mensual y Lista Colaborativa",
+  "short_name": "Mediterráneo 5",
+  "description": "Menú mediterráneo rotativo de 4 semanas para 5 personas, recetario y lista de la compra común.",
+  "lang": "es-ES",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fdfbf7",
+  "theme_color": "#5f6f2b",
+  "categories": ["food", "lifestyle", "productivity"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Lista Común", "short_name": "Compra", "url": "/?tab=shopping", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Recetario", "short_name": "Recetas", "url": "/?tab=recipes", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

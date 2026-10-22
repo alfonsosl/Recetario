@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+
+  --color-sand-50: #fdfbf7;
+  --color-sand-100: #f8f3ea;
+  --color-sand-200: #efe6d6;
+  --color-sand-300: #e2d4bb;
+
+  --color-olive-50: #f4f6ec;
+  --color-olive-100: #e6ebd2;
+  --color-olive-200: #cdd8a8;
+  --color-olive-500: #7a8b3c;
+  --color-olive-600: #5f6f2b;
+  --color-olive-700: #4a5722;
+  --color-olive-800: #3a441c;
+  --color-olive-900: #2a3114;
+
+  --color-terra-50: #fdf2ed;
+  --color-terra-100: #fae0d4;
+  --color-terra-500: #d2693f;
+  --color-terra-600: #b9542d;
+  --color-terra-700: #934225;
+
+  --color-sea-50: #ecf6f9;
+  --color-sea-100: #d2eaf1;
+  --color-sea-500: #2b8aa8;
+  --color-sea-600: #1f6f8b;
+  --color-sea-700: #195a71;
+
+  --animate-sheet-up: sheet-up 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-fade-in: fade-in 0.2s ease-out;
+  --animate-pop: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-row-in: row-in 0.35s ease-out;
+
+  @keyframes sheet-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes pop {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes row-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-sand-50 text-stone-800 font-sans antialiased;
+    overscroll-behavior-y: none;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Tachado animado para productos comprados */
+.strike {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 55%;
+  background-size: 0% 2px;
+  transition: background-size 0.35s ease, color 0.35s ease, opacity 0.35s ease;
+}
+.strike[data-checked='true'] {
+  background-size: 100% 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
