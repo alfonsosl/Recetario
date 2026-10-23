@@ -2,8 +2,8 @@
 
 PWA mobile-first (React + TypeScript + Vite + Tailwind CSS 4 + Lucide) con:
 
-- **Calendario** de 4 semanas rotativas de dieta mediterránea (comida + cena), con la semana activa calculada automáticamente: `((semanaISO - 1) % 4) + 1`. Selector manual de semana, vista mes e intercambio de cualquier plato por otra de las 56 recetas.
-- **Recetario** de 56 platos con cantidades exactas para **5 personas** y preparación paso a paso. Buscador sin tildes por título, etiqueta o ingrediente.
+- **Calendario** de 4 semanas rotativas (comida + cena, con 1 o 2 platos cada una), con la semana activa calculada automáticamente: `((semanaISO - 1) % 4) + 1`. Selector manual de semana, vista mes, balance semanal (legumbre / pescado / carne / huevo) e intercambio de cualquier plato.
+- **Recetario** de 47 recetas para **5 personas**: ingredientes (opcionales y sobras de otra receta señalados), pasos, notas, conservación y en qué días del plan aparece cada una.
 - **Lista Común** multiusuario: identificación rápida (nombre + Código de Hogar), creación desde el menú semanal (suma automática de ingredientes) o desde cero, input rápido estilo chat con categoría sugerida, agrupación por pasillo, marcado táctil y **autoarchivado al 100 %** con cuenta atrás de 2 s e historial.
 
 ## Arranque
@@ -14,6 +14,17 @@ npm run dev        # http://localhost:5173 (también accesible desde el móvil e
 npm run build      # tsc + build de producción en dist/
 npm run preview    # sirve dist/ (incluye service worker)
 ```
+
+## Datos del recetario
+
+La fuente única es `src/data/recetario.json`, generado a partir de:
+
+- `datos/recetas_data.py` — catálogo de recetas y secciones de supermercado.
+- `datos/build.py` — plan mensual, listas de la compra y balance semanal.
+
+Para cambiar recetas o el plan: edita esos archivos y ejecuta `npm run datos` (regenera y copia el JSON). La app adapta el JSON en `src/data/index.ts`.
+
+La lista de la compra que genera la app sigue las mismas reglas que `build.py` (comprobado: coincide al 100 % en las 4 semanas): g/ml redondeados a 50 hacia arriba, ajo en cabezas, sin opcionales ni sobras de otras recetas, y especias / "al gusto" como productos a revisar en la despensa.
 
 ## Sincronización de la lista
 
@@ -39,11 +50,17 @@ npm run preview    # sirve dist/ (incluye service worker)
 - Android/Chrome: menú ⋮ → *Instalar aplicación*. iOS/Safari: Compartir → *Añadir a pantalla de inicio*.
 - Requiere HTTPS en producción (Vercel, Netlify, Cloudflare Pages… sirven `dist/` tal cual).
 
+## App Android (APK)
+
+`android/` es el proyecto Capacitor. Cada push compila el APK en GitHub Actions (`.github/workflows/android-apk.yml`) y lo publica en Releases:
+`https://github.com/alfonsosl/Recetario/releases/latest/download/Mediterraneo5.apk`
+
 ## Estructura
 
 ```
+datos/             recetas_data.py, build.py (generan el JSON)
 src/
-  data/            week1..4.ts (14 recetas cada uno), index.ts, helpers.ts, images.ts
+  data/            recetario.json, index.ts (adaptador), images.ts
   services/        shoppingSync.ts (Supabase / local)
   hooks/           usePlanner, useShoppingList, useIdentity, useBackToClose, ...
   components/      RecipeImage, RecipeSheet (bottom sheet), RecipePicker, MealCard, BottomNav, shopping/*
@@ -54,4 +71,4 @@ supabase_schema.sql
 
 ## Imágenes
 
-Cada receta usa una fotografía de Unsplash (`images.unsplash.com`) agrupada por tipo de plato en `src/data/images.ts`. `<RecipeImage />` muestra un skeleton mientras carga y un fallback ilustrado si la URL falla o no hay conexión. Para personalizar una foto, cambia el ID en `images.ts` o asigna una URL propia en el campo `image` de la receta.
+El recetario no incluye fotos: cada receta usa una fotografía de Unsplash según su tipo de plato (`src/data/images.ts`). `<RecipeImage />` muestra un skeleton mientras carga y un fallback ilustrado si la URL falla o no hay conexión. Para personalizar una foto, cambia el ID en `images.ts` o asigna una URL propia en el campo `image` de la receta.

@@ -7,6 +7,7 @@ import { useIdentity } from './hooks/useIdentity';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { usePlanner } from './hooks/usePlanner';
 import { useShoppingList } from './hooks/useShoppingList';
+import { getDefaultSlot } from './data';
 import type { Recipe } from './types';
 import { aggregateIngredients } from './utils/aggregate';
 import { CalendarView, type Slot } from './views/CalendarView';
@@ -99,15 +100,19 @@ export default function App() {
           onClose={() => setOpenRecipe(null)}
           onAddToList={addRecipeToList}
           onSwap={openRecipe.slot ? () => setPickerSlot(openRecipe.slot!) : undefined}
+          usage={planner.usage.get(openRecipe.recipe.id)}
         />
       )}
 
       {pickerSlot && (
         <RecipePicker
-          {...pickerSlot}
-          currentId={planner.getRecipe(pickerSlot.week, pickerSlot.day, pickerSlot.meal).id}
+          week={pickerSlot.week}
+          day={pickerSlot.day}
+          meal={pickerSlot.meal}
+          currentId={planner.getSlot(pickerSlot.week, pickerSlot.day, pickerSlot.meal)[pickerSlot.index]?.id ?? ''}
+          originalId={getDefaultSlot(pickerSlot.week, pickerSlot.day, pickerSlot.meal)[pickerSlot.index] ?? ''}
           onSelect={(id) => {
-            planner.swap(pickerSlot.week, pickerSlot.day, pickerSlot.meal, id);
+            planner.swapDish(pickerSlot.week, pickerSlot.day, pickerSlot.meal, pickerSlot.index, id);
             showToast('Plato cambiado en el calendario');
           }}
           onClose={() => setPickerSlot(null)}

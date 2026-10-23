@@ -8,7 +8,7 @@ import type { Planner } from '../hooks/usePlanner';
 import type { ShoppingApi } from '../hooks/useShoppingList';
 import { CATEGORIES, type ShoppingItem, type WeekNumber } from '../types';
 import { aggregateIngredients } from '../utils/aggregate';
-import { CATEGORY_META } from '../utils/categories';
+import { CATEGORY_META, normalizeCategory } from '../utils/categories';
 import { formatDateTime } from '../utils/format';
 
 interface Props {
@@ -87,7 +87,7 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
     const sinks = (i: ShoppingItem) => i.checked && !settling.has(i.id);
     return CATEGORIES.map((category) => {
       const list = items
-        .filter((i) => i.category === category)
+        .filter((i) => normalizeCategory(i.category) === category)
         .sort((a, b) => {
           const sa = sinks(a);
           const sb = sinks(b);
@@ -99,7 +99,9 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
     }).filter((g) => g.list.length > 0);
   }, [items, settling]);
 
-  const importPreview = useMemo(() => aggregateIngredients(planner.weekRecipes(importWeek)), [planner, importWeek]);
+  const importDishes = planner.weekRecipes(importWeek);
+  const importPreview = useMemo(() => aggregateIngredients(importDishes), [importDishes]);
+  const pantryCount = importPreview.filter((p) => p.category === 'Especias').length;
 
   const createFromMenu = async () => {
     await shopping.createList(`Menú Semana ${importWeek}`, importPreview);
@@ -171,7 +173,7 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
               <div>
                 <p className="text-xs font-bold uppercase tracking-wide text-olive-600">Opción A · Recomendada</p>
                 <h3 className="font-semibold text-stone-900">Importar ingredientes del menú semanal</h3>
-                <p className="text-sm text-stone-500">Suma automáticamente las cantidades de los 14 platos (5 personas). Después puedes añadir extras.</p>
+                <p className="text-sm text-stone-500">Suma las cantidades de los {importDishes.length} platos de la semana (5 personas), redondeadas para comprar. No incluye opcionales ni sobras de otras recetas; las {pantryCount} especias aparecen como "revisar". Después puedes añadir extras.</p>
               </div>
             </div>
             <div className="mt-3 grid grid-cols-4 gap-2" role="group" aria-label="Semana a importar">

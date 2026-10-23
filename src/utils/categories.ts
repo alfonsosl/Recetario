@@ -1,11 +1,28 @@
-import type { Category } from '../types';
+import type { Category, Section } from '../types';
+
+/** Sección del recetario → categoría (pasillo) de la lista de la compra. */
+export const SECTION_TO_CATEGORY: Record<Exclude<Section, 'aprovechamiento'>, Category> = {
+  verdura_fruta: 'Verdura y fruta',
+  carne: 'Carne',
+  pescado: 'Pescado',
+  huevos_lacteos: 'Huevos y lácteos',
+  panaderia_refrigerados: 'Panadería y refrigerados',
+  congelados: 'Congelados',
+  despensa: 'Despensa',
+  especias: 'Especias',
+};
 
 export const CATEGORY_META: Record<Category, { emoji: string; short: string; tone: string }> = {
-  'Verduras y Hortalizas': { emoji: '🥬', short: 'Verduras', tone: 'bg-olive-50 text-olive-800' },
-  'Carnes y Aves': { emoji: '🍗', short: 'Carnes', tone: 'bg-terra-50 text-terra-700' },
-  'Pescados y Mariscos': { emoji: '🐟', short: 'Pescados', tone: 'bg-sea-50 text-sea-700' },
-  'Legumbres y Cereales': { emoji: '🌾', short: 'Legumbres', tone: 'bg-amber-50 text-amber-800' },
-  'Huevos y Lácteos': { emoji: '🥚', short: 'Lácteos', tone: 'bg-yellow-50 text-yellow-800' },
-  'Despensa y AOVE': { emoji: '🫒', short: 'Despensa', tone: 'bg-lime-50 text-lime-800' },
-  'Hogar y Otros': { emoji: '🧻', short: 'Hogar', tone: 'bg-stone-100 text-stone-700' },
+  'Verdura y fruta': { emoji: '🥬', short: 'Verdura', tone: 'bg-olive-50 text-olive-800' },
+  Carne: { emoji: '🍗', short: 'Carne', tone: 'bg-terra-50 text-terra-700' },
+  Pescado: { emoji: '🐟', short: 'Pescado', tone: 'bg-sea-50 text-sea-700' },
+  'Huevos y lácteos': { emoji: '🥚', short: 'Lácteos', tone: 'bg-yellow-50 text-yellow-800' },
+  'Panadería y refrigerados': { emoji: '🥖', short: 'Panadería', tone: 'bg-amber-50 text-amber-800' },
+  Congelados: { emoji: '🧊', short: 'Congelados', tone: 'bg-sky-50 text-sky-800' },
+  Despensa: { emoji: '🫒', short: 'Despensa', tone: 'bg-lime-50 text-lime-800' },
+  Especias: { emoji: '🧂', short: 'Especias', tone: 'bg-orange-50 text-orange-800' },
+  'Hogar y otros': { emoji: '🧻', short: 'Hogar', tone: 'bg-stone-100 text-stone-700' },
 };
+
+/** Listas guardadas con categorías antiguas se reagrupan en "Hogar y otros" para no perder productos. */
+export const normalizeCategory = (c: string): Category => (c in CATEGORY_META ? (c as Category) : 'Hogar y otros');

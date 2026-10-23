@@ -1,29 +1,43 @@
 import { useCallback, useMemo } from 'react';
-import { getDefaultRecipe, getRecipeById } from '../data';
+import { getDefaultSlot, getRecipeById, nutritionGroup } from '../data';
 import type { DayKey, MealType, Recipe, WeekNumber } from '../types';
 import { DAYS, MEALS } from '../utils/days';
 import { getISOWeek, getRotationWeek } from '../utils/isoWeek';
 import { useLocalStorage } from './useLocalStorage';
 
-type Overrides = Record<string, string>; // "w1-lunes-comida" -> id de receta
+/** "w1-lunes-comida" → ids de los platos de esa comida (cuando el usuario la ha cambiado). */
+type Overrides = Record<string, string[]>;
 
 const slotKey = (week: WeekNumber, day: DayKey, meal: MealType) => `w${week}-${day}-${meal}`;
+
+export interface Balance {
+  legumbre: number;
+  pescado: number;
+  carne: number;
+  huevo: number;
+}
 
 export function usePlanner() {
   const isoWeek = getISOWeek();
   const autoWeek = getRotationWeek();
   // null = seguir la rotación automática
   const [manualWeek, setManualWeek] = useLocalStorage<WeekNumber | null>('med5:plan:week', null);
-  const [overrides, setOverrides] = useLocalStorage<Overrides>('med5:plan:overrides', {});
+  const [overrides, setOverrides] = useLocalStorage<Overrides>('med5:plan:overrides:v2', {});
 
   const activeWeek: WeekNumber = manualWeek ?? autoWeek;
 
-  const getRecipe = useCallback(
-    (week: WeekNumber, day: DayKey, meal: MealType): Recipe => {
-      const overrideId = overrides[slotKey(week, day, meal)];
-      return (overrideId && getRecipeById(overrideId)) || getDefaultRecipe(week, day, meal);
+  const getSlotIds = useCallback(
+    (week: WeekNumber, day: DayKey, meal: MealType): string[] => {
+      const o = overrides[slotKey(week, day, meal)];
+      return Array.isArray(o) && o.every((id) => getRecipeById(id)) ? o : getDefaultSlot(week, day, meal);
     },
     [overrides],
+  );
+
+  /** Platos de una comida o cena (1 o 2: p. ej. primero + segundo). */
+  const getSlot = useCallback(
+    (week: WeekNumber, day: DayKey, meal: MealType): Recipe[] => getSlotIds(week, day, meal).map((id) => getRecipeById(id)!),
+    [getSlotIds],
   );
 
   const isSwapped = useCallback(
@@ -31,23 +45,17 @@ export function usePlanner() {
     [overrides],
   );
 
-  const swap = useCallback(
-    (week: WeekNumber, day: DayKey, meal: MealType, recipeId: string) =>
+  /** Sustituye el plato en la posición `index` de esa comida/cena por otra receta. */
+  const swapDish = useCallback(
+    (week: WeekNumber, day: DayKey, meal: MealType, index: number, recipeId: string) =>
       setOverrides((o) => {
         const key = slotKey(week, day, meal);
+        const current = Array.isArray(o[key]) ? [...o[key]] : [...getDefaultSlot(week, day, meal)];
+        current[index] = recipeId;
         const next = { ...o };
-        if (recipeId === key) delete next[key]; // volver a la receta original
-        else next[key] = recipeId;
-        return next;
-      }),
-    [setOverrides],
-  );
-
-  const resetSlot = useCallback(
-    (week: WeekNumber, day: DayKey, meal: MealType) =>
-      setOverrides((o) => {
-        const next = { ...o };
-        delete next[slotKey(week, day, meal)];
+        const original = getDefaultSlot(week, day, meal);
+        if (current.length === original.length && current.every((id, i) => id === original[i])) delete next[key];
+        else next[key] = current;
         return next;
       }),
     [setOverrides],
@@ -59,10 +67,36 @@ export function usePlanner() {
     [setOverrides],
   );
 
+  /** Todos los platos de la semana (cada aparición cuenta para la lista de la compra). */
   const weekRecipes = useCallback(
-    (week: WeekNumber): Recipe[] => DAYS.flatMap((d) => MEALS.map((m) => getRecipe(week, d.key, m.key))),
-    [getRecipe],
+    (week: WeekNumber): Recipe[] => DAYS.flatMap((d) => MEALS.flatMap((m) => getSlot(week, d.key, m.key))),
+    [getSlot],
   );
+
+  const weekBalance = useCallback(
+    (week: WeekNumber): Balance => {
+      const b: Balance = { legumbre: 0, pescado: 0, carne: 0, huevo: 0 };
+      for (const r of weekRecipes(week)) {
+        const g = nutritionGroup(r.id);
+        if (g) b[g] += 1;
+      }
+      return b;
+    },
+    [weekRecipes],
+  );
+
+  /** Dónde aparece cada receta en el plan (semana, día, momento). */
+  const usage = useMemo(() => {
+    const map = new Map<string, { week: WeekNumber; day: DayKey; meal: MealType }[]>();
+    for (const week of [1, 2, 3, 4] as WeekNumber[])
+      for (const d of DAYS)
+        for (const m of MEALS)
+          for (const id of getSlotIds(week, d.key, m.key)) {
+            if (!map.has(id)) map.set(id, []);
+            map.get(id)!.push({ week, day: d.key, meal: m.key });
+          }
+    return map;
+  }, [getSlotIds]);
 
   const swappedCount = useMemo(
     () => Object.keys(overrides).filter((k) => k.startsWith(`w${activeWeek}-`)).length,
@@ -76,12 +110,13 @@ export function usePlanner() {
     isManual: manualWeek !== null,
     setWeek: (w: WeekNumber) => setManualWeek(w === autoWeek ? null : w),
     followAuto: () => setManualWeek(null),
-    getRecipe,
+    getSlot,
     isSwapped,
-    swap,
-    resetSlot,
+    swapDish,
     resetWeek,
     weekRecipes,
+    weekBalance,
+    usage,
     swappedCount,
   };
 }

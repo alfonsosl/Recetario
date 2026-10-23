@@ -1,64 +1,96 @@
 import { ArrowLeftRight, Clock, Moon, Sun } from 'lucide-react';
+import { DISH_TYPE_LABEL } from '../data';
 import type { MealType, Recipe } from '../types';
 import { RecipeImage } from './RecipeImage';
 
 interface Props {
-  recipe: Recipe;
+  dishes: Recipe[];
   meal: MealType;
   swapped: boolean;
-  onOpen: () => void;
-  onSwap: () => void;
+  onOpen: (recipe: Recipe, index: number) => void;
+  onSwap: (index: number) => void;
   compact?: boolean;
 }
 
-/** Tarjeta de Comida/Cena del calendario. Grande en móvil, compacta en el grid de escritorio. */
-export function MealCard({ recipe, meal, swapped, onOpen, onSwap, compact = false }: Props) {
+/** Tarjeta de Comida/Cena del calendario: uno o dos platos (p. ej. crema + tortilla). */
+export function MealCard({ dishes, meal, swapped, onOpen, onSwap, compact = false }: Props) {
   const MealIcon = meal === 'comida' ? Sun : Moon;
-  return (
-    <article className="group relative overflow-hidden rounded-3xl border border-sand-200 bg-white shadow-sm transition-shadow hover:shadow-md">
-      <button type="button" onClick={onOpen} className="block w-full text-left" aria-label={`Ver receta: ${recipe.title}`}>
-        <RecipeImage
-          src={recipe.image}
-          alt={recipe.title}
-          width={compact ? 320 : 700}
-          sizes={compact ? '160px' : '(min-width: 768px) 50vw, 100vw'}
-          className={compact ? 'aspect-[4/3] w-full' : 'aspect-[16/9] w-full'}
-        />
-        <div className={compact ? 'p-2.5' : 'p-4'}>
-          <p
-            className={`flex items-center gap-1.5 font-semibold uppercase tracking-wide ${
-              meal === 'comida' ? 'text-terra-600' : 'text-sea-600'
-            } ${compact ? 'text-[10px]' : 'text-xs'}`}
-          >
-            <MealIcon className={compact ? 'h-3 w-3' : 'h-4 w-4'} />
-            {meal === 'comida' ? 'Comida' : 'Cena'}
-            {swapped && <span className="rounded-full bg-sand-100 px-1.5 py-0.5 normal-case tracking-normal text-stone-500">cambiado</span>}
+  const hero = dishes.find((d) => d.dishType === 'principal') ?? dishes[0];
+  const totalTime = Math.max(...dishes.map((d) => d.prepTime + d.cookTime));
+  const label = meal === 'comida' ? 'Comida' : 'Cena';
+
+  if (compact) {
+    return (
+      <article className="overflow-hidden rounded-2xl border border-sand-200 bg-white shadow-sm">
+        <button type="button" onClick={() => onOpen(hero, dishes.indexOf(hero))} className="block w-full" aria-label={`Ver receta: ${hero.title}`}>
+          <RecipeImage src={hero.image} alt={hero.title} width={320} sizes="160px" className="aspect-[4/3] w-full" />
+        </button>
+        <div className="p-2">
+          <p className={`flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide ${meal === 'comida' ? 'text-terra-600' : 'text-sea-600'}`}>
+            <MealIcon className="h-3 w-3" /> {label}
+            {swapped && <span className="rounded-full bg-sand-100 px-1.5 normal-case tracking-normal text-stone-500">cambiado</span>}
           </p>
-          <h3
-            className={`mt-1 font-display font-semibold leading-snug text-stone-900 ${
-              compact ? 'line-clamp-3 text-sm' : 'text-xl'
-            }`}
-          >
-            {recipe.title}
-          </h3>
-          {!compact && (
-            <p className="mt-2 flex items-center gap-1.5 text-sm text-stone-500">
-              <Clock className="h-4 w-4" /> {recipe.prepTime + recipe.cookTime} min · {recipe.difficulty} · 5 pers.
-            </p>
-          )}
+          <ul className="mt-1 space-y-1">
+            {dishes.map((d, i) => (
+              <li key={`${d.id}-${i}`} className="flex items-start gap-1">
+                <button type="button" onClick={() => onOpen(d, i)} className="min-w-0 flex-1 text-left font-display text-sm font-semibold leading-snug text-stone-900 hover:text-olive-700">
+                  <span className="line-clamp-2">{d.title}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onSwap(i)}
+                  title="Cambiar plato"
+                  aria-label={`Cambiar ${d.title}`}
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-stone-400 hover:bg-sand-100 hover:text-stone-700"
+                >
+                  <ArrowLeftRight className="h-3.5 w-3.5" />
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
+      </article>
+    );
+  }
+
+  return (
+    <article className="overflow-hidden rounded-3xl border border-sand-200 bg-white shadow-sm">
+      <button type="button" onClick={() => onOpen(hero, dishes.indexOf(hero))} className="relative block w-full" aria-label={`Ver receta: ${hero.title}`}>
+        <RecipeImage src={hero.image} alt={hero.title} width={700} sizes="100vw" className="aspect-[16/8] w-full" />
+        <span
+          className={`absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wide shadow backdrop-blur ${
+            meal === 'comida' ? 'text-terra-600' : 'text-sea-600'
+          }`}
+        >
+          <MealIcon className="h-4 w-4" /> {label}
+          {swapped && <span className="font-medium normal-case tracking-normal text-stone-500">· cambiado</span>}
+        </span>
       </button>
-      <button
-        type="button"
-        onClick={onSwap}
-        aria-label={`Cambiar ${meal === 'comida' ? 'la comida' : 'la cena'}`}
-        title="Cambiar plato"
-        className={`absolute right-2 top-2 flex items-center justify-center rounded-full bg-white/90 text-stone-700 shadow backdrop-blur hover:bg-white ${
-          compact ? 'h-9 w-9' : 'h-12 w-12'
-        }`}
-      >
-        <ArrowLeftRight className={compact ? 'h-4 w-4' : 'h-5 w-5'} />
-      </button>
+      <ul className="divide-y divide-sand-200">
+        {dishes.map((d, i) => (
+          <li key={`${d.id}-${i}`} className="flex items-stretch">
+            <button type="button" onClick={() => onOpen(d, i)} className="min-w-0 flex-1 px-4 py-3 text-left active:bg-sand-100" aria-label={`Ver receta: ${d.title}`}>
+              {dishes.length > 1 && (
+                <span className="block text-xs font-semibold uppercase tracking-wide text-stone-400">{DISH_TYPE_LABEL[d.dishType]}</span>
+              )}
+              <span className="block font-display text-lg font-semibold leading-snug text-stone-900">{d.title}</span>
+              <span className="mt-1 flex items-center gap-1.5 text-sm text-stone-500">
+                <Clock className="h-4 w-4" /> {d.prepTime + d.cookTime} min · 5 pers.
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => onSwap(i)}
+              title="Cambiar plato"
+              aria-label={`Cambiar ${d.title}`}
+              className="flex w-14 shrink-0 items-center justify-center text-stone-500 hover:bg-sand-100 active:bg-sand-200"
+            >
+              <ArrowLeftRight className="h-5 w-5" />
+            </button>
+          </li>
+        ))}
+      </ul>
+      {dishes.length > 1 && <p className="border-t border-sand-200 px-4 py-2 text-xs text-stone-500">Tiempo total aprox.: {totalTime} min</p>}
     </article>
   );
 }

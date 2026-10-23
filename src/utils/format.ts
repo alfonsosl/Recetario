@@ -12,19 +12,16 @@ function num(n: number): string {
   return nf.format(n);
 }
 
-const PLURALS: Partial<Record<Unit, [string, string]>> = {
+const PLURALS: Record<string, [string, string]> = {
   diente: ['diente', 'dientes'],
   hoja: ['hoja', 'hojas'],
-  rama: ['rama', 'ramas'],
-  sobre: ['sobre', 'sobres'],
-  lata: ['lata', 'latas'],
-  bote: ['bote', 'botes'],
-  cda: ['cda', 'cdas'],
   cdta: ['cdta', 'cdtas'],
+  manojo: ['manojo', 'manojo'],
+  cabeza: ['cabeza', 'cabezas'],
 };
 
-export function formatQuantity(quantity: number, unit: Unit): string {
-  if (unit === 'al gusto') return 'al gusto';
+export function formatQuantity(quantity: number | null, unit: Unit | 'cabeza'): string {
+  if (unit === 'al_gusto' || quantity === null) return 'al gusto';
   if (unit === 'g' && quantity >= 1000) return `${nf.format(quantity / 1000)} kg`;
   if (unit === 'ml' && quantity >= 1000) return `${nf.format(quantity / 1000)} l`;
   if (unit === 'g' || unit === 'ml') return `${nf.format(quantity)} ${unit}`;
@@ -34,6 +31,9 @@ export function formatQuantity(quantity: number, unit: Unit): string {
 }
 
 export const formatIngredient = (i: Ingredient) => formatQuantity(i.quantity, i.unit);
+
+/** "lentejas pardinas" → "Lentejas pardinas" */
+export const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
 export const formatDateTime = (iso: string) =>
   new Date(iso).toLocaleString('es-ES', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });

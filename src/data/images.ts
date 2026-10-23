@@ -1,7 +1,8 @@
+import type { RecipeCategory } from '../types';
+
 /**
- * Fotografías gastronómicas de Unsplash (licencia Unsplash) agrupadas por tipo de plato.
- * Se sirven desde images.unsplash.com con parámetros de recorte/compresión.
- * Si alguna URL falla, <RecipeImage /> muestra un fallback ilustrado automáticamente.
+ * Fotografías gastronómicas de Unsplash agrupadas por tipo de plato.
+ * Si alguna URL falla o no hay conexión, <RecipeImage /> muestra un fallback ilustrado.
  */
 const unsplash = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=70`;
 
@@ -20,9 +21,10 @@ export const IMG = {
   polloAsado: unsplash('1532550907401-a500c9a57435'),
   carneHorno: unsplash('1544025162-d76694265947'),
   carnePlancha: unsplash('1558030006-450675393462'),
-  brochetas: unsplash('1555939594-58d7cb561ad1'),
+  hamburguesa: unsplash('1568901346375-23c9450c58cd'),
+  pizza: unsplash('1565299624946-b28f40a0ae38'),
   pastaBolonesa: unsplash('1621996346565-e3dbc646d9a9'),
-  pastaMarisco: unsplash('1563379926898-05f4575a45d8'),
+  pastaCarbonara: unsplash('1563379926898-05f4575a45d8'),
   pastaFria: unsplash('1473093295043-cdd812d0e601'),
   lasana: unsplash('1574894709920-11b28e7367e3'),
   tortilla: unsplash('1525351484163-7529414344d8'),
@@ -30,5 +32,47 @@ export const IMG = {
   ensalada: unsplash('1512621776951-a57141f2eefd'),
   verduras: unsplash('1540189549336-e6e99c3679fe'),
   bowl: unsplash('1546069901-ba9599a7e63c'),
-  wrap: unsplash('1490645935967-10de6ba17061'),
+  horneado: unsplash('1490645935967-10de6ba17061'),
 } as const;
+
+/** Foto específica para recetas concretas; el resto usa la de su categoría. */
+const BY_ID: Record<string, string> = {
+  cocido: IMG.potaje,
+  garbanzos_espinacas: IMG.potaje,
+  sopa_picadillo: IMG.crema,
+  arroz_pescado: IMG.arrozMarinero,
+  arroz_blanco: IMG.bowl,
+  espaguetis_carbonara: IMG.pastaCarbonara,
+  lasana_carne: IMG.lasana,
+  ensalada_pasta: IMG.pastaFria,
+  pollo_horno_patatas: IMG.polloAsado,
+  pollo_ajillo: IMG.polloGuisado,
+  pechuga_plancha: IMG.polloAsado,
+  carne_con_patatas: IMG.estofado,
+  albondigas_salsa: IMG.estofado,
+  hamburguesas_caseras: IMG.hamburguesa,
+  salmon_horno_patatas: IMG.salmon,
+  sepia_plancha: IMG.marisco,
+  pez_espada_plancha: IMG.pescadoPlancha,
+  boquerones_fritos: IMG.pescadoPlancha,
+  tortilla_patatas: IMG.tortilla,
+  crema_calabacin: IMG.crema,
+  crema_calabaza: IMG.crema,
+  pizza_casera: IMG.pizza,
+  pisto_huevo: IMG.verduras,
+};
+
+const BY_CATEGORY: Record<RecipeCategory, string> = {
+  legumbre: IMG.guisoLegumbres,
+  arroz: IMG.paella,
+  pasta: IMG.pastaBolonesa,
+  carne: IMG.carnePlancha,
+  pescado: IMG.pescadoHorno,
+  huevo: IMG.huevos,
+  verdura: IMG.verduras,
+  ensalada: IMG.ensalada,
+  masa_frito: IMG.horneado,
+  guarnicion: IMG.bowl,
+};
+
+export const imageFor = (id: string, category: RecipeCategory) => BY_ID[id] ?? BY_CATEGORY[category];

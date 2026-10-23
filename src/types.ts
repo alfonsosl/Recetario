@@ -2,67 +2,95 @@ export type DayKey = 'lunes' | 'martes' | 'miercoles' | 'jueves' | 'viernes' | '
 export type MealType = 'comida' | 'cena';
 export type WeekNumber = 1 | 2 | 3 | 4;
 
-export const CATEGORIES = [
-  'Verduras y Hortalizas',
-  'Carnes y Aves',
-  'Pescados y Mariscos',
-  'Legumbres y Cereales',
-  'Huevos y Lácteos',
-  'Despensa y AOVE',
-  'Hogar y Otros',
-] as const;
-export type Category = (typeof CATEGORIES)[number];
+/* ---------- Recetario (estructura de src/data/recetario.json) ---------- */
 
-export type Unit =
-  | 'g'
-  | 'ml'
-  | 'ud'
-  | 'diente'
-  | 'cda'
-  | 'cdta'
-  | 'hoja'
-  | 'rama'
-  | 'sobre'
-  | 'lata'
-  | 'bote'
-  | 'al gusto';
+/** Secciones de supermercado del recetario. 'aprovechamiento' = sobras de otra receta (no se compran). */
+export type Section =
+  | 'verdura_fruta'
+  | 'carne'
+  | 'pescado'
+  | 'huevos_lacteos'
+  | 'panaderia_refrigerados'
+  | 'congelados'
+  | 'despensa'
+  | 'especias'
+  | 'aprovechamiento';
+
+export type Unit = 'g' | 'ml' | 'ud' | 'diente' | 'cdta' | 'hoja' | 'manojo' | 'al_gusto';
 
 export interface Ingredient {
   name: string;
-  quantity: number;
+  /** null cuando la unidad es 'al_gusto'. */
+  quantity: number | null;
   unit: Unit;
-  category: Category;
-  /** Aclaración opcional (corte, estado, alternativa). */
-  note?: string;
-  /** Ingrediente de grifo/básico que no se añade a la lista de la compra (p. ej. agua). */
-  pantry?: boolean;
+  section: Section;
+  /** Los opcionales no entran en la lista de la compra. */
+  optional: boolean;
+  /** Id de la receta de la que sale este ingrediente (sobras). */
+  fromRecipe?: string;
 }
 
-export type Difficulty = 'Fácil' | 'Media' | 'Elaborada';
+export type RecipeCategory =
+  | 'legumbre'
+  | 'arroz'
+  | 'pasta'
+  | 'carne'
+  | 'pescado'
+  | 'huevo'
+  | 'verdura'
+  | 'ensalada'
+  | 'masa_frito'
+  | 'guarnicion';
+
+export type DishType = 'principal' | 'primero' | 'guarnicion';
+export type Difficulty = 'baja' | 'media' | 'alta';
 
 export interface Recipe {
   id: string;
-  week: WeekNumber;
-  day: DayKey;
-  meal: MealType;
   title: string;
-  description: string;
+  category: RecipeCategory;
+  moments: MealType[];
+  dishType: DishType;
   servings: 5;
   prepTime: number;
   cookTime: number;
   difficulty: Difficulty;
-  image: string;
   tags: string[];
+  origin: 'usuario' | 'nuevo';
   ingredients: Ingredient[];
   steps: string[];
+  notes: string;
+  storage: string;
+  /** Sobras que genera para otras recetas (p. ej. caldo de cocido). */
+  generates: string[];
+  image: string;
 }
 
-export interface WeekMenu {
+export interface DayPlan {
+  day: DayKey;
+  comida: string[];
+  cena: string[];
+}
+
+export interface WeekPlan {
   week: WeekNumber;
-  recipes: Recipe[];
+  days: DayPlan[];
 }
 
 /* ---------- Lista de la compra ---------- */
+
+export const CATEGORIES = [
+  'Verdura y fruta',
+  'Carne',
+  'Pescado',
+  'Huevos y lácteos',
+  'Panadería y refrigerados',
+  'Congelados',
+  'Despensa',
+  'Especias',
+  'Hogar y otros',
+] as const;
+export type Category = (typeof CATEGORIES)[number];
 
 export type ItemSource = 'menu' | 'manual';
 

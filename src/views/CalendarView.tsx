@@ -10,6 +10,8 @@ export interface Slot {
   week: WeekNumber;
   day: DayKey;
   meal: MealType;
+  /** Posición del plato dentro de la comida/cena (0 = primero de la lista). */
+  index: number;
 }
 
 interface Props {
@@ -39,6 +41,7 @@ export function CalendarView({ planner, onOpen, onSwap }: Props) {
   const dayStripRef = useRef<HTMLDivElement>(null);
   const { activeWeek, autoWeek, isoWeek, isManual } = planner;
   const isCurrentWeek = activeWeek === autoWeek;
+  const balance = planner.weekBalance(activeWeek);
   const today = todayKey();
   const dates = currentWeekDates();
   const dayIndex = DAYS.findIndex((d) => d.key === day);
@@ -103,6 +106,21 @@ export function CalendarView({ planner, onOpen, onSwap }: Props) {
           ))}
         </div>
 
+        <div className="mt-3 flex flex-wrap gap-1.5 text-xs font-semibold" aria-label="Balance de la semana">
+          {(
+            [
+              ['legumbre', '🫘 Legumbre'],
+              ['pescado', '🐟 Pescado'],
+              ['carne', '🍗 Carne'],
+              ['huevo', '🥚 Huevo'],
+            ] as const
+          ).map(([k, label]) => (
+            <span key={k} className="rounded-full bg-white/15 px-2.5 py-1">
+              {label} <span className="tabular-nums">{balance[k]}</span>
+            </span>
+          ))}
+        </div>
+
         {(isManual || planner.swappedCount > 0) && (
           <div className="mt-3 flex flex-wrap gap-2">
             {isManual && (
@@ -116,8 +134,7 @@ export function CalendarView({ planner, onOpen, onSwap }: Props) {
                 onClick={() => planner.resetWeek(activeWeek)}
                 className="inline-flex min-h-10 items-center gap-1.5 rounded-full bg-white/15 px-3 text-sm font-medium hover:bg-white/25"
               >
-                <RotateCcw className="h-4 w-4" /> Restaurar {planner.swappedCount} plato{planner.swappedCount > 1 ? 's' : ''} cambiado
-                {planner.swappedCount > 1 ? 's' : ''}
+                <RotateCcw className="h-4 w-4" /> Restaurar menú original de la semana
               </button>
             )}
           </div>
@@ -168,20 +185,16 @@ export function CalendarView({ planner, onOpen, onSwap }: Props) {
           </div>
 
           <div className="space-y-4">
-            {MEALS.map((m) => {
-              const slot = { week: activeWeek, day, meal: m.key };
-              const recipe = planner.getRecipe(activeWeek, day, m.key);
-              return (
-                <MealCard
-                  key={m.key}
-                  recipe={recipe}
-                  meal={m.key}
-                  swapped={planner.isSwapped(activeWeek, day, m.key)}
-                  onOpen={() => onOpen(recipe, slot)}
-                  onSwap={() => onSwap(slot)}
-                />
-              );
-            })}
+            {MEALS.map((m) => (
+              <MealCard
+                key={m.key}
+                dishes={planner.getSlot(activeWeek, day, m.key)}
+                meal={m.key}
+                swapped={planner.isSwapped(activeWeek, day, m.key)}
+                onOpen={(recipe, index) => onOpen(recipe, { week: activeWeek, day, meal: m.key, index })}
+                onSwap={(index) => onSwap({ week: activeWeek, day, meal: m.key, index })}
+              />
+            ))}
           </div>
         </>
       )}
@@ -200,21 +213,17 @@ export function CalendarView({ planner, onOpen, onSwap }: Props) {
                   {d.label}
                   {isCurrentWeek && <span className={`ml-1 font-medium ${isToday ? 'text-terra-50' : 'text-stone-400'}`}>{dates[i]}</span>}
                 </div>
-                {MEALS.map((m) => {
-                  const slot = { week: activeWeek, day: d.key, meal: m.key };
-                  const recipe = planner.getRecipe(activeWeek, d.key, m.key);
-                  return (
-                    <MealCard
-                      key={m.key}
-                      compact
-                      recipe={recipe}
-                      meal={m.key}
-                      swapped={planner.isSwapped(activeWeek, d.key, m.key)}
-                      onOpen={() => onOpen(recipe, slot)}
-                      onSwap={() => onSwap(slot)}
-                    />
-                  );
-                })}
+                {MEALS.map((m) => (
+                  <MealCard
+                    key={m.key}
+                    compact
+                    dishes={planner.getSlot(activeWeek, d.key, m.key)}
+                    meal={m.key}
+                    swapped={planner.isSwapped(activeWeek, d.key, m.key)}
+                    onOpen={(recipe, index) => onOpen(recipe, { week: activeWeek, day: d.key, meal: m.key, index })}
+                    onSwap={(index) => onSwap({ week: activeWeek, day: d.key, meal: m.key, index })}
+                  />
+                ))}
               </div>
             );
           })}
@@ -247,20 +256,23 @@ export function CalendarView({ planner, onOpen, onSwap }: Props) {
                   <li key={d.key} className="flex gap-3 px-4 py-3 md:flex-col md:gap-2 md:px-2">
                     <span className="w-8 shrink-0 pt-1 text-sm font-bold text-stone-400 md:w-auto md:pt-0 md:text-center">{d.short}</span>
                     <div className="grid min-w-0 flex-1 gap-1">
-                      {MEALS.map((m) => {
-                        const recipe = planner.getRecipe(w, d.key, m.key);
-                        return (
-                          <button
-                            key={m.key}
-                            type="button"
-                            onClick={() => onOpen(recipe, { week: w, day: d.key, meal: m.key })}
-                            className="flex min-h-11 items-start gap-2 rounded-lg px-2 py-1.5 text-left text-sm hover:bg-sand-100"
-                          >
-                            <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${m.key === 'comida' ? 'bg-terra-500' : 'bg-sea-500'}`} aria-label={m.label} />
-                            <span className="line-clamp-2 text-stone-700">{recipe.title}</span>
-                          </button>
-                        );
-                      })}
+                      {MEALS.map((m) => (
+                        <div key={m.key} className="flex items-start gap-2 px-2 py-1">
+                          <span className={`mt-2 h-2 w-2 shrink-0 rounded-full ${m.key === 'comida' ? 'bg-terra-500' : 'bg-sea-500'}`} aria-label={m.label} />
+                          <div className="min-w-0 flex-1">
+                            {planner.getSlot(w, d.key, m.key).map((recipe, index) => (
+                              <button
+                                key={`${recipe.id}-${index}`}
+                                type="button"
+                                onClick={() => onOpen(recipe, { week: w, day: d.key, meal: m.key, index })}
+                                className="block min-h-9 w-full rounded-lg px-1 py-1 text-left text-sm text-stone-700 hover:bg-sand-100"
+                              >
+                                <span className="line-clamp-2">{recipe.title}</span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </li>
                 ))}

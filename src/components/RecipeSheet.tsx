@@ -1,9 +1,10 @@
-import { ArrowLeftRight, Check, ChefHat, Clock, ListPlus, Sun, Users, X } from 'lucide-react';
+import { ArrowLeftRight, CalendarDays, Check, ChefHat, Clock, Info, ListPlus, Recycle, Refrigerator, Sun, Users, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useBackToClose } from '../hooks/useBackToClose';
-import type { Recipe } from '../types';
-import { dayLabel } from '../utils/days';
-import { formatIngredient } from '../utils/format';
+import { CATEGORY_LABEL, DIFFICULTY_LABEL, DISH_TYPE_LABEL, getRecipeById } from '../data';
+import type { DayKey, MealType, Recipe, WeekNumber } from '../types';
+import { DAYS } from '../utils/days';
+import { capitalize, formatIngredient } from '../utils/format';
 import { RecipeImage } from './RecipeImage';
 
 interface Props {
@@ -11,6 +12,8 @@ interface Props {
   onClose: () => void;
   onAddToList?: (recipe: Recipe) => void;
   onSwap?: () => void;
+  /** Dónde aparece la receta en el plan mensual. */
+  usage?: { week: WeekNumber; day: DayKey; meal: MealType }[];
 }
 
 type InnerTab = 'ingredients' | 'steps';
@@ -23,7 +26,7 @@ interface WakeLockSentinelLike {
  * Ficha de receta: pantalla completa tipo bottom sheet en móvil, modal centrado en escritorio.
  * Cabecera sticky con cierre al alcance del pulgar y pestañas internas en móvil.
  */
-export function RecipeSheet({ recipe, onClose, onAddToList, onSwap }: Props) {
+export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }: Props) {
   const [tab, setTab] = useState<InnerTab>('ingredients');
   const [haveIngredients, setHaveIngredients] = useState<Set<number>>(new Set());
   const [doneSteps, setDoneSteps] = useState<Set<number>>(new Set());
@@ -81,8 +84,17 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap }: Props) {
                   {have && <Check className="h-4 w-4" strokeWidth={3} />}
                 </span>
                 <span className={`flex-1 text-lg leading-snug ${have ? 'text-stone-400 line-through' : 'text-stone-800'}`}>
-                  {ing.name}
-                  {ing.note && <span className="block text-sm text-stone-500">{ing.note}</span>}
+                  {capitalize(ing.name)}
+                  {(ing.optional || ing.fromRecipe) && (
+                    <span className="mt-0.5 flex flex-wrap gap-1 no-underline">
+                      {ing.optional && <span className="rounded-full bg-sand-100 px-2 py-0.5 text-xs font-semibold text-stone-500">opcional</span>}
+                      {ing.fromRecipe && (
+                        <span className="rounded-full bg-olive-50 px-2 py-0.5 text-xs font-semibold text-olive-700">
+                          sobras de {getRecipeById(ing.fromRecipe)?.title ?? ing.fromRecipe}
+                        </span>
+                      )}
+                    </span>
+                  )}
                 </span>
                 <span className={`shrink-0 text-right text-lg font-semibold tabular-nums ${have ? 'text-stone-400' : 'text-olive-700'}`}>
                   {formatIngredient(ing)}
@@ -196,10 +208,18 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap }: Props) {
           <div className="space-y-4 p-4 md:p-6">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-terra-600">
-                Semana {recipe.week} · {dayLabel(recipe.day)} · {recipe.meal === 'comida' ? 'Comida' : 'Cena'}
+                {CATEGORY_LABEL[recipe.category]} · {DISH_TYPE_LABEL[recipe.dishType]} · {recipe.moments.map(capitalize).join(' y ')}
               </p>
               <h2 className="mt-1 font-display text-2xl font-semibold leading-tight text-olive-900 md:text-3xl">{recipe.title}</h2>
-              <p className="mt-2 text-base text-stone-600">{recipe.description}</p>
+              {recipe.tags.length > 0 && (
+                <p className="mt-2 flex flex-wrap gap-1.5">
+                  {recipe.tags.map((t) => (
+                    <span key={t} className="rounded-full bg-terra-50 px-2.5 py-0.5 text-xs font-semibold text-terra-700">
+                      #{t}
+                    </span>
+                  ))}
+                </p>
+              )}
             </div>
 
             <div className="flex flex-wrap gap-2 text-sm">
@@ -211,7 +231,7 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap }: Props) {
                 <span className="text-stone-400">({recipe.prepTime} prep.)</span>
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 font-medium text-stone-700 ring-1 ring-sand-200">
-                <ChefHat className="h-4 w-4 text-olive-600" /> {recipe.difficulty}
+                <ChefHat className="h-4 w-4 text-olive-600" /> {DIFFICULTY_LABEL[recipe.difficulty]}
               </span>
             </div>
 
@@ -249,6 +269,53 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap }: Props) {
               {ingredientsPanel}
               {stepsPanel}
             </div>
+
+            {(recipe.notes || recipe.storage || recipe.generates.length > 0 || usage.length > 0) && (
+              <section className="space-y-3 rounded-2xl border border-sand-200 bg-white p-4 text-base text-stone-700">
+                {recipe.notes && (
+                  <p className="flex gap-3">
+                    <Info className="mt-0.5 h-5 w-5 shrink-0 text-sea-600" />
+                    <span>
+                      <strong className="font-semibold text-stone-900">Notas: </strong>
+                      {recipe.notes}
+                    </span>
+                  </p>
+                )}
+                {recipe.storage && (
+                  <p className="flex gap-3">
+                    <Refrigerator className="mt-0.5 h-5 w-5 shrink-0 text-sea-600" />
+                    <span>
+                      <strong className="font-semibold text-stone-900">Conservación: </strong>
+                      {recipe.storage}
+                    </span>
+                  </p>
+                )}
+                {recipe.generates.length > 0 && (
+                  <p className="flex gap-3">
+                    <Recycle className="mt-0.5 h-5 w-5 shrink-0 text-olive-600" />
+                    <span>
+                      <strong className="font-semibold text-stone-900">Reserva para otras recetas: </strong>
+                      {recipe.generates.join(', ')}
+                    </span>
+                  </p>
+                )}
+                {usage.length > 0 && (
+                  <div className="flex gap-3">
+                    <CalendarDays className="mt-0.5 h-5 w-5 shrink-0 text-terra-600" />
+                    <div>
+                      <strong className="font-semibold text-stone-900">En el plan: </strong>
+                      <span className="mt-1 flex flex-wrap gap-1.5">
+                        {usage.map((u) => (
+                          <span key={`${u.week}-${u.day}-${u.meal}`} className="rounded-full bg-sand-100 px-2.5 py-0.5 text-sm">
+                            S{u.week} · {DAYS.find((d) => d.key === u.day)?.label} {u.meal}
+                          </span>
+                        ))}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </section>
+            )}
 
             {tab === 'ingredients' && (
               <button

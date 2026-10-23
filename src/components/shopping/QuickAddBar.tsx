@@ -16,7 +16,7 @@ export function QuickAddBar({ onAdd }: Props) {
   const nameRef = useRef<HTMLInputElement>(null);
 
   // Categoría sugerida automáticamente mientras se escribe, salvo que el usuario la elija a mano.
-  const category: Category = manualCategory ?? guessCategory(name) ?? 'Hogar y Otros';
+  const category: Category = manualCategory ?? guessCategory(name) ?? 'Hogar y otros';
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();

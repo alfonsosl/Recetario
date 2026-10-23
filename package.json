@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "datos": "cd datos && python3 build.py && cp recetario.json ../src/data/recetario.json"
   },
   "dependencies": {
     "@capacitor/android": "^8.5.3",

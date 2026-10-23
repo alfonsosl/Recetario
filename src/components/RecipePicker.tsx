@@ -1,6 +1,6 @@
 import { Check, Search, X } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { ALL_RECIPES } from '../data';
+import { ALL_RECIPES, CATEGORY_LABEL, DISH_TYPE_LABEL } from '../data';
 import { useBackToClose } from '../hooks/useBackToClose';
 import type { DayKey, MealType, WeekNumber } from '../types';
 import { dayLabel } from '../utils/days';
@@ -12,21 +12,21 @@ interface Props {
   day: DayKey;
   meal: MealType;
   currentId: string;
+  originalId: string;
   onSelect: (recipeId: string) => void;
   onClose: () => void;
 }
 
 type Filter = MealType | 'todas';
 
-/** Selector para intercambiar una comida/cena por cualquiera de las 56 recetas. */
-export function RecipePicker({ week, day, meal, currentId, onSelect, onClose }: Props) {
+/** Selector para cambiar un plato del calendario por cualquier receta del recetario. */
+export function RecipePicker({ week, day, meal, currentId, originalId, onSelect, onClose }: Props) {
   const requestClose = useBackToClose(onClose);
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState<Filter>(meal);
-  const originalId = `w${week}-${day}-${meal}`;
 
   const results = useMemo(
-    () => ALL_RECIPES.filter((r) => (filter === 'todas' || r.meal === filter) && matchesRecipe(r, query)),
+    () => ALL_RECIPES.filter((r) => (filter === 'todas' || r.moments.includes(filter)) && matchesRecipe(r, query)),
     [query, filter],
   );
 
@@ -36,12 +36,7 @@ export function RecipePicker({ week, day, meal, currentId, onSelect, onClose }: 
       <div className="animate-sheet-up relative flex h-full w-full flex-col bg-sand-50 md:h-[85vh] md:max-w-2xl md:rounded-3xl md:shadow-2xl">
         <header className="pt-safe border-b border-sand-200 bg-sand-50">
           <div className="flex items-center gap-2 px-2 py-2">
-            <button
-              type="button"
-              onClick={() => requestClose()}
-              className="flex h-12 w-12 items-center justify-center rounded-full hover:bg-sand-200"
-              aria-label="Cerrar"
-            >
+            <button type="button" onClick={() => requestClose()} className="flex h-12 w-12 items-center justify-center rounded-full hover:bg-sand-200" aria-label="Cerrar">
               <X className="h-7 w-7" />
             </button>
             <div className="min-w-0">
@@ -65,8 +60,8 @@ export function RecipePicker({ week, day, meal, currentId, onSelect, onClose }: 
             <div className="flex gap-2">
               {(
                 [
-                  ['comida', 'Comidas'],
-                  ['cena', 'Cenas'],
+                  ['comida', 'De comida'],
+                  ['cena', 'De cena'],
                   ['todas', 'Todas'],
                 ] as const
               ).map(([key, label]) => (
@@ -74,9 +69,7 @@ export function RecipePicker({ week, day, meal, currentId, onSelect, onClose }: 
                   key={key}
                   type="button"
                   onClick={() => setFilter(key)}
-                  className={`min-h-10 flex-1 rounded-full text-sm font-semibold ${
-                    filter === key ? 'bg-olive-600 text-white' : 'bg-white text-stone-600 ring-1 ring-sand-200'
-                  }`}
+                  className={`min-h-10 flex-1 rounded-full text-sm font-semibold ${filter === key ? 'bg-olive-600 text-white' : 'bg-white text-stone-600 ring-1 ring-sand-200'}`}
                 >
                   {label}
                 </button>
@@ -104,7 +97,7 @@ export function RecipePicker({ week, day, meal, currentId, onSelect, onClose }: 
                   <span className="min-w-0 flex-1">
                     <span className="line-clamp-2 font-semibold leading-snug text-stone-800">{r.title}</span>
                     <span className="mt-0.5 block text-xs text-stone-500">
-                      S{r.week} · {dayLabel(r.day)} · {r.meal === 'comida' ? 'Comida' : 'Cena'} · {r.prepTime + r.cookTime} min
+                      {CATEGORY_LABEL[r.category]} · {DISH_TYPE_LABEL[r.dishType]} · {r.prepTime + r.cookTime} min
                       {r.id === originalId && ' · Original'}
                     </span>
                   </span>

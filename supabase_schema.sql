@@ -34,9 +34,7 @@ create table if not exists public.shopping_items (
   household_code text        not null,
   name           text        not null check (char_length(name) between 1 and 120),
   quantity       text        not null default '',
-  category       text        not null check (category in (
-                   'Verduras y Hortalizas', 'Carnes y Aves', 'Pescados y Mariscos',
-                   'Legumbres y Cereales', 'Huevos y Lácteos', 'Despensa y AOVE', 'Hogar y Otros')),
+  category       text        not null,
   checked        boolean     not null default false,
   added_by       text        not null,
   source         text        not null default 'manual' check (source in ('menu', 'manual')),
@@ -44,6 +42,12 @@ create table if not exists public.shopping_items (
   checked_at     timestamptz,
   checked_by     text
 );
+
+-- Pasillos de la lista (iguales a src/types.ts → CATEGORIES). Se recrea para poder re-ejecutar el script.
+alter table public.shopping_items drop constraint if exists shopping_items_category_check;
+alter table public.shopping_items add constraint shopping_items_category_check check (category in (
+  'Verdura y fruta', 'Carne', 'Pescado', 'Huevos y lácteos', 'Panadería y refrigerados',
+  'Congelados', 'Despensa', 'Especias', 'Hogar y otros'));
 
 create index if not exists shopping_items_list_idx on public.shopping_items (list_id);
 create index if not exists shopping_items_household_idx on public.shopping_items (household_code);

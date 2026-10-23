@@ -1,0 +1,6625 @@
+{
+  "meta": {
+    "nombre": "Repositorio de recetas — comida y cena",
+    "version": "1.0",
+    "fecha": "2026-10-23",
+    "idioma": "es-ES",
+    "raciones_base": 5,
+    "unidades": {
+      "g": "gramos",
+      "ml": "mililitros",
+      "ud": "unidades",
+      "diente": "diente de ajo",
+      "cdta": "cucharadita",
+      "hoja": "hoja",
+      "manojo": "manojo",
+      "al_gusto": "sin cantidad fija"
+    },
+    "notas": [
+      "Cantidades para 5 personas; escalar multiplicando 'cantidad' por raciones/5.",
+      "Ingredientes con 'de_receta' son sobras de otra receta (no entran en la compra).",
+      "Ingredientes 'opcional' no entran en la compra.",
+      "Lista de la compra: g/ml redondeados a 50 hacia arriba; ajo en cabezas (~10 dientes).",
+      "El aceite de fritura y pochado (tortilla, fritos) se cuenta entero aunque se reutilice: revisar antes de comprar.",
+      "Valores nutricionales no incluidos (no calculados con fuente verificada)."
+    ],
+    "criterios_plan": [
+      "Comidas: legumbres, arroces, pastas y guisos; cenas: pescado, huevo, cremas, ensaladas y platos rápidos.",
+      "Objetivo semanal aprox.: 2-3 legumbres, 3-4 pescado, 3-5 carne, 2-3 huevo como plato principal.",
+      "Cocido los domingos de las semanas 1 y 3; sus sobras alimentan sopa, ropa vieja y croquetas."
+    ],
+    "balance_semanal": [
+      {
+        "semana": 1,
+        "legumbre": 3,
+        "pescado": 5,
+        "carne": 2,
+        "huevo": 2
+      },
+      {
+        "semana": 2,
+        "legumbre": 3,
+        "pescado": 3,
+        "carne": 6,
+        "huevo": 2
+      },
+      {
+        "semana": 3,
+        "legumbre": 3,
+        "pescado": 3,
+        "carne": 4,
+        "huevo": 2
+      },
+      {
+        "semana": 4,
+        "legumbre": 2,
+        "pescado": 3,
+        "carne": 5,
+        "huevo": 2
+      }
+    ],
+    "total_recetas": 47,
+    "recetas_no_usadas_en_plan": [
+      "lomo_plancha"
+    ]
+  },
+  "recetas": [
+    {
+      "id": "lentejas_verduras",
+      "nombre": "Lentejas con verduras (sin carne)",
+      "categoria": "legumbre",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 45,
+      "dificultad": "baja",
+      "etiquetas": [
+        "vegetariano",
+        "legumbre",
+        "cuchara",
+        "congelable"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "lentejas pardinas",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento verde",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "laurel",
+          "cantidad": 2,
+          "unidad": "hoja",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 40,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Lavar las lentejas (las pardinas no necesitan remojo).",
+        "Picar cebolla, pimiento, ajo y tomate; pelar y cortar zanahoria en rodajas y patata chascada.",
+        "Sofreír cebolla, pimiento y ajo 8 min en el aceite; añadir tomate y 3 min más.",
+        "Fuera del fuego, añadir el pimentón y remover para que no se queme.",
+        "Añadir lentejas, zanahoria, laurel y cubrir con agua fría (~2 l). Cocer a fuego suave 25 min.",
+        "Añadir la patata y cocer 15-20 min más, hasta que lentejas y patata estén tiernas. Salar y reposar 5 min."
+      ],
+      "notas": "Si quedan caldosas, aplastar unos trozos de patata para espesar.",
+      "conservacion": "Nevera 4 días; congelan bien sin la patata.",
+      "genera": []
+    },
+    {
+      "id": "cocido",
+      "nombre": "Cocido (carne aparte)",
+      "categoria": "legumbre",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 20,
+      "tiempo_coccion_min": 150,
+      "dificultad": "media",
+      "etiquetas": [
+        "legumbre",
+        "cuchara",
+        "fin de semana",
+        "genera sobras"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "garbanzos secos",
+          "cantidad": 600,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "morcillo de ternera",
+          "cantidad": 700,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "muslos de pollo",
+          "cantidad": 800,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "tocino",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "chorizo",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "hueso de jamón",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "hueso de ternera",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "puerro",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 600,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "repollo",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "La víspera: poner los garbanzos en remojo 12 h en agua templada con una cucharada de sal.",
+        "Olla grande con 4 l de agua fría, huesos, morcillo, pollo y tocino. Llevar a ebullición y espumar.",
+        "Añadir los garbanzos escurridos (en malla) con el agua ya hirviendo. Cocer a fuego suave 2 h (o 35-40 min en olla rápida).",
+        "Cocer el chorizo y el repollo aparte con algo de caldo para que no tiñan el cocido.",
+        "Añadir zanahoria, puerro y patata los últimos 30 min. Salar al final.",
+        "Servir garbanzos y verduras por un lado y la carne (pringá) aparte.",
+        "Reservar 2 l de caldo, ~700 g de carne y ~400 g de garbanzos para sopa, croquetas y ropa vieja."
+      ],
+      "notas": "Cantidades pensadas para que sobre para sopa de picadillo, croquetas y ropa vieja.",
+      "conservacion": "Caldo y carne: nevera 3-4 días o congelar.",
+      "genera": [
+        "caldo de cocido",
+        "carne de cocido",
+        "garbanzos de cocido"
+      ]
+    },
+    {
+      "id": "garbanzos_espinacas",
+      "nombre": "Garbanzos con espinacas",
+      "categoria": "legumbre",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 25,
+      "dificultad": "baja",
+      "etiquetas": [
+        "vegetariano",
+        "legumbre",
+        "rápido"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "garbanzos cocidos",
+          "cantidad": 1200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "espinacas frescas",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 4,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pan",
+          "cantidad": 60,
+          "unidad": "g",
+          "seccion": "panaderia_refrigerados",
+          "opcional": false
+        },
+        {
+          "nombre": "comino molido",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "vinagre de vino",
+          "cantidad": 15,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": true
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Freír en el aceite los ajos laminados y el pan en rebanadas hasta dorar; retirar.",
+        "Majar ajo y pan con comino, pimentón y vinagre hasta hacer una pasta.",
+        "En el mismo aceite rehogar las espinacas hasta que reduzcan.",
+        "Añadir garbanzos escurridos, el majado y 300 ml de agua. Cocer 10-15 min hasta que espese.",
+        "Rectificar sal. Opcional: servir con huevo duro picado."
+      ],
+      "notas": "",
+      "conservacion": "Nevera 3 días.",
+      "genera": []
+    },
+    {
+      "id": "alubias_verduras",
+      "nombre": "Alubias blancas con verduras",
+      "categoria": "legumbre",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 90,
+      "dificultad": "baja",
+      "etiquetas": [
+        "vegetariano",
+        "legumbre",
+        "cuchara",
+        "congelable"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "alubias blancas",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento verde",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "puerro",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "laurel",
+          "cantidad": 1,
+          "unidad": "hoja",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 40,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Remojar las alubias 12 h en agua fría.",
+        "Ponerlas en olla con agua fría que las cubra, verduras enteras peladas y laurel. Cocer a fuego suave 1 h 30 (25 min en olla rápida), 'asustando' con agua fría 2-3 veces.",
+        "Sacar las verduras, triturarlas con un poco de caldo y devolver a la olla.",
+        "Sofreír el ajo picado en el aceite, apartar, añadir pimentón y verterlo sobre las alubias.",
+        "Cocer 5 min más y salar."
+      ],
+      "notas": "",
+      "conservacion": "Nevera 4 días; congelan bien.",
+      "genera": []
+    },
+    {
+      "id": "ropa_vieja",
+      "nombre": "Ropa vieja (aprovechamiento de cocido)",
+      "categoria": "legumbre",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 20,
+      "dificultad": "baja",
+      "etiquetas": [
+        "aprovechamiento",
+        "rápido"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "carne de cocido",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "aprovechamiento",
+          "de_receta": "cocido",
+          "opcional": false
+        },
+        {
+          "nombre": "garbanzos de cocido",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "aprovechamiento",
+          "de_receta": "cocido",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento rojo",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 40,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Desmigar la carne del cocido y picar el tocino/chorizo sobrante.",
+        "Pochar cebolla, pimiento y ajo 10 min.",
+        "Añadir tomate y pimentón; 5 min.",
+        "Incorporar carne y garbanzos, saltear 5-8 min a fuego medio-alto hasta que se tuesten un poco."
+      ],
+      "notas": "",
+      "conservacion": "Nevera 2 días.",
+      "genera": []
+    },
+    {
+      "id": "sopa_picadillo",
+      "nombre": "Sopa de picadillo",
+      "categoria": "legumbre",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "primero",
+      "raciones": 5,
+      "tiempo_prep_min": 5,
+      "tiempo_coccion_min": 15,
+      "dificultad": "baja",
+      "etiquetas": [
+        "aprovechamiento",
+        "ligero",
+        "cuchara"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "caldo de cocido",
+          "cantidad": 2000,
+          "unidad": "ml",
+          "seccion": "aprovechamiento",
+          "de_receta": "cocido",
+          "opcional": false
+        },
+        {
+          "nombre": "fideos finos",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "jamón serrano en taquitos",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "hierbabuena",
+          "cantidad": 0.25,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Cocer los huevos 10 min, enfriar y picar.",
+        "Llevar el caldo a ebullición, añadir los fideos y cocer según el paquete (3-5 min).",
+        "Servir con huevo picado, taquitos de jamón y una hoja de hierbabuena."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "arroz_blanco",
+      "nombre": "Arroz blanco",
+      "categoria": "arroz",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "guarnicion",
+      "raciones": 5,
+      "tiempo_prep_min": 5,
+      "tiempo_coccion_min": 20,
+      "dificultad": "baja",
+      "etiquetas": [
+        "guarnición",
+        "vegetariano"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "arroz largo",
+          "cantidad": 450,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "laurel",
+          "cantidad": 1,
+          "unidad": "hoja",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Dorar los ajos enteros chafados en el aceite.",
+        "Añadir el arroz y nacarar 1 min.",
+        "Agregar el doble de volumen de agua hirviendo (~900 ml), sal y laurel.",
+        "Cocer 18 min a fuego bajo tapado y reposar 5 min."
+      ],
+      "notas": "Con tomate frito y huevo frito = arroz a la cubana.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "arroz_pescado",
+      "nombre": "Arroz de pescado",
+      "categoria": "arroz",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 20,
+      "tiempo_coccion_min": 35,
+      "dificultad": "media",
+      "etiquetas": [
+        "pescado",
+        "marisco"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "arroz redondo",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "rape",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "gambas",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "calamar",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento rojo",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "colorante o azafrán",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de pescado",
+          "cantidad": 1500,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 60,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pelar las gambas (cabezas y cáscaras al caldo 10 min para reforzarlo, colar).",
+        "Marcar gambas y rape troceado en el aceite; retirar.",
+        "Sofreír calamar en anillas, pimiento y ajo 5 min; añadir tomate y pimentón, 3 min.",
+        "Añadir el arroz, nacarar, y verter el caldo caliente con el colorante. Ajustar sal.",
+        "Cocer 10 min fuerte y 8 min suave; incorporar rape y gambas los últimos 5 min.",
+        "Reposar 5 min tapado."
+      ],
+      "notas": "Para meloso, añadir 300 ml más de caldo.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "arroz_pollo",
+      "nombre": "Arroz con pollo",
+      "categoria": "arroz",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 40,
+      "dificultad": "media",
+      "etiquetas": [
+        "carne"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "arroz redondo",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "pollo troceado",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento rojo",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "judía verde",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "colorante o azafrán",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de pollo",
+          "cantidad": 1300,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 60,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Salar y dorar bien el pollo en el aceite (10 min).",
+        "Añadir pimiento, judía verde troceada y ajo; 5 min.",
+        "Añadir tomate y pimentón; 3 min.",
+        "Incorporar arroz, nacarar y añadir caldo caliente con colorante.",
+        "Cocer 18 min (10 fuerte + 8 suave) y reposar 5 min."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "arroz_chorizo",
+      "nombre": "Arroz con chorizo",
+      "categoria": "arroz",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 30,
+      "dificultad": "baja",
+      "etiquetas": [
+        "carne"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "arroz redondo",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "chorizo",
+          "cantidad": 250,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento rojo",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "guisantes congelados",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "congelados",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de pollo",
+          "cantidad": 1200,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Dorar el chorizo en rodajas en el aceite; retirar parte si suelta mucha grasa.",
+        "Sofreír cebolla, pimiento y ajo 8 min; añadir tomate y pimentón.",
+        "Añadir arroz, nacarar y verter caldo caliente.",
+        "A los 10 min añadir los guisantes. Total 18 min; reposar 5 min."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "macarrones_bolonesa",
+      "nombre": "Macarrones a la boloñesa",
+      "categoria": "pasta",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 35,
+      "dificultad": "baja",
+      "etiquetas": [
+        "carne",
+        "congelable (salsa)"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "macarrones",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "carne picada mixta",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 800,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "queso rallado",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "orégano",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "pimienta negra",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Picar fino cebolla, zanahoria y ajo; pochar 10 min.",
+        "Añadir la carne, salpimentar y dorar desmenuzando.",
+        "Añadir tomate y orégano; cocer 20 min a fuego suave.",
+        "Cocer la pasta según paquete, escurrir y mezclar con la salsa.",
+        "Servir con queso rallado (opcional: gratinar 5 min)."
+      ],
+      "notas": "",
+      "conservacion": "Salsa: nevera 4 días, congela bien.",
+      "genera": []
+    },
+    {
+      "id": "espaguetis_carbonara",
+      "nombre": "Espaguetis carbonara",
+      "categoria": "pasta",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 15,
+      "dificultad": "baja",
+      "etiquetas": [
+        "rápido"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "espaguetis",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "bacon",
+          "cantidad": 250,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 6,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "queso parmesano rallado",
+          "cantidad": 120,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "pimienta negra",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Batir 5 yemas + 1 huevo entero con el queso y mucha pimienta.",
+        "Dorar el bacon en tiras sin aceite.",
+        "Cocer la pasta; reservar 200 ml del agua.",
+        "Fuera del fuego, mezclar pasta con bacon y su grasa, añadir la mezcla de huevo y agua de cocción poco a poco removiendo hasta que quede cremosa (sin cuajar)."
+      ],
+      "notas": "Versión con nata: sustituir parte del huevo por 200 ml de nata. Las claras sobrantes sirven para tortilla.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "lasana_carne",
+      "nombre": "Lasaña de carne",
+      "categoria": "pasta",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 30,
+      "tiempo_coccion_min": 40,
+      "dificultad": "media",
+      "etiquetas": [
+        "carne",
+        "horno",
+        "congelable"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "placas de lasaña",
+          "cantidad": 15,
+          "unidad": "ud",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "carne picada mixta",
+          "cantidad": 600,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "leche entera",
+          "cantidad": 800,
+          "unidad": "ml",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 70,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "mantequilla",
+          "cantidad": 70,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "queso rallado",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "nuez moscada",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "pimienta negra",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Hacer la boloñesa: pochar verduras picadas, dorar carne, añadir tomate y cocer 15 min.",
+        "Bechamel: fundir mantequilla, tostar harina 2 min, añadir leche caliente poco a poco hasta espesar; sal y nuez moscada.",
+        "Hidratar las placas según el paquete.",
+        "Montar capas: bechamel, placas, carne… terminar en bechamel y queso.",
+        "Hornear a 200 °C 25 min y gratinar 5 min."
+      ],
+      "notas": "",
+      "conservacion": "Congela bien en porciones.",
+      "genera": []
+    },
+    {
+      "id": "ensalada_pasta",
+      "nombre": "Ensalada de pasta",
+      "categoria": "ensalada",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 12,
+      "dificultad": "baja",
+      "etiquetas": [
+        "frío",
+        "pescado",
+        "táper"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "pasta corta (hélices)",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "atún en aceite",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate cherry",
+          "cantidad": 250,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "maíz dulce",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceitunas sin hueso",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "vinagre de vino",
+          "cantidad": 15,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "orégano",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cocer la pasta, enfriar con agua y escurrir bien.",
+        "Cocer los huevos 10 min y trocear.",
+        "Mezclar pasta, atún, tomates partidos, maíz, aceitunas y huevo.",
+        "Aliñar con aceite, vinagre, sal y orégano."
+      ],
+      "notas": "Atún: latas de ~80 g escurrido.",
+      "conservacion": "Nevera 2 días (aliñar al servir).",
+      "genera": []
+    },
+    {
+      "id": "filetes_empanados",
+      "nombre": "Filetes empanados",
+      "categoria": "carne",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 15,
+      "dificultad": "baja",
+      "etiquetas": [
+        "carne",
+        "frito"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "pechuga de pollo",
+          "cantidad": 800,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "pan rallado",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 50,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 1,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "perejil fresco",
+          "cantidad": 0.25,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de girasol",
+          "cantidad": 300,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Filetear finas las pechugas y salar. Opcional: marinar con ajo y perejil picados 15 min.",
+        "Pasar por harina, huevo batido y pan rallado.",
+        "Freír en aceite a 175 °C 2-3 min por lado.",
+        "Escurrir en papel absorbente."
+      ],
+      "notas": "Válido también con filetes de ternera o lomo.",
+      "conservacion": "Empanados crudos congelan bien.",
+      "genera": []
+    },
+    {
+      "id": "carne_con_patatas",
+      "nombre": "Carne con patatas (guiso)",
+      "categoria": "carne",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 20,
+      "tiempo_coccion_min": 90,
+      "dificultad": "media",
+      "etiquetas": [
+        "carne",
+        "cuchara",
+        "congelable"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "carne de ternera para guisar",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento rojo",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "vino blanco",
+          "cantidad": 150,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "guisantes congelados",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "congelados",
+          "opcional": true
+        },
+        {
+          "nombre": "laurel",
+          "cantidad": 2,
+          "unidad": "hoja",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "pimienta negra",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Salpimentar la carne en tacos y dorarla por tandas; retirar.",
+        "Pochar cebolla, pimiento, zanahoria y ajo 10 min; añadir tomate y pimentón.",
+        "Volver la carne, añadir vino y reducir 2 min. Cubrir con agua (~800 ml) y laurel.",
+        "Guisar 60 min a fuego suave (20 min en olla rápida).",
+        "Añadir patatas chascadas (y guisantes) y cocer 25 min más hasta que estén tiernas."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "pollo_horno_patatas",
+      "nombre": "Pollo al horno con patatas",
+      "categoria": "carne",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 60,
+      "dificultad": "baja",
+      "etiquetas": [
+        "carne",
+        "horno"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "pollo troceado",
+          "cantidad": 1500,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "limón",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 5,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "vino blanco",
+          "cantidad": 150,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "tomillo",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 60,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "pimienta negra",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Precalentar horno a 200 °C.",
+        "Base de patatas en rodajas de 0,5 cm y cebolla en juliana, con sal y aceite.",
+        "Encima el pollo salpimentado, ajos chafados, tomillo y rodajas de limón.",
+        "Regar con el vino y el resto del aceite.",
+        "Hornear 50-60 min, dando la vuelta al pollo a mitad, hasta que esté dorado."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "pollo_ajillo",
+      "nombre": "Pollo al ajillo",
+      "categoria": "carne",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 35,
+      "dificultad": "baja",
+      "etiquetas": [
+        "carne"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "pollo troceado",
+          "cantidad": 1500,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 10,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "vino blanco",
+          "cantidad": 150,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "laurel",
+          "cantidad": 1,
+          "unidad": "hoja",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "perejil fresco",
+          "cantidad": 0.25,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 80,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Salar el pollo en trozos pequeños.",
+        "Dorar en el aceite a fuego medio 15 min por todas las caras.",
+        "Añadir los ajos laminados y laurel; 3 min sin que se quemen.",
+        "Verter el vino, tapar y cocer 15 min a fuego suave. Espolvorear perejil."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "albondigas_salsa",
+      "nombre": "Albóndigas en salsa",
+      "categoria": "carne",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 25,
+      "tiempo_coccion_min": 35,
+      "dificultad": "media",
+      "etiquetas": [
+        "carne",
+        "congelable"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "carne picada mixta",
+          "cantidad": 750,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "pan rallado",
+          "cantidad": 50,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "leche entera",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "perejil fresco",
+          "cantidad": 0.25,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 50,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "vino blanco",
+          "cantidad": 100,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de pollo",
+          "cantidad": 300,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 60,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Mezclar carne, huevo, pan rallado mojado en leche, 2 ajos y perejil picados, sal. Formar bolas.",
+        "Enharinar y dorar las albóndigas; retirar.",
+        "En el mismo aceite pochar cebolla, zanahoria y ajo 10 min; añadir tomate y vino, 5 min.",
+        "Añadir caldo, triturar la salsa y volver las albóndigas. Cocer 15 min."
+      ],
+      "notas": "Buena guarnición: patatas fritas o arroz blanco.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "lomo_plancha",
+      "nombre": "Lomo de cerdo a la plancha",
+      "categoria": "carne",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 5,
+      "tiempo_coccion_min": 10,
+      "dificultad": "baja",
+      "etiquetas": [
+        "carne",
+        "rápido",
+        "ligero"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "lomo de cerdo",
+          "cantidad": 900,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "perejil fresco",
+          "cantidad": 0.25,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Majar ajo y perejil con el aceite.",
+        "Plancha muy caliente, filetes 1-2 min por lado; salar.",
+        "Servir con el majado por encima."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "pechuga_plancha",
+      "nombre": "Pechuga de pollo a la plancha",
+      "categoria": "carne",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 5,
+      "tiempo_coccion_min": 10,
+      "dificultad": "baja",
+      "etiquetas": [
+        "carne",
+        "rápido",
+        "ligero"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "pechuga de pollo",
+          "cantidad": 900,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "limón",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 1,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "orégano",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 20,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Filetear, marinar 10 min con limón, ajo rallado, orégano, aceite y sal.",
+        "Plancha caliente 3 min por lado."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "hamburguesas_caseras",
+      "nombre": "Hamburguesas caseras",
+      "categoria": "carne",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 10,
+      "dificultad": "baja",
+      "etiquetas": [
+        "carne",
+        "fin de semana"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "carne picada de vacuno",
+          "cantidad": 900,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "pan rallado",
+          "cantidad": 30,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pan de hamburguesa",
+          "cantidad": 5,
+          "unidad": "ud",
+          "seccion": "panaderia_refrigerados",
+          "opcional": false
+        },
+        {
+          "nombre": "queso en lonchas",
+          "cantidad": 5,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "lechuga",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "pimienta negra",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Mezclar carne, huevo, pan rallado, sal y pimienta. Formar 5 hamburguesas de ~180 g.",
+        "Plancha fuerte 3-4 min por lado; poner el queso el último minuto.",
+        "Tostar el pan y montar con lechuga, tomate y cebolla en aros."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "berenjenas_rellenas",
+      "nombre": "Berenjenas rellenas de carne",
+      "categoria": "verdura",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 25,
+      "tiempo_coccion_min": 45,
+      "dificultad": "media",
+      "etiquetas": [
+        "carne",
+        "verdura",
+        "horno"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "berenjena",
+          "cantidad": 4,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "carne picada mixta",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "leche entera",
+          "cantidad": 400,
+          "unidad": "ml",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 35,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "mantequilla",
+          "cantidad": 35,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "queso rallado",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 40,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "nuez moscada",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Partir las berenjenas a lo largo, hacer cortes en la pulpa, salar, aceitar y hornear 25 min a 200 °C.",
+        "Vaciar la pulpa con cuchara y picarla.",
+        "Pochar cebolla, dorar carne, añadir pulpa y tomate; 10 min.",
+        "Rellenar, cubrir con bechamel (mantequilla + harina + leche) y queso.",
+        "Gratinar 10 min."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "salmon_horno_patatas",
+      "nombre": "Salmón al horno con patatas",
+      "categoria": "pescado",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 40,
+      "dificultad": "baja",
+      "etiquetas": [
+        "pescado azul",
+        "horno"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "lomos de salmón",
+          "cantidad": 900,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "limón",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "vino blanco",
+          "cantidad": 100,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "perejil fresco",
+          "cantidad": 0.25,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Horno a 200 °C. Patatas en rodajas finas y cebolla en juliana con sal y aceite: hornear 25 min.",
+        "Colocar encima el salmón salado, ajo y perejil picados, rodajas de limón y el vino.",
+        "Hornear 12-15 min más (según grosor)."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "pez_espada_plancha",
+      "nombre": "Pez espada a la plancha",
+      "categoria": "pescado",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 5,
+      "tiempo_coccion_min": 8,
+      "dificultad": "baja",
+      "etiquetas": [
+        "pescado",
+        "rápido",
+        "ligero"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "pez espada en rodajas",
+          "cantidad": 900,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "limón",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "perejil fresco",
+          "cantidad": 0.25,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Majar ajo, perejil, aceite y unas gotas de limón.",
+        "Plancha muy caliente: 2-3 min por lado (rodajas de 2 cm). Salar.",
+        "Servir con el majado."
+      ],
+      "notas": "No pasarlo de punto: se seca rápido.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "dorada_frita",
+      "nombre": "Dorada frita",
+      "categoria": "pescado",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 15,
+      "dificultad": "baja",
+      "etiquetas": [
+        "pescado",
+        "frito"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "dorada de ración",
+          "cantidad": 5,
+          "unidad": "ud",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de freír",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de girasol",
+          "cantidad": 500,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "limón",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pedir en pescadería limpia y con cortes en el lomo.",
+        "Salar, enharinar y sacudir el exceso.",
+        "Freír en aceite abundante a 180 °C 4-5 min por lado.",
+        "Escurrir y servir con limón."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "merluza_salsa_verde",
+      "nombre": "Merluza en salsa verde",
+      "categoria": "pescado",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 20,
+      "dificultad": "baja",
+      "etiquetas": [
+        "pescado blanco",
+        "ligero"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "merluza en rodajas",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 4,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "perejil fresco",
+          "cantidad": 0.5,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 20,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "vino blanco",
+          "cantidad": 100,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de pescado",
+          "cantidad": 300,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "guisantes congelados",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "congelados",
+          "opcional": false
+        },
+        {
+          "nombre": "almejas",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": true
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Dorar el ajo picado en el aceite sin que se queme; añadir la harina y tostar 1 min.",
+        "Añadir vino, luego caldo poco a poco removiendo hasta ligar.",
+        "Incorporar la merluza salada, guisantes (y almejas); cocer 6-8 min moviendo la cazuela.",
+        "Espolvorear perejil picado."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "bacalao_tomate",
+      "nombre": "Bacalao con tomate",
+      "categoria": "pescado",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 30,
+      "dificultad": "baja",
+      "etiquetas": [
+        "pescado blanco"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "bacalao desalado",
+          "cantidad": 900,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 600,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento rojo",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 40,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "azúcar",
+          "cantidad": 5,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 80,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Secar, enharinar y marcar el bacalao 2 min por lado; reservar.",
+        "Pochar cebolla, pimiento y ajo 10 min.",
+        "Añadir tomate y azúcar; cocer 15 min.",
+        "Incorporar el bacalao y cocer 5-6 min en la salsa."
+      ],
+      "notas": "Si el bacalao es salado, desalar 36-48 h cambiando el agua cada 8 h.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "boquerones_fritos",
+      "nombre": "Boquerones fritos",
+      "categoria": "pescado",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 20,
+      "tiempo_coccion_min": 15,
+      "dificultad": "baja",
+      "etiquetas": [
+        "pescado azul",
+        "frito"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "boquerones",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de freír",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de girasol",
+          "cantidad": 500,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "limón",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Limpiar (quitar cabeza y tripa), lavar y escurrir bien.",
+        "Salar, enharinar en abanicos de 4-5 y sacudir.",
+        "Freír a 180 °C en tandas 2 min.",
+        "Escurrir y servir con limón."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "sepia_plancha",
+      "nombre": "Sepia a la plancha",
+      "categoria": "pescado",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 5,
+      "tiempo_coccion_min": 10,
+      "dificultad": "baja",
+      "etiquetas": [
+        "marisco",
+        "rápido",
+        "ligero"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "sepia limpia",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "perejil fresco",
+          "cantidad": 0.25,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "limón",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cortar la sepia en tiras o trozos y secar bien.",
+        "Plancha muy caliente, 3-4 min hasta dorar; salar.",
+        "Regar con majado de ajo, perejil, aceite y limón."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "croquetas_cocido",
+      "nombre": "Croquetas de cocido",
+      "categoria": "masa_frito",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 40,
+      "tiempo_coccion_min": 30,
+      "dificultad": "media",
+      "etiquetas": [
+        "frito",
+        "congelable"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "carne de cocido",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "aprovechamiento",
+          "de_receta": "cocido",
+          "opcional": false
+        },
+        {
+          "nombre": "leche entera",
+          "cantidad": 900,
+          "unidad": "ml",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "mantequilla",
+          "cantidad": 80,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 0.5,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "nuez moscada",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "pan rallado",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de girasol",
+          "cantidad": 500,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pochar la cebolla muy picada en la mantequilla; añadir el relleno picado fino y rehogar 2 min.",
+        "Añadir la harina y tostar 2-3 min.",
+        "Incorporar la leche caliente poco a poco removiendo 10-12 min hasta masa espesa que se despegue. Sal y nuez moscada.",
+        "Extender en fuente, filmar a piel y enfriar mínimo 4 h (mejor de un día para otro).",
+        "Formar ~35 croquetas, pasar por huevo y pan rallado.",
+        "Freír en aceite a 180 °C en tandas pequeñas hasta dorar."
+      ],
+      "notas": "Salen ~35 uds. Congelar crudas ya empanadas y freír sin descongelar.",
+      "conservacion": "Crudas congeladas 3 meses.",
+      "genera": []
+    },
+    {
+      "id": "croquetas_bacalao",
+      "nombre": "Croquetas de bacalao",
+      "categoria": "masa_frito",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 40,
+      "tiempo_coccion_min": 30,
+      "dificultad": "media",
+      "etiquetas": [
+        "frito",
+        "congelable"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "bacalao desalado",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 1,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "leche entera",
+          "cantidad": 900,
+          "unidad": "ml",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "mantequilla",
+          "cantidad": 80,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 0.5,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "nuez moscada",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "pan rallado",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de girasol",
+          "cantidad": 500,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pochar la cebolla muy picada en la mantequilla; añadir el relleno picado fino y rehogar 2 min.",
+        "Añadir la harina y tostar 2-3 min.",
+        "Incorporar la leche caliente poco a poco removiendo 10-12 min hasta masa espesa que se despegue. Sal y nuez moscada.",
+        "Extender en fuente, filmar a piel y enfriar mínimo 4 h (mejor de un día para otro).",
+        "Formar ~35 croquetas, pasar por huevo y pan rallado.",
+        "Freír en aceite a 180 °C en tandas pequeñas hasta dorar."
+      ],
+      "notas": "Salen ~35 uds. Congelar crudas ya empanadas y freír sin descongelar.",
+      "conservacion": "Crudas congeladas 3 meses.",
+      "genera": []
+    },
+    {
+      "id": "croquetas_pollo",
+      "nombre": "Croquetas de pollo",
+      "categoria": "masa_frito",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 40,
+      "tiempo_coccion_min": 30,
+      "dificultad": "media",
+      "etiquetas": [
+        "frito",
+        "congelable"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "pechuga de pollo",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "jamón serrano en taquitos",
+          "cantidad": 50,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": true
+        },
+        {
+          "nombre": "leche entera",
+          "cantidad": 900,
+          "unidad": "ml",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "mantequilla",
+          "cantidad": 80,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 0.5,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "nuez moscada",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "pan rallado",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de girasol",
+          "cantidad": 500,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pochar la cebolla muy picada en la mantequilla; añadir el relleno picado fino y rehogar 2 min.",
+        "Añadir la harina y tostar 2-3 min.",
+        "Incorporar la leche caliente poco a poco removiendo 10-12 min hasta masa espesa que se despegue. Sal y nuez moscada.",
+        "Extender en fuente, filmar a piel y enfriar mínimo 4 h (mejor de un día para otro).",
+        "Formar ~35 croquetas, pasar por huevo y pan rallado.",
+        "Freír en aceite a 180 °C en tandas pequeñas hasta dorar."
+      ],
+      "notas": "Salen ~35 uds. Congelar crudas ya empanadas y freír sin descongelar.",
+      "conservacion": "Crudas congeladas 3 meses.",
+      "genera": []
+    },
+    {
+      "id": "huevos_fritos",
+      "nombre": "Huevos fritos",
+      "categoria": "huevo",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 2,
+      "tiempo_coccion_min": 8,
+      "dificultad": "baja",
+      "etiquetas": [
+        "huevo",
+        "rápido"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "huevos",
+          "cantidad": 10,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 200,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Calentar el aceite (2 cm) en sartén pequeña hasta que humee ligeramente.",
+        "Freír de uno en uno, regando la clara con aceite para la puntilla, 1 min.",
+        "Escurrir y salar."
+      ],
+      "notas": "El aceite se puede colar y reutilizar.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "tortilla_francesa",
+      "nombre": "Tortilla francesa",
+      "categoria": "huevo",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 2,
+      "tiempo_coccion_min": 5,
+      "dificultad": "baja",
+      "etiquetas": [
+        "huevo",
+        "rápido",
+        "ligero"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "huevos",
+          "cantidad": 10,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 20,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Batir 2 huevos por persona con sal.",
+        "Sartén antiadherente con unas gotas de aceite a fuego medio.",
+        "Verter, cuajar 30-60 s moviendo y doblar en tres."
+      ],
+      "notas": "Variantes: queso, jamón york, atún, espinacas.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "tortilla_patatas",
+      "nombre": "Tortilla de patatas con cebolla",
+      "categoria": "huevo",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 35,
+      "dificultad": "media",
+      "etiquetas": [
+        "huevo",
+        "vegetariano"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "patata",
+          "cantidad": 1200,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 9,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 400,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pelar y cortar las patatas en láminas finas; cebolla en juliana.",
+        "Pochar en abundante aceite a fuego medio 20-25 min (sin dorar). Escurrir el aceite (reutilizable).",
+        "Mezclar con los huevos batidos y sal; reposar 5 min.",
+        "Cuajar en sartén con un hilo de aceite 3 min, voltear con plato y 2 min más."
+      ],
+      "notas": "El aceite colado se reutiliza: el consumo real ronda 80-100 ml.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "revuelto_champinones",
+      "nombre": "Revuelto de champiñones y jamón",
+      "categoria": "huevo",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 10,
+      "dificultad": "baja",
+      "etiquetas": [
+        "huevo",
+        "rápido",
+        "ligero"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "huevos",
+          "cantidad": 10,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "champiñones",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "jamón serrano en taquitos",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "perejil fresco",
+          "cantidad": 0.25,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Saltear champiñones laminados con ajo a fuego fuerte hasta que evaporen el agua.",
+        "Añadir el jamón 1 min.",
+        "Bajar el fuego, añadir los huevos batidos y remover hasta cuajar jugosos. Perejil."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "pisto_huevo",
+      "nombre": "Pisto con huevo",
+      "categoria": "verdura",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 40,
+      "dificultad": "baja",
+      "etiquetas": [
+        "vegetariano",
+        "verdura",
+        "congelable (pisto)"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "calabacín",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "berenjena",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento rojo",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento verde",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 5,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "azúcar",
+          "cantidad": 5,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 60,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Picar todas las verduras en dados.",
+        "Pochar cebolla y ajo 5 min, añadir pimientos 10 min, luego berenjena y calabacín 10 min.",
+        "Añadir tomate y azúcar; cocer 15 min.",
+        "Servir con un huevo frito o cuajar los huevos encima tapado 4 min."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "patatas_fritas",
+      "nombre": "Patatas fritas caseras",
+      "categoria": "guarnicion",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "guarnicion",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 20,
+      "dificultad": "baja",
+      "etiquetas": [
+        "guarnición",
+        "frito",
+        "vegetariano"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "patata",
+          "cantidad": 1500,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de girasol",
+          "cantidad": 750,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cortar en bastones, lavar para quitar almidón y secar muy bien.",
+        "Primera fritura a 150 °C 6-8 min; escurrir.",
+        "Segunda fritura a 185 °C 2-3 min hasta dorar. Salar."
+      ],
+      "notas": "El aceite colado se reutiliza 2-3 veces.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "judias_verdes_patatas",
+      "nombre": "Judías verdes con patatas",
+      "categoria": "verdura",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "primero",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 25,
+      "dificultad": "baja",
+      "etiquetas": [
+        "verdura",
+        "ligero"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "judía verde",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 600,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "jamón serrano en taquitos",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": true
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 40,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cocer judías troceadas y patatas en dados en agua con sal 15-20 min; escurrir.",
+        "Sofreír ajo laminado (y jamón) en el aceite; apartar y añadir pimentón.",
+        "Rehogar las verduras en el refrito 2 min."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "crema_calabacin",
+      "nombre": "Crema de calabacín",
+      "categoria": "verdura",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "primero",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 25,
+      "dificultad": "baja",
+      "etiquetas": [
+        "vegetariano",
+        "ligero",
+        "congelable"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "calabacín",
+          "cantidad": 4,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de verduras",
+          "cantidad": 800,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "quesitos",
+          "cantidad": 4,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": true
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pochar la cebolla 5 min.",
+        "Añadir calabacín (con piel) y patata troceados, rehogar 3 min.",
+        "Cubrir con caldo y cocer 20 min.",
+        "Triturar (con los quesitos si se usan) y ajustar sal."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "crema_calabaza",
+      "nombre": "Crema de calabaza",
+      "categoria": "verdura",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "primero",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 30,
+      "dificultad": "baja",
+      "etiquetas": [
+        "vegetariano",
+        "ligero",
+        "temporada otoño",
+        "congelable"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "calabaza",
+          "cantidad": 1200,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "puerro",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de verduras",
+          "cantidad": 1000,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "nuez moscada",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pochar cebolla y puerro 8 min.",
+        "Añadir calabaza, zanahoria y patata troceadas; rehogar 3 min.",
+        "Cubrir con caldo y cocer 25 min.",
+        "Triturar fino y ajustar sal y nuez moscada."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "ensalada_mixta",
+      "nombre": "Ensalada mixta",
+      "categoria": "ensalada",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "primero",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 10,
+      "dificultad": "baja",
+      "etiquetas": [
+        "frío",
+        "ligero"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "lechuga",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate",
+          "cantidad": 4,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "atún en aceite",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "maíz dulce",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceitunas sin hueso",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 40,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "vinagre de vino",
+          "cantidad": 20,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cocer los huevos 10 min.",
+        "Lavar y cortar lechuga, tomate, cebolla en juliana y zanahoria rallada.",
+        "Añadir atún, huevo, maíz y aceitunas. Aliñar al servir."
+      ],
+      "notas": "Como acompañamiento de un segundo, se puede reducir a la mitad.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "ensalada_pollo_mayonesa",
+      "nombre": "Ensalada de pollo con mayonesa",
+      "categoria": "ensalada",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 15,
+      "dificultad": "baja",
+      "etiquetas": [
+        "frío",
+        "carne"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "pechuga de pollo",
+          "cantidad": 600,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "lechuga",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "maíz dulce",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "mayonesa",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "pimienta negra",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cocer la pechuga en agua con sal y laurel 15 min; enfriar y desmigar.",
+        "Cocer los huevos 10 min y picar.",
+        "Mezclar pollo, huevo, maíz y mayonesa; salpimentar.",
+        "Servir sobre la lechuga cortada."
+      ],
+      "notas": "",
+      "conservacion": "Mezcla con mayonesa: nevera máx. 24 h.",
+      "genera": []
+    },
+    {
+      "id": "empanada_atun",
+      "nombre": "Empanada de atún con verduras",
+      "categoria": "masa_frito",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 25,
+      "tiempo_coccion_min": 35,
+      "dificultad": "media",
+      "etiquetas": [
+        "pescado",
+        "horno",
+        "táper"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "masa de empanada (lámina)",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "panaderia_refrigerados",
+          "opcional": false
+        },
+        {
+          "nombre": "atún en aceite",
+          "cantidad": 4,
+          "unidad": "ud",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento rojo",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento verde",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate frito",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 40,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pochar cebolla y pimientos en juliana 15 min; añadir tomate frito 5 min.",
+        "Mezclar con el atún escurrido y 2 huevos duros picados; enfriar.",
+        "Extender una lámina en bandeja, rellenar, cubrir con la otra y sellar bordes.",
+        "Pintar con huevo batido, hacer un agujero central.",
+        "Hornear a 190 °C 30-35 min."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "empanada_queso",
+      "nombre": "Empanada de queso",
+      "categoria": "masa_frito",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 30,
+      "dificultad": "baja",
+      "etiquetas": [
+        "horno",
+        "vegetariano (sin york)"
+      ],
+      "origen": "usuario",
+      "ingredientes": [
+        {
+          "nombre": "masa de empanada (lámina)",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "panaderia_refrigerados",
+          "opcional": false
+        },
+        {
+          "nombre": "queso mozzarella",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "jamón york",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": true
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "orégano",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Extender una lámina, cubrir con queso (y york) y orégano.",
+        "Tapar con la otra lámina, sellar y pintar con huevo.",
+        "Hornear a 190 °C 25-30 min."
+      ],
+      "notas": "Mezclar mozzarella con un queso más curado mejora el sabor.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "pizza_casera",
+      "nombre": "Pizza casera",
+      "categoria": "masa_frito",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 15,
+      "dificultad": "baja",
+      "etiquetas": [
+        "horno",
+        "fin de semana"
+      ],
+      "origen": "nuevo",
+      "ingredientes": [
+        {
+          "nombre": "masa de pizza (lámina)",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "panaderia_refrigerados",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate frito",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "queso mozzarella",
+          "cantidad": 250,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "jamón york",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "champiñones",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "orégano",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Horno a 220 °C.",
+        "Extender las masas, cubrir con tomate, mozzarella, york y champiñones laminados.",
+        "Hornear 12-15 min. Orégano al sacar."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    }
+  ],
+  "plan_mensual": [
+    {
+      "semana": 1,
+      "dias": [
+        {
+          "dia": "lunes",
+          "comida": [
+            "lentejas_verduras"
+          ],
+          "cena": [
+            "tortilla_francesa",
+            "crema_calabacin"
+          ]
+        },
+        {
+          "dia": "martes",
+          "comida": [
+            "pollo_horno_patatas"
+          ],
+          "cena": [
+            "pez_espada_plancha",
+            "ensalada_mixta"
+          ]
+        },
+        {
+          "dia": "miércoles",
+          "comida": [
+            "arroz_pescado"
+          ],
+          "cena": [
+            "revuelto_champinones"
+          ]
+        },
+        {
+          "dia": "jueves",
+          "comida": [
+            "garbanzos_espinacas"
+          ],
+          "cena": [
+            "croquetas_bacalao",
+            "crema_calabaza"
+          ]
+        },
+        {
+          "dia": "viernes",
+          "comida": [
+            "macarrones_bolonesa"
+          ],
+          "cena": [
+            "pizza_casera"
+          ]
+        },
+        {
+          "dia": "sábado",
+          "comida": [
+            "dorada_frita",
+            "ensalada_mixta"
+          ],
+          "cena": [
+            "empanada_atun"
+          ]
+        },
+        {
+          "dia": "domingo",
+          "comida": [
+            "cocido"
+          ],
+          "cena": [
+            "sopa_picadillo"
+          ]
+        }
+      ]
+    },
+    {
+      "semana": 2,
+      "dias": [
+        {
+          "dia": "lunes",
+          "comida": [
+            "ropa_vieja"
+          ],
+          "cena": [
+            "salmon_horno_patatas"
+          ]
+        },
+        {
+          "dia": "martes",
+          "comida": [
+            "alubias_verduras"
+          ],
+          "cena": [
+            "tortilla_patatas"
+          ]
+        },
+        {
+          "dia": "miércoles",
+          "comida": [
+            "espaguetis_carbonara"
+          ],
+          "cena": [
+            "merluza_salsa_verde"
+          ]
+        },
+        {
+          "dia": "jueves",
+          "comida": [
+            "carne_con_patatas"
+          ],
+          "cena": [
+            "croquetas_cocido",
+            "crema_calabaza"
+          ]
+        },
+        {
+          "dia": "viernes",
+          "comida": [
+            "arroz_pollo"
+          ],
+          "cena": [
+            "ensalada_pollo_mayonesa"
+          ]
+        },
+        {
+          "dia": "sábado",
+          "comida": [
+            "boquerones_fritos",
+            "ensalada_mixta"
+          ],
+          "cena": [
+            "hamburguesas_caseras"
+          ]
+        },
+        {
+          "dia": "domingo",
+          "comida": [
+            "lentejas_verduras"
+          ],
+          "cena": [
+            "pisto_huevo"
+          ]
+        }
+      ]
+    },
+    {
+      "semana": 3,
+      "dias": [
+        {
+          "dia": "lunes",
+          "comida": [
+            "judias_verdes_patatas",
+            "pechuga_plancha"
+          ],
+          "cena": [
+            "bacalao_tomate"
+          ]
+        },
+        {
+          "dia": "martes",
+          "comida": [
+            "lasana_carne"
+          ],
+          "cena": [
+            "tortilla_francesa",
+            "ensalada_mixta"
+          ]
+        },
+        {
+          "dia": "miércoles",
+          "comida": [
+            "garbanzos_espinacas"
+          ],
+          "cena": [
+            "pez_espada_plancha",
+            "crema_calabacin"
+          ]
+        },
+        {
+          "dia": "jueves",
+          "comida": [
+            "arroz_chorizo"
+          ],
+          "cena": [
+            "empanada_queso"
+          ]
+        },
+        {
+          "dia": "viernes",
+          "comida": [
+            "albondigas_salsa",
+            "patatas_fritas"
+          ],
+          "cena": [
+            "sepia_plancha",
+            "ensalada_mixta"
+          ]
+        },
+        {
+          "dia": "sábado",
+          "comida": [
+            "alubias_verduras"
+          ],
+          "cena": [
+            "revuelto_champinones"
+          ]
+        },
+        {
+          "dia": "domingo",
+          "comida": [
+            "cocido"
+          ],
+          "cena": [
+            "sopa_picadillo"
+          ]
+        }
+      ]
+    },
+    {
+      "semana": 4,
+      "dias": [
+        {
+          "dia": "lunes",
+          "comida": [
+            "ropa_vieja"
+          ],
+          "cena": [
+            "croquetas_pollo",
+            "crema_calabaza"
+          ]
+        },
+        {
+          "dia": "martes",
+          "comida": [
+            "pollo_ajillo",
+            "arroz_blanco"
+          ],
+          "cena": [
+            "salmon_horno_patatas"
+          ]
+        },
+        {
+          "dia": "miércoles",
+          "comida": [
+            "lentejas_verduras"
+          ],
+          "cena": [
+            "tortilla_patatas"
+          ]
+        },
+        {
+          "dia": "jueves",
+          "comida": [
+            "berenjenas_rellenas"
+          ],
+          "cena": [
+            "ensalada_pasta"
+          ]
+        },
+        {
+          "dia": "viernes",
+          "comida": [
+            "arroz_pescado"
+          ],
+          "cena": [
+            "pizza_casera"
+          ]
+        },
+        {
+          "dia": "sábado",
+          "comida": [
+            "dorada_frita",
+            "ensalada_mixta"
+          ],
+          "cena": [
+            "huevos_fritos",
+            "patatas_fritas"
+          ]
+        },
+        {
+          "dia": "domingo",
+          "comida": [
+            "macarrones_bolonesa"
+          ],
+          "cena": [
+            "filetes_empanados",
+            "ensalada_mixta"
+          ]
+        }
+      ]
+    }
+  ],
+  "listas_compra": [
+    {
+      "semana": 1,
+      "secciones": {
+        "verdura_fruta": [
+          {
+            "nombre": "ajo",
+            "cantidad": 3,
+            "unidad": "cabeza",
+            "recetas": [
+              "arroz_pescado",
+              "croquetas_bacalao",
+              "garbanzos_espinacas",
+              "lentejas_verduras",
+              "macarrones_bolonesa",
+              "pez_espada_plancha",
+              "pollo_horno_patatas",
+              "revuelto_champinones"
+            ]
+          },
+          {
+            "nombre": "calabacín",
+            "cantidad": 4,
+            "unidad": "ud",
+            "recetas": [
+              "crema_calabacin"
+            ]
+          },
+          {
+            "nombre": "calabaza",
+            "cantidad": 1200,
+            "unidad": "g",
+            "recetas": [
+              "crema_calabaza"
+            ]
+          },
+          {
+            "nombre": "cebolla",
+            "cantidad": 11,
+            "unidad": "ud",
+            "recetas": [
+              "crema_calabacin",
+              "crema_calabaza",
+              "croquetas_bacalao",
+              "empanada_atun",
+              "ensalada_mixta",
+              "lentejas_verduras",
+              "macarrones_bolonesa",
+              "pollo_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "champiñones",
+            "cantidad": 700,
+            "unidad": "g",
+            "recetas": [
+              "pizza_casera",
+              "revuelto_champinones"
+            ]
+          },
+          {
+            "nombre": "espinacas frescas",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "garbanzos_espinacas"
+            ]
+          },
+          {
+            "nombre": "lechuga",
+            "cantidad": 4,
+            "unidad": "ud",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "limón",
+            "cantidad": 3,
+            "unidad": "ud",
+            "recetas": [
+              "dorada_frita",
+              "pez_espada_plancha",
+              "pollo_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "patata",
+            "cantidad": 2600,
+            "unidad": "g",
+            "recetas": [
+              "cocido",
+              "crema_calabacin",
+              "crema_calabaza",
+              "lentejas_verduras",
+              "pollo_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "perejil fresco",
+            "cantidad": 1,
+            "unidad": "manojo",
+            "recetas": [
+              "pez_espada_plancha",
+              "revuelto_champinones"
+            ]
+          },
+          {
+            "nombre": "pimiento rojo",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "arroz_pescado",
+              "empanada_atun"
+            ]
+          },
+          {
+            "nombre": "pimiento verde",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "empanada_atun",
+              "lentejas_verduras"
+            ]
+          },
+          {
+            "nombre": "puerro",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "cocido",
+              "crema_calabaza"
+            ]
+          },
+          {
+            "nombre": "repollo",
+            "cantidad": 400,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "tomate",
+            "cantidad": 9,
+            "unidad": "ud",
+            "recetas": [
+              "ensalada_mixta",
+              "lentejas_verduras"
+            ]
+          },
+          {
+            "nombre": "zanahoria",
+            "cantidad": 10,
+            "unidad": "ud",
+            "recetas": [
+              "cocido",
+              "crema_calabaza",
+              "ensalada_mixta",
+              "lentejas_verduras",
+              "macarrones_bolonesa"
+            ]
+          }
+        ],
+        "carne": [
+          {
+            "nombre": "carne picada mixta",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "macarrones_bolonesa"
+            ]
+          },
+          {
+            "nombre": "chorizo",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "hueso de jamón",
+            "cantidad": 1,
+            "unidad": "ud",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "hueso de ternera",
+            "cantidad": 1,
+            "unidad": "ud",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "jamón serrano en taquitos",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "revuelto_champinones",
+              "sopa_picadillo"
+            ]
+          },
+          {
+            "nombre": "jamón york",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "pizza_casera"
+            ]
+          },
+          {
+            "nombre": "morcillo de ternera",
+            "cantidad": 700,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "muslos de pollo",
+            "cantidad": 800,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "pollo troceado",
+            "cantidad": 1500,
+            "unidad": "g",
+            "recetas": [
+              "pollo_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "tocino",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          }
+        ],
+        "pescado": [
+          {
+            "nombre": "bacalao desalado",
+            "cantidad": 300,
+            "unidad": "g",
+            "recetas": [
+              "croquetas_bacalao"
+            ]
+          },
+          {
+            "nombre": "calamar",
+            "cantidad": 300,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pescado"
+            ]
+          },
+          {
+            "nombre": "dorada de ración",
+            "cantidad": 5,
+            "unidad": "ud",
+            "recetas": [
+              "dorada_frita"
+            ]
+          },
+          {
+            "nombre": "gambas",
+            "cantidad": 300,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pescado"
+            ]
+          },
+          {
+            "nombre": "pez espada en rodajas",
+            "cantidad": 900,
+            "unidad": "g",
+            "recetas": [
+              "pez_espada_plancha"
+            ]
+          },
+          {
+            "nombre": "rape",
+            "cantidad": 400,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pescado"
+            ]
+          }
+        ],
+        "huevos_lacteos": [
+          {
+            "nombre": "huevos",
+            "cantidad": 33,
+            "unidad": "ud",
+            "recetas": [
+              "croquetas_bacalao",
+              "empanada_atun",
+              "ensalada_mixta",
+              "revuelto_champinones",
+              "sopa_picadillo",
+              "tortilla_francesa"
+            ]
+          },
+          {
+            "nombre": "leche entera",
+            "cantidad": 900,
+            "unidad": "ml",
+            "recetas": [
+              "croquetas_bacalao"
+            ]
+          },
+          {
+            "nombre": "mantequilla",
+            "cantidad": 100,
+            "unidad": "g",
+            "recetas": [
+              "croquetas_bacalao"
+            ]
+          },
+          {
+            "nombre": "queso mozzarella",
+            "cantidad": 250,
+            "unidad": "g",
+            "recetas": [
+              "pizza_casera"
+            ]
+          },
+          {
+            "nombre": "queso rallado",
+            "cantidad": 100,
+            "unidad": "g",
+            "recetas": [
+              "macarrones_bolonesa"
+            ]
+          }
+        ],
+        "panaderia_refrigerados": [
+          {
+            "nombre": "masa de empanada (lámina)",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "empanada_atun"
+            ]
+          },
+          {
+            "nombre": "masa de pizza (lámina)",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "pizza_casera"
+            ]
+          },
+          {
+            "nombre": "pan",
+            "cantidad": 100,
+            "unidad": "g",
+            "recetas": [
+              "garbanzos_espinacas"
+            ]
+          }
+        ],
+        "despensa": [
+          {
+            "nombre": "aceite de girasol",
+            "cantidad": 1000,
+            "unidad": "ml",
+            "recetas": [
+              "croquetas_bacalao",
+              "dorada_frita"
+            ]
+          },
+          {
+            "nombre": "aceite de oliva virgen extra",
+            "cantidad": 500,
+            "unidad": "ml",
+            "recetas": [
+              "arroz_pescado",
+              "crema_calabacin",
+              "crema_calabaza",
+              "empanada_atun",
+              "ensalada_mixta",
+              "garbanzos_espinacas",
+              "lentejas_verduras",
+              "macarrones_bolonesa",
+              "pez_espada_plancha",
+              "pollo_horno_patatas",
+              "revuelto_champinones",
+              "tortilla_francesa"
+            ]
+          },
+          {
+            "nombre": "aceitunas sin hueso",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "arroz redondo",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pescado"
+            ]
+          },
+          {
+            "nombre": "atún en aceite",
+            "cantidad": 10,
+            "unidad": "ud",
+            "recetas": [
+              "empanada_atun",
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "caldo de pescado",
+            "cantidad": 1500,
+            "unidad": "ml",
+            "recetas": [
+              "arroz_pescado"
+            ]
+          },
+          {
+            "nombre": "caldo de verduras",
+            "cantidad": 1800,
+            "unidad": "ml",
+            "recetas": [
+              "crema_calabacin",
+              "crema_calabaza"
+            ]
+          },
+          {
+            "nombre": "fideos finos",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "sopa_picadillo"
+            ]
+          },
+          {
+            "nombre": "garbanzos cocidos",
+            "cantidad": 1200,
+            "unidad": "g",
+            "recetas": [
+              "garbanzos_espinacas"
+            ]
+          },
+          {
+            "nombre": "garbanzos secos",
+            "cantidad": 600,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "harina de freír",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "dorada_frita"
+            ]
+          },
+          {
+            "nombre": "harina de trigo",
+            "cantidad": 100,
+            "unidad": "g",
+            "recetas": [
+              "croquetas_bacalao"
+            ]
+          },
+          {
+            "nombre": "lentejas pardinas",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "lentejas_verduras"
+            ]
+          },
+          {
+            "nombre": "macarrones",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "macarrones_bolonesa"
+            ]
+          },
+          {
+            "nombre": "maíz dulce",
+            "cantidad": 300,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "pan rallado",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "croquetas_bacalao"
+            ]
+          },
+          {
+            "nombre": "tomate frito",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "empanada_atun",
+              "pizza_casera"
+            ]
+          },
+          {
+            "nombre": "tomate triturado",
+            "cantidad": 950,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pescado",
+              "macarrones_bolonesa"
+            ]
+          },
+          {
+            "nombre": "vinagre de vino",
+            "cantidad": 100,
+            "unidad": "ml",
+            "recetas": [
+              "ensalada_mixta",
+              "garbanzos_espinacas"
+            ]
+          },
+          {
+            "nombre": "vino blanco",
+            "cantidad": 150,
+            "unidad": "ml",
+            "recetas": [
+              "pollo_horno_patatas"
+            ]
+          }
+        ]
+      },
+      "revisar_despensa": [
+        "colorante o azafrán",
+        "comino molido",
+        "laurel",
+        "nuez moscada",
+        "orégano",
+        "pimentón dulce",
+        "pimienta negra",
+        "sal",
+        "tomillo"
+      ]
+    },
+    {
+      "semana": 2,
+      "secciones": {
+        "verdura_fruta": [
+          {
+            "nombre": "ajo",
+            "cantidad": 3,
+            "unidad": "cabeza",
+            "recetas": [
+              "alubias_verduras",
+              "arroz_pollo",
+              "carne_con_patatas",
+              "lentejas_verduras",
+              "merluza_salsa_verde",
+              "pisto_huevo",
+              "ropa_vieja",
+              "salmon_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "berenjena",
+            "cantidad": 1,
+            "unidad": "ud",
+            "recetas": [
+              "pisto_huevo"
+            ]
+          },
+          {
+            "nombre": "calabacín",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "pisto_huevo"
+            ]
+          },
+          {
+            "nombre": "calabaza",
+            "cantidad": 1200,
+            "unidad": "g",
+            "recetas": [
+              "crema_calabaza"
+            ]
+          },
+          {
+            "nombre": "cebolla",
+            "cantidad": 13,
+            "unidad": "ud",
+            "recetas": [
+              "alubias_verduras",
+              "carne_con_patatas",
+              "crema_calabaza",
+              "croquetas_cocido",
+              "ensalada_mixta",
+              "hamburguesas_caseras",
+              "lentejas_verduras",
+              "pisto_huevo",
+              "ropa_vieja",
+              "salmon_horno_patatas",
+              "tortilla_patatas"
+            ]
+          },
+          {
+            "nombre": "judía verde",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pollo"
+            ]
+          },
+          {
+            "nombre": "lechuga",
+            "cantidad": 4,
+            "unidad": "ud",
+            "recetas": [
+              "ensalada_mixta",
+              "ensalada_pollo_mayonesa",
+              "hamburguesas_caseras"
+            ]
+          },
+          {
+            "nombre": "limón",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "boquerones_fritos",
+              "salmon_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "patata",
+            "cantidad": 3900,
+            "unidad": "g",
+            "recetas": [
+              "carne_con_patatas",
+              "crema_calabaza",
+              "lentejas_verduras",
+              "salmon_horno_patatas",
+              "tortilla_patatas"
+            ]
+          },
+          {
+            "nombre": "perejil fresco",
+            "cantidad": 1,
+            "unidad": "manojo",
+            "recetas": [
+              "merluza_salsa_verde",
+              "salmon_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "pimiento rojo",
+            "cantidad": 4,
+            "unidad": "ud",
+            "recetas": [
+              "arroz_pollo",
+              "carne_con_patatas",
+              "pisto_huevo",
+              "ropa_vieja"
+            ]
+          },
+          {
+            "nombre": "pimiento verde",
+            "cantidad": 3,
+            "unidad": "ud",
+            "recetas": [
+              "alubias_verduras",
+              "lentejas_verduras",
+              "pisto_huevo"
+            ]
+          },
+          {
+            "nombre": "puerro",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "alubias_verduras",
+              "crema_calabaza"
+            ]
+          },
+          {
+            "nombre": "tomate",
+            "cantidad": 8,
+            "unidad": "ud",
+            "recetas": [
+              "alubias_verduras",
+              "ensalada_mixta",
+              "hamburguesas_caseras",
+              "lentejas_verduras"
+            ]
+          },
+          {
+            "nombre": "zanahoria",
+            "cantidad": 9,
+            "unidad": "ud",
+            "recetas": [
+              "alubias_verduras",
+              "carne_con_patatas",
+              "crema_calabaza",
+              "ensalada_mixta",
+              "lentejas_verduras"
+            ]
+          }
+        ],
+        "carne": [
+          {
+            "nombre": "bacon",
+            "cantidad": 250,
+            "unidad": "g",
+            "recetas": [
+              "espaguetis_carbonara"
+            ]
+          },
+          {
+            "nombre": "carne de ternera para guisar",
+            "cantidad": 1000,
+            "unidad": "g",
+            "recetas": [
+              "carne_con_patatas"
+            ]
+          },
+          {
+            "nombre": "carne picada de vacuno",
+            "cantidad": 900,
+            "unidad": "g",
+            "recetas": [
+              "hamburguesas_caseras"
+            ]
+          },
+          {
+            "nombre": "pechuga de pollo",
+            "cantidad": 600,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_pollo_mayonesa"
+            ]
+          },
+          {
+            "nombre": "pollo troceado",
+            "cantidad": 1000,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pollo"
+            ]
+          }
+        ],
+        "pescado": [
+          {
+            "nombre": "boquerones",
+            "cantidad": 1000,
+            "unidad": "g",
+            "recetas": [
+              "boquerones_fritos"
+            ]
+          },
+          {
+            "nombre": "lomos de salmón",
+            "cantidad": 900,
+            "unidad": "g",
+            "recetas": [
+              "salmon_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "merluza en rodajas",
+            "cantidad": 1000,
+            "unidad": "g",
+            "recetas": [
+              "merluza_salsa_verde"
+            ]
+          }
+        ],
+        "huevos_lacteos": [
+          {
+            "nombre": "huevos",
+            "cantidad": 28,
+            "unidad": "ud",
+            "recetas": [
+              "croquetas_cocido",
+              "ensalada_mixta",
+              "ensalada_pollo_mayonesa",
+              "espaguetis_carbonara",
+              "hamburguesas_caseras",
+              "pisto_huevo",
+              "tortilla_patatas"
+            ]
+          },
+          {
+            "nombre": "leche entera",
+            "cantidad": 900,
+            "unidad": "ml",
+            "recetas": [
+              "croquetas_cocido"
+            ]
+          },
+          {
+            "nombre": "mantequilla",
+            "cantidad": 100,
+            "unidad": "g",
+            "recetas": [
+              "croquetas_cocido"
+            ]
+          },
+          {
+            "nombre": "queso en lonchas",
+            "cantidad": 5,
+            "unidad": "ud",
+            "recetas": [
+              "hamburguesas_caseras"
+            ]
+          },
+          {
+            "nombre": "queso parmesano rallado",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "espaguetis_carbonara"
+            ]
+          }
+        ],
+        "panaderia_refrigerados": [
+          {
+            "nombre": "pan de hamburguesa",
+            "cantidad": 5,
+            "unidad": "ud",
+            "recetas": [
+              "hamburguesas_caseras"
+            ]
+          }
+        ],
+        "congelados": [
+          {
+            "nombre": "guisantes congelados",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "merluza_salsa_verde"
+            ]
+          }
+        ],
+        "despensa": [
+          {
+            "nombre": "aceite de girasol",
+            "cantidad": 1000,
+            "unidad": "ml",
+            "recetas": [
+              "boquerones_fritos",
+              "croquetas_cocido"
+            ]
+          },
+          {
+            "nombre": "aceite de oliva virgen extra",
+            "cantidad": 900,
+            "unidad": "ml",
+            "recetas": [
+              "alubias_verduras",
+              "arroz_pollo",
+              "carne_con_patatas",
+              "crema_calabaza",
+              "ensalada_mixta",
+              "lentejas_verduras",
+              "merluza_salsa_verde",
+              "pisto_huevo",
+              "ropa_vieja",
+              "salmon_horno_patatas",
+              "tortilla_patatas"
+            ]
+          },
+          {
+            "nombre": "aceitunas sin hueso",
+            "cantidad": 100,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "alubias blancas",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "alubias_verduras"
+            ]
+          },
+          {
+            "nombre": "arroz redondo",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pollo"
+            ]
+          },
+          {
+            "nombre": "atún en aceite",
+            "cantidad": 3,
+            "unidad": "ud",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "azúcar",
+            "cantidad": 50,
+            "unidad": "g",
+            "recetas": [
+              "pisto_huevo"
+            ]
+          },
+          {
+            "nombre": "caldo de pescado",
+            "cantidad": 300,
+            "unidad": "ml",
+            "recetas": [
+              "merluza_salsa_verde"
+            ]
+          },
+          {
+            "nombre": "caldo de pollo",
+            "cantidad": 1300,
+            "unidad": "ml",
+            "recetas": [
+              "arroz_pollo"
+            ]
+          },
+          {
+            "nombre": "caldo de verduras",
+            "cantidad": 1000,
+            "unidad": "ml",
+            "recetas": [
+              "crema_calabaza"
+            ]
+          },
+          {
+            "nombre": "espaguetis",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "espaguetis_carbonara"
+            ]
+          },
+          {
+            "nombre": "harina de freír",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "boquerones_fritos"
+            ]
+          },
+          {
+            "nombre": "harina de trigo",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "croquetas_cocido",
+              "merluza_salsa_verde"
+            ]
+          },
+          {
+            "nombre": "lentejas pardinas",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "lentejas_verduras"
+            ]
+          },
+          {
+            "nombre": "mayonesa",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_pollo_mayonesa"
+            ]
+          },
+          {
+            "nombre": "maíz dulce",
+            "cantidad": 300,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_mixta",
+              "ensalada_pollo_mayonesa"
+            ]
+          },
+          {
+            "nombre": "pan rallado",
+            "cantidad": 250,
+            "unidad": "g",
+            "recetas": [
+              "croquetas_cocido",
+              "hamburguesas_caseras"
+            ]
+          },
+          {
+            "nombre": "tomate triturado",
+            "cantidad": 950,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pollo",
+              "carne_con_patatas",
+              "pisto_huevo",
+              "ropa_vieja"
+            ]
+          },
+          {
+            "nombre": "vinagre de vino",
+            "cantidad": 50,
+            "unidad": "ml",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "vino blanco",
+            "cantidad": 350,
+            "unidad": "ml",
+            "recetas": [
+              "carne_con_patatas",
+              "merluza_salsa_verde",
+              "salmon_horno_patatas"
+            ]
+          }
+        ]
+      },
+      "revisar_despensa": [
+        "colorante o azafrán",
+        "laurel",
+        "nuez moscada",
+        "pimentón dulce",
+        "pimienta negra",
+        "sal"
+      ]
+    },
+    {
+      "semana": 3,
+      "secciones": {
+        "verdura_fruta": [
+          {
+            "nombre": "ajo",
+            "cantidad": 3,
+            "unidad": "cabeza",
+            "recetas": [
+              "albondigas_salsa",
+              "alubias_verduras",
+              "arroz_chorizo",
+              "bacalao_tomate",
+              "garbanzos_espinacas",
+              "judias_verdes_patatas",
+              "lasana_carne",
+              "pechuga_plancha",
+              "pez_espada_plancha",
+              "revuelto_champinones",
+              "sepia_plancha"
+            ]
+          },
+          {
+            "nombre": "calabacín",
+            "cantidad": 4,
+            "unidad": "ud",
+            "recetas": [
+              "crema_calabacin"
+            ]
+          },
+          {
+            "nombre": "cebolla",
+            "cantidad": 8,
+            "unidad": "ud",
+            "recetas": [
+              "albondigas_salsa",
+              "alubias_verduras",
+              "arroz_chorizo",
+              "bacalao_tomate",
+              "crema_calabacin",
+              "ensalada_mixta",
+              "lasana_carne"
+            ]
+          },
+          {
+            "nombre": "champiñones",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "revuelto_champinones"
+            ]
+          },
+          {
+            "nombre": "espinacas frescas",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "garbanzos_espinacas"
+            ]
+          },
+          {
+            "nombre": "judía verde",
+            "cantidad": 1000,
+            "unidad": "g",
+            "recetas": [
+              "judias_verdes_patatas"
+            ]
+          },
+          {
+            "nombre": "lechuga",
+            "cantidad": 4,
+            "unidad": "ud",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "limón",
+            "cantidad": 3,
+            "unidad": "ud",
+            "recetas": [
+              "pechuga_plancha",
+              "pez_espada_plancha",
+              "sepia_plancha"
+            ]
+          },
+          {
+            "nombre": "patata",
+            "cantidad": 3000,
+            "unidad": "g",
+            "recetas": [
+              "cocido",
+              "crema_calabacin",
+              "judias_verdes_patatas",
+              "patatas_fritas"
+            ]
+          },
+          {
+            "nombre": "perejil fresco",
+            "cantidad": 1,
+            "unidad": "manojo",
+            "recetas": [
+              "albondigas_salsa",
+              "pez_espada_plancha",
+              "revuelto_champinones",
+              "sepia_plancha"
+            ]
+          },
+          {
+            "nombre": "pimiento rojo",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "arroz_chorizo",
+              "bacalao_tomate"
+            ]
+          },
+          {
+            "nombre": "pimiento verde",
+            "cantidad": 1,
+            "unidad": "ud",
+            "recetas": [
+              "alubias_verduras"
+            ]
+          },
+          {
+            "nombre": "puerro",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "alubias_verduras",
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "repollo",
+            "cantidad": 400,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "tomate",
+            "cantidad": 9,
+            "unidad": "ud",
+            "recetas": [
+              "alubias_verduras",
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "zanahoria",
+            "cantidad": 9,
+            "unidad": "ud",
+            "recetas": [
+              "albondigas_salsa",
+              "alubias_verduras",
+              "cocido",
+              "ensalada_mixta",
+              "lasana_carne"
+            ]
+          }
+        ],
+        "carne": [
+          {
+            "nombre": "carne picada mixta",
+            "cantidad": 1350,
+            "unidad": "g",
+            "recetas": [
+              "albondigas_salsa",
+              "lasana_carne"
+            ]
+          },
+          {
+            "nombre": "chorizo",
+            "cantidad": 450,
+            "unidad": "g",
+            "recetas": [
+              "arroz_chorizo",
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "hueso de jamón",
+            "cantidad": 1,
+            "unidad": "ud",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "hueso de ternera",
+            "cantidad": 1,
+            "unidad": "ud",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "jamón serrano en taquitos",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "revuelto_champinones",
+              "sopa_picadillo"
+            ]
+          },
+          {
+            "nombre": "morcillo de ternera",
+            "cantidad": 700,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "muslos de pollo",
+            "cantidad": 800,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "pechuga de pollo",
+            "cantidad": 900,
+            "unidad": "g",
+            "recetas": [
+              "pechuga_plancha"
+            ]
+          },
+          {
+            "nombre": "tocino",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          }
+        ],
+        "pescado": [
+          {
+            "nombre": "bacalao desalado",
+            "cantidad": 900,
+            "unidad": "g",
+            "recetas": [
+              "bacalao_tomate"
+            ]
+          },
+          {
+            "nombre": "pez espada en rodajas",
+            "cantidad": 900,
+            "unidad": "g",
+            "recetas": [
+              "pez_espada_plancha"
+            ]
+          },
+          {
+            "nombre": "sepia limpia",
+            "cantidad": 1000,
+            "unidad": "g",
+            "recetas": [
+              "sepia_plancha"
+            ]
+          }
+        ],
+        "huevos_lacteos": [
+          {
+            "nombre": "huevos",
+            "cantidad": 30,
+            "unidad": "ud",
+            "recetas": [
+              "albondigas_salsa",
+              "empanada_queso",
+              "ensalada_mixta",
+              "revuelto_champinones",
+              "sopa_picadillo",
+              "tortilla_francesa"
+            ]
+          },
+          {
+            "nombre": "leche entera",
+            "cantidad": 850,
+            "unidad": "ml",
+            "recetas": [
+              "albondigas_salsa",
+              "lasana_carne"
+            ]
+          },
+          {
+            "nombre": "mantequilla",
+            "cantidad": 100,
+            "unidad": "g",
+            "recetas": [
+              "lasana_carne"
+            ]
+          },
+          {
+            "nombre": "queso mozzarella",
+            "cantidad": 400,
+            "unidad": "g",
+            "recetas": [
+              "empanada_queso"
+            ]
+          },
+          {
+            "nombre": "queso rallado",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "lasana_carne"
+            ]
+          }
+        ],
+        "panaderia_refrigerados": [
+          {
+            "nombre": "masa de empanada (lámina)",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "empanada_queso"
+            ]
+          },
+          {
+            "nombre": "pan",
+            "cantidad": 100,
+            "unidad": "g",
+            "recetas": [
+              "garbanzos_espinacas"
+            ]
+          }
+        ],
+        "congelados": [
+          {
+            "nombre": "guisantes congelados",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "arroz_chorizo"
+            ]
+          }
+        ],
+        "despensa": [
+          {
+            "nombre": "aceite de girasol",
+            "cantidad": 750,
+            "unidad": "ml",
+            "recetas": [
+              "patatas_fritas"
+            ]
+          },
+          {
+            "nombre": "aceite de oliva virgen extra",
+            "cantidad": 600,
+            "unidad": "ml",
+            "recetas": [
+              "albondigas_salsa",
+              "alubias_verduras",
+              "arroz_chorizo",
+              "bacalao_tomate",
+              "crema_calabacin",
+              "ensalada_mixta",
+              "garbanzos_espinacas",
+              "judias_verdes_patatas",
+              "lasana_carne",
+              "pechuga_plancha",
+              "pez_espada_plancha",
+              "revuelto_champinones",
+              "sepia_plancha",
+              "tortilla_francesa"
+            ]
+          },
+          {
+            "nombre": "aceitunas sin hueso",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "alubias blancas",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "alubias_verduras"
+            ]
+          },
+          {
+            "nombre": "arroz redondo",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "arroz_chorizo"
+            ]
+          },
+          {
+            "nombre": "atún en aceite",
+            "cantidad": 6,
+            "unidad": "ud",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "azúcar",
+            "cantidad": 50,
+            "unidad": "g",
+            "recetas": [
+              "bacalao_tomate"
+            ]
+          },
+          {
+            "nombre": "caldo de pollo",
+            "cantidad": 1500,
+            "unidad": "ml",
+            "recetas": [
+              "albondigas_salsa",
+              "arroz_chorizo"
+            ]
+          },
+          {
+            "nombre": "caldo de verduras",
+            "cantidad": 800,
+            "unidad": "ml",
+            "recetas": [
+              "crema_calabacin"
+            ]
+          },
+          {
+            "nombre": "fideos finos",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "sopa_picadillo"
+            ]
+          },
+          {
+            "nombre": "garbanzos cocidos",
+            "cantidad": 1200,
+            "unidad": "g",
+            "recetas": [
+              "garbanzos_espinacas"
+            ]
+          },
+          {
+            "nombre": "garbanzos secos",
+            "cantidad": 600,
+            "unidad": "g",
+            "recetas": [
+              "cocido"
+            ]
+          },
+          {
+            "nombre": "harina de trigo",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "albondigas_salsa",
+              "bacalao_tomate",
+              "lasana_carne"
+            ]
+          },
+          {
+            "nombre": "maíz dulce",
+            "cantidad": 300,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "pan rallado",
+            "cantidad": 50,
+            "unidad": "g",
+            "recetas": [
+              "albondigas_salsa"
+            ]
+          },
+          {
+            "nombre": "placas de lasaña",
+            "cantidad": 15,
+            "unidad": "ud",
+            "recetas": [
+              "lasana_carne"
+            ]
+          },
+          {
+            "nombre": "tomate triturado",
+            "cantidad": 1450,
+            "unidad": "g",
+            "recetas": [
+              "albondigas_salsa",
+              "arroz_chorizo",
+              "bacalao_tomate",
+              "lasana_carne"
+            ]
+          },
+          {
+            "nombre": "vinagre de vino",
+            "cantidad": 100,
+            "unidad": "ml",
+            "recetas": [
+              "ensalada_mixta",
+              "garbanzos_espinacas"
+            ]
+          },
+          {
+            "nombre": "vino blanco",
+            "cantidad": 100,
+            "unidad": "ml",
+            "recetas": [
+              "albondigas_salsa"
+            ]
+          }
+        ]
+      },
+      "revisar_despensa": [
+        "comino molido",
+        "laurel",
+        "nuez moscada",
+        "orégano",
+        "pimentón dulce",
+        "pimienta negra",
+        "sal"
+      ]
+    },
+    {
+      "semana": 4,
+      "secciones": {
+        "verdura_fruta": [
+          {
+            "nombre": "ajo",
+            "cantidad": 3,
+            "unidad": "cabeza",
+            "recetas": [
+              "arroz_blanco",
+              "arroz_pescado",
+              "filetes_empanados",
+              "lentejas_verduras",
+              "macarrones_bolonesa",
+              "pollo_ajillo",
+              "ropa_vieja",
+              "salmon_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "berenjena",
+            "cantidad": 4,
+            "unidad": "ud",
+            "recetas": [
+              "berenjenas_rellenas"
+            ]
+          },
+          {
+            "nombre": "calabaza",
+            "cantidad": 1200,
+            "unidad": "g",
+            "recetas": [
+              "crema_calabaza"
+            ]
+          },
+          {
+            "nombre": "cebolla",
+            "cantidad": 11,
+            "unidad": "ud",
+            "recetas": [
+              "berenjenas_rellenas",
+              "crema_calabaza",
+              "croquetas_pollo",
+              "ensalada_mixta",
+              "lentejas_verduras",
+              "macarrones_bolonesa",
+              "ropa_vieja",
+              "salmon_horno_patatas",
+              "tortilla_patatas"
+            ]
+          },
+          {
+            "nombre": "champiñones",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "pizza_casera"
+            ]
+          },
+          {
+            "nombre": "lechuga",
+            "cantidad": 4,
+            "unidad": "ud",
+            "recetas": [
+              "ensalada_mixta"
+            ]
+          },
+          {
+            "nombre": "limón",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "dorada_frita",
+              "salmon_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "patata",
+            "cantidad": 4400,
+            "unidad": "g",
+            "recetas": [
+              "crema_calabaza",
+              "lentejas_verduras",
+              "patatas_fritas",
+              "salmon_horno_patatas",
+              "tortilla_patatas"
+            ]
+          },
+          {
+            "nombre": "perejil fresco",
+            "cantidad": 1,
+            "unidad": "manojo",
+            "recetas": [
+              "filetes_empanados",
+              "pollo_ajillo",
+              "salmon_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "pimiento rojo",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "arroz_pescado",
+              "ropa_vieja"
+            ]
+          },
+          {
+            "nombre": "pimiento verde",
+            "cantidad": 1,
+            "unidad": "ud",
+            "recetas": [
+              "lentejas_verduras"
+            ]
+          },
+          {
+            "nombre": "puerro",
+            "cantidad": 1,
+            "unidad": "ud",
+            "recetas": [
+              "crema_calabaza"
+            ]
+          },
+          {
+            "nombre": "tomate",
+            "cantidad": 9,
+            "unidad": "ud",
+            "recetas": [
+              "ensalada_mixta",
+              "lentejas_verduras"
+            ]
+          },
+          {
+            "nombre": "tomate cherry",
+            "cantidad": 250,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_pasta"
+            ]
+          },
+          {
+            "nombre": "zanahoria",
+            "cantidad": 7,
+            "unidad": "ud",
+            "recetas": [
+              "crema_calabaza",
+              "ensalada_mixta",
+              "lentejas_verduras",
+              "macarrones_bolonesa"
+            ]
+          }
+        ],
+        "carne": [
+          {
+            "nombre": "carne picada mixta",
+            "cantidad": 900,
+            "unidad": "g",
+            "recetas": [
+              "berenjenas_rellenas",
+              "macarrones_bolonesa"
+            ]
+          },
+          {
+            "nombre": "jamón york",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "pizza_casera"
+            ]
+          },
+          {
+            "nombre": "pechuga de pollo",
+            "cantidad": 1200,
+            "unidad": "g",
+            "recetas": [
+              "croquetas_pollo",
+              "filetes_empanados"
+            ]
+          },
+          {
+            "nombre": "pollo troceado",
+            "cantidad": 1500,
+            "unidad": "g",
+            "recetas": [
+              "pollo_ajillo"
+            ]
+          }
+        ],
+        "pescado": [
+          {
+            "nombre": "calamar",
+            "cantidad": 300,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pescado"
+            ]
+          },
+          {
+            "nombre": "dorada de ración",
+            "cantidad": 5,
+            "unidad": "ud",
+            "recetas": [
+              "dorada_frita"
+            ]
+          },
+          {
+            "nombre": "gambas",
+            "cantidad": 300,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pescado"
+            ]
+          },
+          {
+            "nombre": "lomos de salmón",
+            "cantidad": 900,
+            "unidad": "g",
+            "recetas": [
+              "salmon_horno_patatas"
+            ]
+          },
+          {
+            "nombre": "rape",
+            "cantidad": 400,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pescado"
+            ]
+          }
+        ],
+        "huevos_lacteos": [
+          {
+            "nombre": "huevos",
+            "cantidad": 31,
+            "unidad": "ud",
+            "recetas": [
+              "croquetas_pollo",
+              "ensalada_mixta",
+              "ensalada_pasta",
+              "filetes_empanados",
+              "huevos_fritos",
+              "tortilla_patatas"
+            ]
+          },
+          {
+            "nombre": "leche entera",
+            "cantidad": 1300,
+            "unidad": "ml",
+            "recetas": [
+              "berenjenas_rellenas",
+              "croquetas_pollo"
+            ]
+          },
+          {
+            "nombre": "mantequilla",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "berenjenas_rellenas",
+              "croquetas_pollo"
+            ]
+          },
+          {
+            "nombre": "queso mozzarella",
+            "cantidad": 250,
+            "unidad": "g",
+            "recetas": [
+              "pizza_casera"
+            ]
+          },
+          {
+            "nombre": "queso rallado",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "berenjenas_rellenas",
+              "macarrones_bolonesa"
+            ]
+          }
+        ],
+        "panaderia_refrigerados": [
+          {
+            "nombre": "masa de pizza (lámina)",
+            "cantidad": 2,
+            "unidad": "ud",
+            "recetas": [
+              "pizza_casera"
+            ]
+          }
+        ],
+        "despensa": [
+          {
+            "nombre": "aceite de girasol",
+            "cantidad": 2050,
+            "unidad": "ml",
+            "recetas": [
+              "croquetas_pollo",
+              "dorada_frita",
+              "filetes_empanados",
+              "patatas_fritas"
+            ]
+          },
+          {
+            "nombre": "aceite de oliva virgen extra",
+            "cantidad": 1150,
+            "unidad": "ml",
+            "recetas": [
+              "arroz_blanco",
+              "arroz_pescado",
+              "berenjenas_rellenas",
+              "crema_calabaza",
+              "ensalada_mixta",
+              "ensalada_pasta",
+              "huevos_fritos",
+              "lentejas_verduras",
+              "macarrones_bolonesa",
+              "pollo_ajillo",
+              "ropa_vieja",
+              "salmon_horno_patatas",
+              "tortilla_patatas"
+            ]
+          },
+          {
+            "nombre": "aceitunas sin hueso",
+            "cantidad": 300,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_mixta",
+              "ensalada_pasta"
+            ]
+          },
+          {
+            "nombre": "arroz largo",
+            "cantidad": 450,
+            "unidad": "g",
+            "recetas": [
+              "arroz_blanco"
+            ]
+          },
+          {
+            "nombre": "arroz redondo",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pescado"
+            ]
+          },
+          {
+            "nombre": "atún en aceite",
+            "cantidad": 9,
+            "unidad": "ud",
+            "recetas": [
+              "ensalada_mixta",
+              "ensalada_pasta"
+            ]
+          },
+          {
+            "nombre": "caldo de pescado",
+            "cantidad": 1500,
+            "unidad": "ml",
+            "recetas": [
+              "arroz_pescado"
+            ]
+          },
+          {
+            "nombre": "caldo de verduras",
+            "cantidad": 1000,
+            "unidad": "ml",
+            "recetas": [
+              "crema_calabaza"
+            ]
+          },
+          {
+            "nombre": "harina de freír",
+            "cantidad": 150,
+            "unidad": "g",
+            "recetas": [
+              "dorada_frita"
+            ]
+          },
+          {
+            "nombre": "harina de trigo",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "berenjenas_rellenas",
+              "croquetas_pollo",
+              "filetes_empanados"
+            ]
+          },
+          {
+            "nombre": "lentejas pardinas",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "lentejas_verduras"
+            ]
+          },
+          {
+            "nombre": "macarrones",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "macarrones_bolonesa"
+            ]
+          },
+          {
+            "nombre": "maíz dulce",
+            "cantidad": 450,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_mixta",
+              "ensalada_pasta"
+            ]
+          },
+          {
+            "nombre": "pan rallado",
+            "cantidad": 400,
+            "unidad": "g",
+            "recetas": [
+              "croquetas_pollo",
+              "filetes_empanados"
+            ]
+          },
+          {
+            "nombre": "pasta corta (hélices)",
+            "cantidad": 500,
+            "unidad": "g",
+            "recetas": [
+              "ensalada_pasta"
+            ]
+          },
+          {
+            "nombre": "tomate frito",
+            "cantidad": 200,
+            "unidad": "g",
+            "recetas": [
+              "pizza_casera"
+            ]
+          },
+          {
+            "nombre": "tomate triturado",
+            "cantidad": 1450,
+            "unidad": "g",
+            "recetas": [
+              "arroz_pescado",
+              "berenjenas_rellenas",
+              "macarrones_bolonesa",
+              "ropa_vieja"
+            ]
+          },
+          {
+            "nombre": "vinagre de vino",
+            "cantidad": 100,
+            "unidad": "ml",
+            "recetas": [
+              "ensalada_mixta",
+              "ensalada_pasta"
+            ]
+          },
+          {
+            "nombre": "vino blanco",
+            "cantidad": 250,
+            "unidad": "ml",
+            "recetas": [
+              "pollo_ajillo",
+              "salmon_horno_patatas"
+            ]
+          }
+        ]
+      },
+      "revisar_despensa": [
+        "colorante o azafrán",
+        "laurel",
+        "nuez moscada",
+        "orégano",
+        "pimentón dulce",
+        "pimienta negra",
+        "sal"
+      ]
+    }
+  ]
+}
