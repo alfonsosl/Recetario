@@ -43,7 +43,7 @@ export function QuickAddBar({ onAdd }: Props) {
               aria-checked={category === c}
               onClick={() => setManualCategory(c)}
               className={`min-h-9 shrink-0 rounded-full px-3 text-xs font-semibold transition-colors ${
-                category === c ? 'bg-olive-600 text-white' : 'bg-sand-100 text-stone-600'
+                category === c ? 'bg-ink-600 text-white' : 'bg-sand-100 text-ink-600'
               }`}
             >
               {CATEGORY_META[c].emoji} {CATEGORY_META[c].short}
@@ -62,7 +62,7 @@ export function QuickAddBar({ onAdd }: Props) {
           enterKeyHint="send"
           autoComplete="off"
           maxLength={120}
-          className="h-12 min-w-0 flex-1 rounded-full border border-sand-300 bg-sand-50 px-4 text-base outline-none focus:border-olive-500 focus:bg-white focus:ring-2 focus:ring-olive-200"
+          className="h-12 min-w-0 flex-1 rounded-full border border-sand-300 bg-sand-50 px-4 text-base outline-none focus:border-ink-500 focus:bg-white focus:ring-2 focus:ring-ink-200"
         />
         <input
           value={quantity}
@@ -72,13 +72,13 @@ export function QuickAddBar({ onAdd }: Props) {
           enterKeyHint="send"
           autoComplete="off"
           maxLength={30}
-          className="h-12 w-20 rounded-full border border-sand-300 bg-sand-50 px-3 text-center text-base outline-none focus:border-olive-500 focus:bg-white focus:ring-2 focus:ring-olive-200"
+          className="h-12 w-20 rounded-full border border-sand-300 bg-sand-50 px-3 text-center text-base outline-none focus:border-ink-500 focus:bg-white focus:ring-2 focus:ring-ink-200"
         />
         <button
           type="submit"
           disabled={!name.trim()}
           aria-label="Añadir a la lista"
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-terra-500 text-white shadow transition-colors hover:bg-terra-600 disabled:bg-sand-300"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-lemon-400 text-ink-900 shadow transition-colors hover:bg-lemon-300 disabled:bg-sand-300"
         >
           <Plus className="h-6 w-6" strokeWidth={2.5} />
         </button>

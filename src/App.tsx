@@ -1,15 +1,20 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { BottomNav, type Tab } from './components/BottomNav';
+import { BalancePanel } from './components/BalancePanel';
+import { RecipeEditor } from './components/RecipeEditor';
 import { RecipePicker } from './components/RecipePicker';
 import { RecipeSheet } from './components/RecipeSheet';
+import { SlotChooser } from './components/SlotChooser';
 import { Toast } from './components/Toast';
 import { useIdentity } from './hooks/useIdentity';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { usePlanner } from './hooks/usePlanner';
 import { useShoppingList } from './hooks/useShoppingList';
 import { getDefaultSlot } from './data';
-import type { Recipe } from './types';
+import { recipeStore, useRecipes } from './store/recipeStore';
+import type { NutritionGroup, Recipe } from './types';
 import { aggregateIngredients } from './utils/aggregate';
+import { recommendForBalance } from './utils/recommend';
 import { CalendarView, type Slot } from './views/CalendarView';
 import { RecipesView } from './views/RecipesView';
 import { ShoppingView } from './views/ShoppingView';
@@ -20,8 +25,12 @@ export default function App() {
   const identity = useIdentity();
   const shopping = useShoppingList(identity.household, identity.displayName);
 
+  const recipes = useRecipes();
   const [openRecipe, setOpenRecipe] = useState<{ recipe: Recipe; slot?: Slot } | null>(null);
-  const [pickerSlot, setPickerSlot] = useState<Slot | null>(null);
+  const [picker, setPicker] = useState<{ mode: 'swap' | 'add'; slot: Slot } | null>(null);
+  const [editing, setEditing] = useState<{ recipe: Recipe | null } | null>(null);
+  const [placing, setPlacing] = useState<Recipe | null>(null);
+  const [balanceOpen, setBalanceOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -48,6 +57,20 @@ export default function App() {
     window.scrollTo({ top: 0 });
   };
 
+  // Equilibrio de la semana activa: qué le falta (para priorizar sugerencias y propuestas).
+  const evaluation = planner.evaluate(planner.activeWeek);
+  const needs = {
+    groups: evaluation.current.criteria
+      .filter((c) => c.value < c.min && ['legumbre', 'pescado', 'carne', 'huevo'].includes(c.key))
+      .map((c) => c.key as NutritionGroup),
+    vegetables: evaluation.current.criteria.some((c) => c.key === 'verdura' && c.value < c.min),
+  };
+  const weekIds = new Set(planner.weekRecipes(planner.activeWeek).map((r) => r.id));
+  const recommendations = recommendForBalance(evaluation.current, weekIds, recipes.pendingSuggestions, recipes.all);
+
+  // La ficha muestra siempre la versión más reciente (p. ej. tras editarla).
+  const sheetRecipe = openRecipe ? (recipes.byId.get(openRecipe.recipe.id) ?? openRecipe.recipe) : null;
+
   const addRecipeToList = (recipe: Recipe) => {
     const items = aggregateIngredients([recipe]);
     void shopping.addItems(items);
@@ -56,13 +79,13 @@ export default function App() {
 
   return (
     <div className="min-h-dvh">
-      <header className="pt-safe sticky top-0 z-30 border-b border-sand-200 bg-sand-50/90 backdrop-blur">
+      <header className="pt-safe sticky top-0 z-30 bg-sand-50/90 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4 md:h-16">
           <div className="flex items-center gap-2.5">
-            <img src="/icons/icon-192.png" alt="" className="h-9 w-9 rounded-xl" width={36} height={36} />
-            <div className="leading-tight">
-              <h1 className="font-display text-lg font-semibold text-olive-900">Mediterráneo 5</h1>
-              <p className="hidden text-xs text-stone-500 sm:block">Planificador Mensual y Lista Colaborativa</p>
+            <img src="/icons/icon-192.png" alt="" className="h-9 w-9 rounded-full" width={36} height={36} />
+            <div className="leading-none">
+              <h1 className="font-display text-xl font-bold tracking-tight text-ink-900">Mediterráneo 5</h1>
+              <p className="mt-0.5 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-400 sm:block">Recetario como una app</p>
             </div>
           </div>
           <BottomNav variant="top" tab={tab} onChange={changeTab} pendingCount={shopping.pending} />
@@ -74,7 +97,9 @@ export default function App() {
           <CalendarView
             planner={planner}
             onOpen={(recipe, slot) => setOpenRecipe({ recipe, slot })}
-            onSwap={(slot) => setPickerSlot(slot)}
+            onSwap={(slot) => setPicker({ mode: 'swap', slot })}
+            onAdd={(slot) => setPicker({ mode: 'add', slot: { ...slot, index: -1 } })}
+            onOpenBalance={() => setBalanceOpen(true)}
           />
         )}
         {tab === 'shopping' && (
@@ -88,35 +113,81 @@ export default function App() {
             onToast={showToast}
           />
         )}
-        {tab === 'recipes' && <RecipesView onOpen={(recipe) => setOpenRecipe({ recipe })} />}
+        {tab === 'recipes' && (
+          <RecipesView onOpen={(recipe) => setOpenRecipe({ recipe })} onNew={() => setEditing({ recipe: null })} onAddToMenu={setPlacing} needs={needs} />
+        )}
       </main>
 
       <BottomNav variant="bottom" tab={tab} onChange={changeTab} pendingCount={shopping.pending} />
 
-      {openRecipe && (
-        <RecipeSheet
-          key={openRecipe.recipe.id}
-          recipe={openRecipe.recipe}
-          onClose={() => setOpenRecipe(null)}
-          onAddToList={addRecipeToList}
-          onSwap={openRecipe.slot ? () => setPickerSlot(openRecipe.slot!) : undefined}
-          usage={planner.usage.get(openRecipe.recipe.id)}
+      {balanceOpen && (
+        <BalancePanel
+          week={planner.activeWeek}
+          current={evaluation.current}
+          original={evaluation.original}
+          recommendations={recommendations}
+          onOpenRecipe={(recipe) => setOpenRecipe({ recipe })}
+          onAddToMenu={(recipe) => {
+            if (recipe.origin === 'sugerencia') recipeStore.acceptSuggestion(recipe.id);
+            setPlacing(recipe);
+          }}
+          onClose={() => setBalanceOpen(false)}
         />
       )}
 
-      {pickerSlot && (
-        <RecipePicker
-          week={pickerSlot.week}
-          day={pickerSlot.day}
-          meal={pickerSlot.meal}
-          currentId={planner.getSlot(pickerSlot.week, pickerSlot.day, pickerSlot.meal)[pickerSlot.index]?.id ?? ''}
-          originalId={getDefaultSlot(pickerSlot.week, pickerSlot.day, pickerSlot.meal)[pickerSlot.index] ?? ''}
-          onSelect={(id) => {
-            planner.swapDish(pickerSlot.week, pickerSlot.day, pickerSlot.meal, pickerSlot.index, id);
-            showToast('Plato cambiado en el calendario');
+      {openRecipe && sheetRecipe && (
+        <RecipeSheet
+          key={sheetRecipe.id}
+          recipe={sheetRecipe}
+          onClose={() => setOpenRecipe(null)}
+          onAddToList={addRecipeToList}
+          onSwap={openRecipe.slot ? () => setPicker({ mode: 'swap', slot: openRecipe.slot! }) : undefined}
+          onEdit={(recipe) => setEditing({ recipe })}
+          onAddToMenu={(recipe) => {
+            if (recipe.origin === 'sugerencia') recipeStore.acceptSuggestion(recipe.id);
+            setPlacing(recipe);
           }}
-          onClose={() => setPickerSlot(null)}
+          usage={planner.usage.get(sheetRecipe.id)}
         />
+      )}
+
+      {picker && (
+        <RecipePicker
+          mode={picker.mode}
+          week={picker.slot.week}
+          day={picker.slot.day}
+          meal={picker.slot.meal}
+          current={planner.getSlot(picker.slot.week, picker.slot.day, picker.slot.meal)}
+          currentId={picker.mode === 'swap' ? planner.getSlot(picker.slot.week, picker.slot.day, picker.slot.meal)[picker.slot.index]?.id : undefined}
+          originalId={picker.mode === 'swap' ? getDefaultSlot(picker.slot.week, picker.slot.day, picker.slot.meal)[picker.slot.index] : undefined}
+          onSelect={(recipe) => {
+            const { week, day, meal, index } = picker.slot;
+            if (picker.mode === 'swap') {
+              planner.swapDish(week, day, meal, index, recipe.id);
+              showToast('Plato cambiado en el calendario');
+            } else {
+              // Primeros, guarniciones y ensaladas se colocan delante del segundo.
+              planner.addDish(week, day, meal, recipe.id, recipe.dishType !== 'principal');
+              showToast(`${recipe.title} añadido como acompañamiento`);
+            }
+          }}
+          onClose={() => setPicker(null)}
+        />
+      )}
+
+      {editing && (
+        <RecipeEditor
+          recipe={editing.recipe}
+          onClose={() => setEditing(null)}
+          onSaved={(recipe) => {
+            showToast(editing.recipe ? 'Receta guardada' : 'Receta creada');
+            setOpenRecipe({ recipe });
+          }}
+        />
+      )}
+
+      {placing && (
+        <SlotChooser recipe={placing} planner={planner} onClose={() => setPlacing(null)} onDone={(msg) => showToast(msg)} />
       )}
 
       <Toast message={toast} />

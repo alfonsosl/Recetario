@@ -29,7 +29,7 @@ export function IdentityBar({ userName, onUserName, household, onHousehold, mode
   return (
     <section className="space-y-3 rounded-3xl border border-sand-200 bg-white p-3">
       <div>
-        <p className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-stone-500">
+        <p className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-ink-500">
           <User className="h-3.5 w-3.5" /> ¿Quién eres?
         </p>
         <div className="scrollbar-none -mx-3 flex gap-2 overflow-x-auto px-3">
@@ -43,7 +43,7 @@ export function IdentityBar({ userName, onUserName, household, onHousehold, mode
               }}
               aria-pressed={userName === p}
               className={`min-h-11 shrink-0 rounded-full px-4 text-sm font-semibold transition-colors ${
-                userName === p ? 'bg-olive-600 text-white' : 'bg-sand-100 text-stone-700 hover:bg-sand-200'
+                userName === p ? 'bg-ink-600 text-white' : 'bg-sand-100 text-ink-700 hover:bg-sand-200'
               }`}
             >
               {p}
@@ -56,7 +56,7 @@ export function IdentityBar({ userName, onUserName, household, onHousehold, mode
                 setNameDraft('');
                 setEditingName(true);
               }}
-              className="min-h-11 shrink-0 rounded-full border border-dashed border-sand-300 px-4 text-sm font-semibold text-stone-500"
+              className="min-h-11 shrink-0 rounded-full border border-dashed border-sand-300 px-4 text-sm font-semibold text-ink-500"
             >
               Otro nombre…
             </button>
@@ -79,9 +79,9 @@ export function IdentityBar({ userName, onUserName, household, onHousehold, mode
               placeholder="Escribe tu nombre"
               autoComplete="given-name"
               maxLength={30}
-              className="h-11 min-w-0 flex-1 rounded-xl border border-sand-300 px-3 text-base outline-none focus:border-olive-500 focus:ring-2 focus:ring-olive-200"
+              className="h-11 min-w-0 flex-1 rounded-xl border border-sand-300 px-3 text-base outline-none focus:border-ink-500 focus:ring-2 focus:ring-ink-200"
             />
-            <button type="submit" className="h-11 rounded-xl bg-olive-600 px-4 font-semibold text-white">
+            <button type="submit" className="h-11 rounded-xl bg-ink-600 px-4 font-semibold text-white">
               Guardar
             </button>
           </form>
@@ -89,8 +89,8 @@ export function IdentityBar({ userName, onUserName, household, onHousehold, mode
       </div>
 
       <div className="flex flex-wrap items-center gap-2 border-t border-sand-200 pt-3">
-        <House className="h-4 w-4 text-stone-500" aria-hidden />
-        <span className="text-sm text-stone-500">Código de Hogar:</span>
+        <House className="h-4 w-4 text-ink-500" aria-hidden />
+        <span className="text-sm text-ink-500">Código de Hogar:</span>
         {editingCode ? (
           <form
             className="flex flex-1 gap-2"
@@ -111,9 +111,9 @@ export function IdentityBar({ userName, onUserName, household, onHousehold, mode
               minLength={3}
               maxLength={40}
               aria-label="Código de Hogar"
-              className="h-10 min-w-0 flex-1 rounded-xl border border-sand-300 px-3 font-mono text-base uppercase outline-none focus:border-olive-500"
+              className="h-10 min-w-0 flex-1 rounded-xl border border-sand-300 px-3 font-mono text-base uppercase outline-none focus:border-ink-500"
             />
-            <button type="submit" className="h-10 rounded-xl bg-olive-600 px-3 text-sm font-semibold text-white">
+            <button type="submit" className="h-10 rounded-xl bg-ink-600 px-3 text-sm font-semibold text-white">
               Unirme
             </button>
           </form>
@@ -124,13 +124,13 @@ export function IdentityBar({ userName, onUserName, household, onHousehold, mode
               setCodeDraft(household);
               setEditingCode(true);
             }}
-            className="inline-flex min-h-10 items-center gap-1.5 rounded-lg bg-sand-100 px-3 font-mono text-sm font-bold text-stone-800"
+            className="inline-flex min-h-10 items-center gap-1.5 rounded-lg bg-sand-100 px-3 font-mono text-sm font-bold text-ink-800"
             title="Comparte este código con tu familia para usar la misma lista"
           >
-            {household} <Pencil className="h-3.5 w-3.5 text-stone-500" />
+            {household} <Pencil className="h-3.5 w-3.5 text-ink-500" />
           </button>
         )}
-        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-sand-100 px-2.5 py-1 text-xs font-medium text-stone-600" title={mode === 'supabase' ? 'Sincronizado entre dispositivos con Supabase Realtime' : 'Guardado en este navegador; se sincroniza entre pestañas'}>
+        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-sand-100 px-2.5 py-1 text-xs font-medium text-ink-600" title={mode === 'supabase' ? 'Sincronizado entre dispositivos con Supabase Realtime' : 'Guardado en este navegador; se sincroniza entre pestañas'}>
           <span className={`h-2 w-2 rounded-full ${statusDot}`} />
           {mode === 'supabase' ? <Cloud className="h-3.5 w-3.5" /> : <HardDrive className="h-3.5 w-3.5" />}
           {mode === 'supabase' ? 'En la nube' : 'Solo este dispositivo'}

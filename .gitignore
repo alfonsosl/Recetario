@@ -31,3 +31,4 @@ descargas/
 # Salidas de datos/build.py (la copia válida está en src/data/recetario.json)
 datos/recetario.json
 __pycache__/
+datos/sugerencias.json

@@ -1,6 +1,6 @@
-import type { DayKey, Difficulty, DishType, Ingredient, MealType, Recipe, RecipeCategory, Section, Unit, WeekNumber, WeekPlan } from '../types';
-import { imageFor } from './images';
+import type { DayKey, Difficulty, DishType, Ingredient, MealType, NutritionGroup, Recipe, RecipeCategory, Section, Unit, WeekNumber, WeekPlan } from '../types';
 import raw from './recetario.json';
+import rawSuggestions from './sugerencias.json';
 
 /**
  * Fuente única de datos: src/data/recetario.json, generado con datos/build.py
@@ -33,6 +33,8 @@ interface RawRecipe {
   notas: string;
   conservacion: string;
   genera: string[];
+  grupo?: NutritionGroup | null;
+  emoji?: string;
 }
 
 interface RawPlan {
@@ -63,7 +65,44 @@ const toIngredient = (i: RawIngredient): Ingredient => ({
   ...(i.de_receta ? { fromRecipe: i.de_receta } : {}),
 });
 
-export const ALL_RECIPES: Recipe[] = data.recetas.map((r) => ({
+/** Icono por receta (el recetario no trae fotos; los emojis son símbolos, no imágenes reales). */
+const EMOJI_BY_ID: Record<string, string> = {
+  lentejas_verduras: '🍲', cocido: '🍲', garbanzos_espinacas: '🥬', alubias_verduras: '🍲', ropa_vieja: '🍖',
+  sopa_picadillo: '🥣', arroz_blanco: '🍚', arroz_pescado: '🥘', arroz_pollo: '🥘', arroz_chorizo: '🥘',
+  macarrones_bolonesa: '🍝', espaguetis_carbonara: '🍝', lasana_carne: '🍝', ensalada_pasta: '🥗',
+  filetes_empanados: '🍗', carne_con_patatas: '🥩', pollo_horno_patatas: '🍗', pollo_ajillo: '🍗',
+  albondigas_salsa: '🧆', lomo_plancha: '🥩', pechuga_plancha: '🍗', hamburguesas_caseras: '🍔',
+  berenjenas_rellenas: '🍆', salmon_horno_patatas: '🐟', pez_espada_plancha: '🐟', dorada_frita: '🐟',
+  merluza_salsa_verde: '🐟', bacalao_tomate: '🐟', boquerones_fritos: '🐟', sepia_plancha: '🦑',
+  croquetas_cocido: '🥟', croquetas_bacalao: '🥟', croquetas_pollo: '🥟', huevos_fritos: '🍳',
+  tortilla_francesa: '🥚', tortilla_patatas: '🥔', revuelto_champinones: '🍄', pisto_huevo: '🍅',
+  patatas_fritas: '🍟', judias_verdes_patatas: '🥬', crema_calabacin: '🥣', crema_calabaza: '🎃',
+  ensalada_mixta: '🥗', ensalada_pollo_mayonesa: '🥗', empanada_atun: '🥧', empanada_queso: '🥧', pizza_casera: '🍕',
+};
+
+export const CATEGORY_EMOJI: Record<RecipeCategory, string> = {
+  legumbre: '🍲', arroz: '🥘', pasta: '🍝', carne: '🥩', pescado: '🐟', huevo: '🥚',
+  verdura: '🥦', ensalada: '🥗', masa_frito: '🥧', guarnicion: '🍽️',
+};
+
+/** Emojis disponibles en el editor (Unicode ≤ 12, compatibles con Android 7+). */
+export const EMOJI_CHOICES = ['🍲', '🥘', '🍛', '🍚', '🍝', '🥣', '🥗', '🥬', '🥦', '🍅', '🥔', '🍆', '🎃', '🥒', '🥕', '🍄', '🐟', '🦑', '🍤', '🥩', '🍗', '🍖', '🧆', '🍔', '🍕', '🥧', '🥟', '🍳', '🥚', '🍟', '🥖', '🧀', '🍽️'];
+
+/** Grupo nutricional de las recetas base (misma lógica que datos/build.py → grupo()). */
+function baseGroup(id: string, category: string): NutritionGroup | null {
+  if (id === 'cocido' || id === 'ropa_vieja' || (category === 'legumbre' && id !== 'sopa_picadillo')) return 'legumbre';
+  if (category === 'pescado' || ['croquetas_bacalao', 'empanada_atun', 'arroz_pescado'].includes(id)) return 'pescado';
+  if (
+    category === 'carne' ||
+    ['croquetas_cocido', 'croquetas_pollo', 'arroz_pollo', 'arroz_chorizo', 'macarrones_bolonesa', 'lasana_carne',
+      'berenjenas_rellenas', 'ensalada_pollo_mayonesa', 'espaguetis_carbonara', 'hamburguesas_caseras'].includes(id)
+  )
+    return 'carne';
+  if (category === 'huevo' || id === 'pisto_huevo') return 'huevo';
+  return null;
+}
+
+const toRecipe = (r: RawRecipe): Recipe => ({
   id: r.id,
   title: r.nombre,
   category: r.categoria as RecipeCategory,
@@ -75,17 +114,20 @@ export const ALL_RECIPES: Recipe[] = data.recetas.map((r) => ({
   difficulty: r.dificultad as Difficulty,
   tags: r.etiquetas,
   origin: r.origen as Recipe['origin'],
+  group: r.grupo !== undefined ? r.grupo : baseGroup(r.id, r.categoria),
+  emoji: r.emoji ?? EMOJI_BY_ID[r.id] ?? CATEGORY_EMOJI[r.categoria as RecipeCategory],
   ingredients: r.ingredientes.map(toIngredient),
   steps: r.pasos,
   notes: r.notas,
   storage: r.conservacion,
   generates: r.genera,
-  image: imageFor(r.id, r.categoria as RecipeCategory),
-}));
+});
 
-const BY_ID = new Map(ALL_RECIPES.map((r) => [r.id, r]));
+/** Recetario base (src/data/recetario.json). Las ediciones del usuario viven en store/recipeStore. */
+export const BASE_RECIPES: Recipe[] = data.recetas.map(toRecipe);
 
-export const getRecipeById = (id: string): Recipe | undefined => BY_ID.get(id);
+/** Sugerencias de platos del mismo estilo (src/data/sugerencias.json, generado con datos/sugerencias_data.py). */
+export const SUGGESTIONS: Recipe[] = (rawSuggestions as unknown as { sugerencias: RawRecipe[] }).sugerencias.map(toRecipe);
 
 export const PLAN: WeekPlan[] = data.plan_mensual.map((s) => ({
   week: s.semana as WeekNumber,
@@ -123,29 +165,3 @@ export const DISH_TYPE_LABEL: Record<DishType, string> = {
 };
 
 export const DIFFICULTY_LABEL: Record<Difficulty, string> = { baja: 'Fácil', media: 'Media', alta: 'Elaborada' };
-
-/** Grupo nutricional del plato para el balance semanal (misma lógica que datos/build.py). */
-export function nutritionGroup(id: string): 'legumbre' | 'pescado' | 'carne' | 'huevo' | null {
-  const r = BY_ID.get(id);
-  if (!r) return null;
-  if (id === 'cocido' || id === 'ropa_vieja' || (r.category === 'legumbre' && id !== 'sopa_picadillo')) return 'legumbre';
-  if (r.category === 'pescado' || ['croquetas_bacalao', 'empanada_atun', 'arroz_pescado'].includes(id)) return 'pescado';
-  if (
-    r.category === 'carne' ||
-    [
-      'croquetas_cocido',
-      'croquetas_pollo',
-      'arroz_pollo',
-      'arroz_chorizo',
-      'macarrones_bolonesa',
-      'lasana_carne',
-      'berenjenas_rellenas',
-      'ensalada_pollo_mayonesa',
-      'espaguetis_carbonara',
-      'hamburguesas_caseras',
-    ].includes(id)
-  )
-    return 'carne';
-  if (r.category === 'huevo' || id === 'pisto_huevo') return 'huevo';
-  return null;
-}

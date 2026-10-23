@@ -4,7 +4,7 @@
  * - Fotos de Unsplash: stale-while-revalidate en una caché limitada.
  * - Nunca intercepta Supabase ni peticiones que no sean GET.
  */
-const VERSION = 'med5-v1';
+const VERSION = 'med5-v2';
 const SHELL = `${VERSION}-shell`;
 const IMAGES = `${VERSION}-img`;
 const MAX_IMAGES = 120;

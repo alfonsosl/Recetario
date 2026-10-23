@@ -4,7 +4,7 @@ const config: CapacitorConfig = {
   appId: 'com.alfonsosl.mediterraneo5',
   appName: 'Mediterráneo 5',
   webDir: 'dist',
-  backgroundColor: '#fdfbf7',
+  backgroundColor: '#f7f5f0',
   android: {
     allowMixedContent: false,
   },

@@ -1,34 +1,38 @@
 @import 'tailwindcss';
+@import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/inter';
 
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Montserrat Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
 
-  --color-sand-50: #fdfbf7;
-  --color-sand-100: #f8f3ea;
-  --color-sand-200: #efe6d6;
-  --color-sand-300: #e2d4bb;
+  /* Papel crema (fondo de página) */
+  --color-sand-50: #f7f5f0;
+  --color-sand-100: #efece4;
+  --color-sand-200: #e4e0d5;
+  --color-sand-300: #d3cdbf;
 
-  --color-olive-50: #f4f6ec;
-  --color-olive-100: #e6ebd2;
-  --color-olive-200: #cdd8a8;
-  --color-olive-500: #7a8b3c;
-  --color-olive-600: #5f6f2b;
-  --color-olive-700: #4a5722;
-  --color-olive-800: #3a441c;
-  --color-olive-900: #2a3114;
+  /* Tinta (texto, botones principales) */
+  --color-ink-50: #f4f4f1;
+  --color-ink-100: #e9e9e4;
+  --color-ink-200: #d4d4cd;
+  --color-ink-300: #b3b3aa;
+  --color-ink-400: #88887f;
+  --color-ink-500: #5c5c56;
+  --color-ink-600: #2c2c29;
+  --color-ink-700: #20201e;
+  --color-ink-800: #181816;
+  --color-ink-900: #10100f;
 
-  --color-terra-50: #fdf2ed;
-  --color-terra-100: #fae0d4;
-  --color-terra-500: #d2693f;
-  --color-terra-600: #b9542d;
-  --color-terra-700: #934225;
-
-  --color-sea-50: #ecf6f9;
-  --color-sea-100: #d2eaf1;
-  --color-sea-500: #2b8aa8;
-  --color-sea-600: #1f6f8b;
-  --color-sea-700: #195a71;
+  /* Amarillo de acento (banda de información) */
+  --color-lemon-50: #fdfaeb;
+  --color-lemon-100: #faf3c9;
+  --color-lemon-200: #f6ea9c;
+  --color-lemon-300: #f2df6c;
+  --color-lemon-400: #edd447;
+  --color-lemon-500: #e0c321;
+  --color-lemon-600: #a88f10;
+  --color-lemon-700: #6f5e08;
 
   --animate-sheet-up: sheet-up 0.28s cubic-bezier(0.22, 1, 0.36, 1);
   --animate-fade-in: fade-in 0.2s ease-out;
@@ -59,7 +63,7 @@
     text-size-adjust: 100%;
   }
   body {
-    @apply bg-sand-50 text-stone-800 font-sans antialiased;
+    @apply bg-sand-50 text-ink-700 font-sans antialiased;
     overscroll-behavior-y: none;
   }
   button {

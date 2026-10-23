@@ -138,18 +138,18 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
       {/* ---------- Sin lista activa ---------- */}
       {!activeList && !creating && (
         <section className="rounded-3xl border border-sand-200 bg-white p-6 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-olive-50">
-            <ShoppingBasket className="h-8 w-8 text-olive-600" />
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-ink-50">
+            <ShoppingBasket className="h-8 w-8 text-ink-600" />
           </div>
-          <h2 className="mt-3 font-display text-xl font-semibold text-olive-900">No hay ninguna lista activa</h2>
-          <p className="mt-1 text-sm text-stone-500">Crea una lista común: todos los que usen el código {household} la verán.</p>
+          <h2 className="mt-3 font-display text-xl font-semibold text-ink-900">No hay ninguna lista activa</h2>
+          <p className="mt-1 text-sm text-ink-500">Crea una lista común: todos los que usen el código {household} la verán.</p>
           <button
             type="button"
             onClick={() => {
               setImportWeek(planner.activeWeek);
               setCreating(true);
             }}
-            className="mt-5 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl bg-terra-500 px-6 text-lg font-semibold text-white shadow-md transition-colors hover:bg-terra-600 sm:w-auto"
+            className="mt-5 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl bg-lemon-400 px-6 text-lg font-semibold text-ink-900 shadow-md transition-colors hover:bg-lemon-300 sm:w-auto"
           >
             <ListPlus className="h-6 w-6" /> Crear Nueva Lista de la Compra
           </button>
@@ -159,21 +159,21 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
       {!activeList && creating && (
         <section className="space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="font-display text-xl font-semibold text-olive-900">Nueva lista de la compra</h2>
+            <h2 className="font-display text-xl font-semibold text-ink-900">Nueva lista de la compra</h2>
             <button type="button" onClick={() => setCreating(false)} className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-sand-200" aria-label="Cancelar">
               <X className="h-6 w-6" />
             </button>
           </div>
 
-          <div className="rounded-3xl border-2 border-olive-500 bg-white p-4">
+          <div className="rounded-3xl border-2 border-ink-500 bg-white p-4">
             <div className="flex items-start gap-3">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-olive-100 text-olive-700">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-ink-100 text-ink-700">
                 <CalendarDays className="h-6 w-6" />
               </span>
               <div>
-                <p className="text-xs font-bold uppercase tracking-wide text-olive-600">Opción A · Recomendada</p>
-                <h3 className="font-semibold text-stone-900">Importar ingredientes del menú semanal</h3>
-                <p className="text-sm text-stone-500">Suma las cantidades de los {importDishes.length} platos de la semana (5 personas), redondeadas para comprar. No incluye opcionales ni sobras de otras recetas; las {pantryCount} especias aparecen como "revisar". Después puedes añadir extras.</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-ink-600">Opción A · Recomendada</p>
+                <h3 className="font-semibold text-ink-900">Importar ingredientes del menú semanal</h3>
+                <p className="text-sm text-ink-500">Suma las cantidades de los {importDishes.length} platos de la semana (5 personas), redondeadas para comprar. No incluye opcionales ni sobras de otras recetas; las {pantryCount} especias aparecen como "revisar". Después puedes añadir extras.</p>
               </div>
             </div>
             <div className="mt-3 grid grid-cols-4 gap-2" role="group" aria-label="Semana a importar">
@@ -183,7 +183,7 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
                   type="button"
                   onClick={() => setImportWeek(w)}
                   aria-pressed={importWeek === w}
-                  className={`min-h-11 rounded-xl text-sm font-semibold ${importWeek === w ? 'bg-olive-600 text-white' : 'bg-sand-100 text-stone-700'}`}
+                  className={`min-h-11 rounded-xl text-sm font-semibold ${importWeek === w ? 'bg-ink-600 text-white' : 'bg-sand-100 text-ink-700'}`}
                 >
                   S{w}
                   {w === planner.activeWeek && ' ★'}
@@ -191,10 +191,10 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
               ))}
             </div>
             <details className="mt-3 rounded-xl bg-sand-50 p-3 text-sm">
-              <summary className="cursor-pointer font-medium text-stone-700">Ver los {importPreview.length} productos</summary>
+              <summary className="cursor-pointer font-medium text-ink-700">Ver los {importPreview.length} productos</summary>
               <ul className="mt-2 max-h-56 space-y-1 overflow-y-auto">
                 {importPreview.map((p) => (
-                  <li key={p.name} className="flex justify-between gap-3 text-stone-600">
+                  <li key={p.name} className="flex justify-between gap-3 text-ink-600">
                     <span>
                       {CATEGORY_META[p.category].emoji} {p.name}
                     </span>
@@ -206,7 +206,7 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
             <button
               type="button"
               onClick={createFromMenu}
-              className="mt-3 min-h-12 w-full rounded-xl bg-olive-600 font-semibold text-white hover:bg-olive-700"
+              className="mt-3 min-h-12 w-full rounded-xl bg-ink-600 font-semibold text-white hover:bg-ink-700"
             >
               Generar lista de la Semana {importWeek}
             </button>
@@ -217,13 +217,13 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
             onClick={createEmpty}
             className="flex w-full items-start gap-3 rounded-3xl border border-sand-200 bg-white p-4 text-left hover:bg-sand-100"
           >
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sea-50 text-sea-600">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-ink-50 text-ink-600">
               <FilePlus2 className="h-6 w-6" />
             </span>
             <span>
-              <span className="block text-xs font-bold uppercase tracking-wide text-sea-600">Opción B</span>
-              <span className="block font-semibold text-stone-900">Crear lista común desde cero</span>
-              <span className="block text-sm text-stone-500">Lista vacía para que cada uno añada lo que necesite.</span>
+              <span className="block text-xs font-bold uppercase tracking-wide text-ink-600">Opción B</span>
+              <span className="block font-semibold text-ink-900">Crear lista común desde cero</span>
+              <span className="block text-sm text-ink-500">Lista vacía para que cada uno añada lo que necesite.</span>
             </span>
           </button>
         </section>
@@ -235,10 +235,10 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
           <div className="sticky top-[calc(var(--safe-area-inset-top,env(safe-area-inset-top))+3.5rem)] z-20 -mx-4 bg-sand-50/95 px-4 py-2 backdrop-blur md:top-16">
             <div className="rounded-2xl border border-sand-200 bg-white p-3 shadow-sm">
               <div className="flex items-baseline justify-between gap-2">
-                <p className="min-w-0 truncate text-sm font-semibold text-stone-800">
-                  {activeList.name} <span className="font-normal text-stone-500">· por {activeList.createdBy}</span>
+                <p className="min-w-0 truncate text-sm font-semibold text-ink-800">
+                  {activeList.name} <span className="font-normal text-ink-500">· por {activeList.createdBy}</span>
                 </p>
-                <p className="shrink-0 font-display text-lg font-bold tabular-nums text-olive-700">{percent}%</p>
+                <p className="shrink-0 font-display text-lg font-bold tabular-nums text-ink-700">{percent}%</p>
               </div>
               <div
                 className="mt-2 h-3 overflow-hidden rounded-full bg-sand-200"
@@ -248,16 +248,16 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
                 aria-valuenow={percent}
                 aria-label="Progreso de la compra"
               >
-                <div className="h-full rounded-full bg-gradient-to-r from-olive-500 to-olive-600 transition-[width] duration-500" style={{ width: `${percent}%` }} />
+                <div className="h-full rounded-full bg-gradient-to-r from-ink-500 to-ink-600 transition-[width] duration-500" style={{ width: `${percent}%` }} />
               </div>
-              <p className="mt-1.5 text-sm font-medium tabular-nums text-stone-600" aria-live="polite">
+              <p className="mt-1.5 text-sm font-medium tabular-nums text-ink-600" aria-live="polite">
                 {completed} de {total} productos comprados - {percent}%
               </p>
             </div>
           </div>
 
           {total === 0 && (
-            <div className="rounded-3xl border border-dashed border-sand-300 p-8 text-center text-stone-500">
+            <div className="rounded-3xl border border-dashed border-sand-300 p-8 text-center text-ink-500">
               La lista está vacía. Añade el primer producto con la barra inferior.
             </div>
           )}
@@ -294,7 +294,7 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
                   void shopping.discardList();
                 }
               }}
-              className="min-h-11 rounded-full px-4 text-sm font-medium text-stone-500 hover:bg-sand-200 hover:text-red-600"
+              className="min-h-11 rounded-full px-4 text-sm font-medium text-ink-500 hover:bg-sand-200 hover:text-red-600"
             >
               Descartar lista
             </button>
@@ -313,22 +313,22 @@ export function ShoppingView({ shopping, planner, userName, onUserName, househol
             aria-expanded={showHistory}
             className="flex min-h-14 w-full items-center gap-2 px-4 text-left"
           >
-            <History className="h-5 w-5 text-stone-500" />
-            <span className="flex-1 font-semibold text-stone-800">Historial de Listas Completadas</span>
-            <span className="rounded-full bg-sand-100 px-2 py-0.5 text-xs font-bold text-stone-600">{shopping.history.length}</span>
-            <ChevronDown className={`h-5 w-5 text-stone-400 transition-transform ${showHistory ? 'rotate-180' : ''}`} />
+            <History className="h-5 w-5 text-ink-500" />
+            <span className="flex-1 font-semibold text-ink-800">Historial de Listas Completadas</span>
+            <span className="rounded-full bg-sand-100 px-2 py-0.5 text-xs font-bold text-ink-600">{shopping.history.length}</span>
+            <ChevronDown className={`h-5 w-5 text-ink-400 transition-transform ${showHistory ? 'rotate-180' : ''}`} />
           </button>
           {showHistory && (
             <ul className="divide-y divide-sand-200 border-t border-sand-200">
               {shopping.history.map((l) => (
                 <li key={l.id} className="flex items-center justify-between gap-3 px-4 py-3">
                   <div className="min-w-0">
-                    <p className="truncate font-medium text-stone-800">{l.name}</p>
-                    <p className="text-xs text-stone-500">
+                    <p className="truncate font-medium text-ink-800">{l.name}</p>
+                    <p className="text-xs text-ink-500">
                       {l.completedAt ? formatDateTime(l.completedAt) : '—'} · creada por {l.createdBy}
                     </p>
                   </div>
-                  <span className="shrink-0 rounded-full bg-olive-50 px-2.5 py-1 text-xs font-bold text-olive-700">{l.itemCount} productos</span>
+                  <span className="shrink-0 rounded-full bg-ink-50 px-2.5 py-1 text-xs font-bold text-ink-700">{l.itemCount} productos</span>
                 </li>
               ))}
             </ul>

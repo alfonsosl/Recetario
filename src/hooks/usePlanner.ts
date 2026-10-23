@@ -1,6 +1,8 @@
 import { useCallback, useMemo } from 'react';
-import { getDefaultSlot, getRecipeById, nutritionGroup } from '../data';
+import { BASE_RECIPES, getDefaultSlot } from '../data';
+import { useRecipes } from '../store/recipeStore';
 import type { DayKey, MealType, Recipe, WeekNumber } from '../types';
+import { evaluateWeek } from '../utils/balance';
 import { DAYS, MEALS } from '../utils/days';
 import { getISOWeek, getRotationWeek } from '../utils/isoWeek';
 import { useLocalStorage } from './useLocalStorage';
@@ -9,15 +11,12 @@ import { useLocalStorage } from './useLocalStorage';
 type Overrides = Record<string, string[]>;
 
 const slotKey = (week: WeekNumber, day: DayKey, meal: MealType) => `w${week}-${day}-${meal}`;
+const BASE_BY_ID = new Map(BASE_RECIPES.map((r) => [r.id, r]));
 
-export interface Balance {
-  legumbre: number;
-  pescado: number;
-  carne: number;
-  huevo: number;
-}
+export const MAX_DISHES = 3;
 
 export function usePlanner() {
+  const { byId } = useRecipes();
   const isoWeek = getISOWeek();
   const autoWeek = getRotationWeek();
   // null = seguir la rotación automática
@@ -29,15 +28,16 @@ export function usePlanner() {
   const getSlotIds = useCallback(
     (week: WeekNumber, day: DayKey, meal: MealType): string[] => {
       const o = overrides[slotKey(week, day, meal)];
-      return Array.isArray(o) && o.every((id) => getRecipeById(id)) ? o : getDefaultSlot(week, day, meal);
+      // Si alguna receta del cambio se ha eliminado, se vuelve al plan original.
+      return Array.isArray(o) && o.length > 0 && o.every((id) => byId.has(id)) ? o : getDefaultSlot(week, day, meal);
     },
-    [overrides],
+    [overrides, byId],
   );
 
-  /** Platos de una comida o cena (1 o 2: p. ej. primero + segundo). */
+  /** Platos de una comida o cena (normalmente 1-2: primero/acompañamiento + segundo). */
   const getSlot = useCallback(
-    (week: WeekNumber, day: DayKey, meal: MealType): Recipe[] => getSlotIds(week, day, meal).map((id) => getRecipeById(id)!),
-    [getSlotIds],
+    (week: WeekNumber, day: DayKey, meal: MealType): Recipe[] => getSlotIds(week, day, meal).map((id) => byId.get(id)!),
+    [getSlotIds, byId],
   );
 
   const isSwapped = useCallback(
@@ -45,20 +45,43 @@ export function usePlanner() {
     [overrides],
   );
 
-  /** Sustituye el plato en la posición `index` de esa comida/cena por otra receta. */
-  const swapDish = useCallback(
-    (week: WeekNumber, day: DayKey, meal: MealType, index: number, recipeId: string) =>
+  const updateSlot = useCallback(
+    (week: WeekNumber, day: DayKey, meal: MealType, fn: (ids: string[]) => string[]) =>
       setOverrides((o) => {
         const key = slotKey(week, day, meal);
-        const current = Array.isArray(o[key]) ? [...o[key]] : [...getDefaultSlot(week, day, meal)];
-        current[index] = recipeId;
-        const next = { ...o };
         const original = getDefaultSlot(week, day, meal);
-        if (current.length === original.length && current.every((id, i) => id === original[i])) delete next[key];
-        else next[key] = current;
-        return next;
+        const current = Array.isArray(o[key]) && o[key].length ? o[key] : original;
+        const next = fn([...current]).slice(0, MAX_DISHES);
+        const copy = { ...o };
+        if (next.length === 0) return o;
+        if (next.length === original.length && next.every((id, i) => id === original[i])) delete copy[key];
+        else copy[key] = next;
+        return copy;
       }),
     [setOverrides],
+  );
+
+  /** Sustituye el plato en la posición `index`. */
+  const swapDish = useCallback(
+    (week: WeekNumber, day: DayKey, meal: MealType, index: number, recipeId: string) =>
+      updateSlot(week, day, meal, (ids) => {
+        ids[index] = recipeId;
+        return ids;
+      }),
+    [updateSlot],
+  );
+
+  /** Añade un plato (acompañamiento). Los primeros y guarniciones se colocan delante. */
+  const addDish = useCallback(
+    (week: WeekNumber, day: DayKey, meal: MealType, recipeId: string, first = false) =>
+      updateSlot(week, day, meal, (ids) => (first ? [recipeId, ...ids] : [...ids, recipeId])),
+    [updateSlot],
+  );
+
+  const removeDish = useCallback(
+    (week: WeekNumber, day: DayKey, meal: MealType, index: number) =>
+      updateSlot(week, day, meal, (ids) => (ids.length > 1 ? ids.filter((_, i) => i !== index) : ids)),
+    [updateSlot],
   );
 
   const resetWeek = useCallback(
@@ -67,22 +90,23 @@ export function usePlanner() {
     [setOverrides],
   );
 
-  /** Todos los platos de la semana (cada aparición cuenta para la lista de la compra). */
-  const weekRecipes = useCallback(
-    (week: WeekNumber): Recipe[] => DAYS.flatMap((d) => MEALS.flatMap((m) => getSlot(week, d.key, m.key))),
+  const weekMeals = useCallback(
+    (week: WeekNumber): Recipe[][] => DAYS.flatMap((d) => MEALS.map((m) => getSlot(week, d.key, m.key))),
     [getSlot],
   );
 
-  const weekBalance = useCallback(
-    (week: WeekNumber): Balance => {
-      const b: Balance = { legumbre: 0, pescado: 0, carne: 0, huevo: 0 };
-      for (const r of weekRecipes(week)) {
-        const g = nutritionGroup(r.id);
-        if (g) b[g] += 1;
-      }
-      return b;
-    },
-    [weekRecipes],
+  /** Todos los platos de la semana (cada aparición cuenta para la lista de la compra). */
+  const weekRecipes = useCallback((week: WeekNumber): Recipe[] => weekMeals(week).flat(), [weekMeals]);
+
+  /** Equilibrio de la semana con tus cambios y con el plan original del recetario. */
+  const evaluate = useCallback(
+    (week: WeekNumber) => ({
+      current: evaluateWeek(weekMeals(week)),
+      original: evaluateWeek(
+        DAYS.flatMap((d) => MEALS.map((m) => getDefaultSlot(week, d.key, m.key).map((id) => BASE_BY_ID.get(id)!))),
+      ),
+    }),
+    [weekMeals],
   );
 
   /** Dónde aparece cada receta en el plan (semana, día, momento). */
@@ -113,9 +137,12 @@ export function usePlanner() {
     getSlot,
     isSwapped,
     swapDish,
+    addDish,
+    removeDish,
     resetWeek,
     weekRecipes,
-    weekBalance,
+    weekMeals,
+    evaluate,
     usage,
     swappedCount,
   };

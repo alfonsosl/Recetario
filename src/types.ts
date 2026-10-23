@@ -43,6 +43,7 @@ export type RecipeCategory =
   | 'guarnicion';
 
 export type DishType = 'principal' | 'primero' | 'guarnicion';
+export type NutritionGroup = 'legumbre' | 'pescado' | 'carne' | 'huevo';
 export type Difficulty = 'baja' | 'media' | 'alta';
 
 export interface Recipe {
@@ -56,14 +57,18 @@ export interface Recipe {
   cookTime: number;
   difficulty: Difficulty;
   tags: string[];
-  origin: 'usuario' | 'nuevo';
+  /** usuario/nuevo = recetario base · sugerencia = aceptada desde Sugerencias · propia = creada en la app */
+  origin: 'usuario' | 'nuevo' | 'sugerencia' | 'propia';
+  /** Proteína principal del plato, para evaluar el equilibrio de la semana. */
+  group: NutritionGroup | null;
+  /** Icono del plato (no se usan fotografías). */
+  emoji: string;
   ingredients: Ingredient[];
   steps: string[];
   notes: string;
   storage: string;
   /** Sobras que genera para otras recetas (p. ej. caldo de cocido). */
   generates: string[];
-  image: string;
 }
 
 export interface DayPlan {

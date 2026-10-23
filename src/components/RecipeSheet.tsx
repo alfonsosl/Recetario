@@ -1,17 +1,20 @@
-import { ArrowLeftRight, CalendarDays, Check, ChefHat, Clock, Info, ListPlus, Recycle, Refrigerator, Sun, Users, X } from 'lucide-react';
+import { ArrowLeftRight, CalendarPlus, Check, Heart, Info, ListPlus, Pencil, Recycle, Refrigerator, Sun, UtensilsCrossed, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { CATEGORY_LABEL, DIFFICULTY_LABEL, DISH_TYPE_LABEL } from '../data';
 import { useBackToClose } from '../hooks/useBackToClose';
-import { CATEGORY_LABEL, DIFFICULTY_LABEL, DISH_TYPE_LABEL, getRecipeById } from '../data';
+import { recipeStore, useRecipes } from '../store/recipeStore';
 import type { DayKey, MealType, Recipe, WeekNumber } from '../types';
 import { DAYS } from '../utils/days';
 import { capitalize, formatIngredient } from '../utils/format';
-import { RecipeImage } from './RecipeImage';
+import { DishArt } from './DishArt';
 
 interface Props {
   recipe: Recipe;
   onClose: () => void;
   onAddToList?: (recipe: Recipe) => void;
   onSwap?: () => void;
+  onEdit?: (recipe: Recipe) => void;
+  onAddToMenu?: (recipe: Recipe) => void;
   /** Dónde aparece la receta en el plan mensual. */
   usage?: { week: WeekNumber; day: DayKey; meal: MealType }[];
 }
@@ -22,11 +25,22 @@ interface WakeLockSentinelLike {
   release: () => Promise<void>;
 }
 
+const GROUP_LABEL = { legumbre: 'Legumbre', pescado: 'Pescado', carne: 'Carne', huevo: 'Huevo' } as const;
+
+/** "Lentejas con verduras (sin carne)" → ["Lentejas con", "verduras (sin carne)"] para el título en dos líneas. */
+function splitTitle(title: string): [string, string] {
+  const words = title.split(' ');
+  if (words.length < 3) return [title, ''];
+  const half = Math.ceil(words.length / 2);
+  return [words.slice(0, half).join(' '), words.slice(half).join(' ')];
+}
+
 /**
- * Ficha de receta: pantalla completa tipo bottom sheet en móvil, modal centrado en escritorio.
- * Cabecera sticky con cierre al alcance del pulgar y pestañas internas en móvil.
+ * Ficha de receta con estética de libro de cocina: título grande, plato centrado,
+ * banda amarilla de datos y columnas de ingredientes y preparación.
+ * Pantalla completa en móvil (pestañas internas) y modal en escritorio.
  */
-export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }: Props) {
+export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, onEdit, onAddToMenu, usage = [] }: Props) {
   const [tab, setTab] = useState<InnerTab>('ingredients');
   const [haveIngredients, setHaveIngredients] = useState<Set<number>>(new Set());
   const [doneSteps, setDoneSteps] = useState<Set<number>>(new Set());
@@ -34,6 +48,8 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
   const [added, setAdded] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const requestClose = useBackToClose(onClose);
+  const { favorites, editedIds } = useRecipes();
+  const isFavorite = favorites.has(recipe.id);
 
   useEffect(() => () => void wakeLock?.release(), [wakeLock]);
 
@@ -59,46 +75,58 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
   };
 
   const hasWakeLock = typeof navigator !== 'undefined' && 'wakeLock' in navigator;
+  const [line1, line2] = splitTitle(recipe.title);
+
+  const infoBand = (
+    <div className="flex overflow-hidden rounded-md bg-lemon-100 text-ink-800">
+      <div className="flex w-24 shrink-0 items-center bg-lemon-300 px-3 py-2 text-[11px] font-semibold leading-tight">Información del plato</div>
+      <dl className="grid flex-1 grid-cols-4 divide-x divide-lemon-200 text-center">
+        {(
+          [
+            ['5', 'Raciones'],
+            [`${recipe.prepTime}′`, 'Prep.'],
+            [`${recipe.cookTime}′`, 'Cocción'],
+            [recipe.group ? GROUP_LABEL[recipe.group] : '—', 'Proteína'],
+          ] as const
+        ).map(([v, l]) => (
+          <div key={l} className="px-1 py-2">
+            <dt className="sr-only">{l}</dt>
+            <dd className="font-display text-sm font-bold leading-tight">{v}</dd>
+            <dd className="text-[10px] text-ink-500">{l}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
 
   const ingredientsPanel = (
     <section aria-labelledby="ing-title">
-      <h3 id="ing-title" className="mb-3 hidden font-display text-xl font-semibold text-olive-900 md:block">
-        Ingredientes <span className="text-base font-normal text-stone-500">(5 personas)</span>
+      <h3 id="ing-title" className="mb-2 font-display text-sm font-bold text-ink-900">
+        Ingredientes <span className="font-normal text-ink-400">· 5 personas</span>
       </h3>
-      <ul className="divide-y divide-sand-200 rounded-2xl border border-sand-200 bg-white">
+      <ul className="divide-y divide-sand-200">
         {recipe.ingredients.map((ing, i) => {
           const have = haveIngredients.has(i);
           return (
             <li key={`${ing.name}-${i}`}>
-              <button
-                type="button"
-                onClick={() => setHaveIngredients((s) => toggleIn(s, i))}
-                className="flex min-h-14 w-full items-center gap-3 px-4 py-3 text-left"
-                aria-pressed={have}
-              >
-                <span
-                  className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
-                    have ? 'border-olive-600 bg-olive-600 text-white' : 'border-sand-300'
-                  }`}
-                >
-                  {have && <Check className="h-4 w-4" strokeWidth={3} />}
+              <button type="button" onClick={() => setHaveIngredients((s) => toggleIn(s, i))} className="flex min-h-12 w-full items-center gap-3 py-2 text-left" aria-pressed={have}>
+                <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-[1.5px] transition-colors ${have ? 'border-ink-800 bg-ink-800 text-white' : 'border-ink-300'}`}>
+                  {have && <Check className="h-3 w-3" strokeWidth={3} />}
                 </span>
-                <span className={`flex-1 text-lg leading-snug ${have ? 'text-stone-400 line-through' : 'text-stone-800'}`}>
+                <span className={`flex-1 text-base leading-snug ${have ? 'text-ink-300 line-through' : 'text-ink-700'}`}>
                   {capitalize(ing.name)}
                   {(ing.optional || ing.fromRecipe) && (
-                    <span className="mt-0.5 flex flex-wrap gap-1 no-underline">
-                      {ing.optional && <span className="rounded-full bg-sand-100 px-2 py-0.5 text-xs font-semibold text-stone-500">opcional</span>}
+                    <span className="mt-0.5 flex flex-wrap gap-1">
+                      {ing.optional && <span className="rounded-full bg-sand-100 px-2 py-0.5 text-[11px] font-semibold text-ink-500">opcional</span>}
                       {ing.fromRecipe && (
-                        <span className="rounded-full bg-olive-50 px-2 py-0.5 text-xs font-semibold text-olive-700">
-                          sobras de {getRecipeById(ing.fromRecipe)?.title ?? ing.fromRecipe}
+                        <span className="rounded-full bg-lemon-100 px-2 py-0.5 text-[11px] font-semibold text-lemon-700">
+                          sobras de {recipeStore.getById(ing.fromRecipe)?.title ?? ing.fromRecipe}
                         </span>
                       )}
                     </span>
                   )}
                 </span>
-                <span className={`shrink-0 text-right text-lg font-semibold tabular-nums ${have ? 'text-stone-400' : 'text-olive-700'}`}>
-                  {formatIngredient(ing)}
-                </span>
+                <span className={`shrink-0 text-right text-base font-semibold tabular-nums ${have ? 'text-ink-300' : 'text-ink-900'}`}>{formatIngredient(ing)}</span>
               </button>
             </li>
           );
@@ -109,10 +137,10 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
 
   const stepsPanel = (
     <section aria-labelledby="steps-title">
-      <h3 id="steps-title" className="mb-3 hidden font-display text-xl font-semibold text-olive-900 md:block">
-        Paso a paso
+      <h3 id="steps-title" className="mb-2 font-display text-sm font-bold text-ink-900">
+        Preparación
       </h3>
-      <ol className="space-y-3">
+      <ol className="space-y-2">
         {recipe.steps.map((step, i) => {
           const done = doneSteps.has(i);
           return (
@@ -121,18 +149,12 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
                 type="button"
                 onClick={() => setDoneSteps((s) => toggleIn(s, i))}
                 aria-pressed={done}
-                className={`flex w-full gap-4 rounded-2xl border p-4 text-left transition-colors ${
-                  done ? 'border-olive-200 bg-olive-50' : 'border-sand-200 bg-white'
-                }`}
+                className={`flex w-full gap-3 rounded-xl p-3 text-left transition-colors ${done ? 'bg-sand-100' : 'bg-white'}`}
               >
-                <span
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-base font-bold ${
-                    done ? 'bg-olive-600 text-white' : 'bg-terra-100 text-terra-700'
-                  }`}
-                >
-                  {done ? <Check className="h-5 w-5" strokeWidth={3} /> : i + 1}
+                <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold ${done ? 'bg-ink-800 text-white' : 'bg-lemon-200 text-ink-900'}`}>
+                  {done ? <Check className="h-4 w-4" strokeWidth={3} /> : i + 1}
                 </span>
-                <p className={`text-lg leading-relaxed md:text-base ${done ? 'text-stone-500' : 'text-stone-800'}`}>{step}</p>
+                <p className={`text-[17px] leading-relaxed md:text-[15px] ${done ? 'text-ink-400' : 'text-ink-700'}`}>{step}</p>
               </button>
             </li>
           );
@@ -141,37 +163,32 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
     </section>
   );
 
+  const iconBtn = 'flex h-11 w-11 items-center justify-center rounded-full text-ink-600 hover:bg-sand-100 active:bg-sand-200';
+
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center md:items-center md:p-6" role="dialog" aria-modal="true" aria-label={recipe.title}>
-      <div className="animate-fade-in absolute inset-0 bg-stone-900/50" onClick={() => requestClose()} aria-hidden />
+      <div className="animate-fade-in absolute inset-0 bg-ink-900/40" onClick={() => requestClose()} aria-hidden />
       <div
         ref={scrollRef}
-        className="animate-sheet-up relative flex h-full w-full flex-col overflow-y-auto overscroll-contain bg-sand-50 md:h-auto md:max-h-[90vh] md:max-w-4xl md:rounded-3xl md:shadow-2xl"
+        className="animate-sheet-up relative flex h-full w-full flex-col overflow-y-auto overscroll-contain bg-sand-50 md:h-auto md:max-h-[92vh] md:max-w-4xl md:rounded-[28px] md:shadow-2xl"
       >
         {/* Cabecera sticky */}
-        <header className="pt-safe sticky top-0 z-10 border-b border-sand-200 bg-sand-50/95 backdrop-blur">
-          <div className="flex items-center gap-2 px-2 py-2">
-            <button
-              type="button"
-              onClick={() => requestClose()}
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-stone-700 hover:bg-sand-200 active:bg-sand-300"
-              aria-label="Cerrar receta"
-            >
+        <header className="pt-safe sticky top-0 z-10 bg-sand-50/95 backdrop-blur">
+          <div className="flex items-center gap-1 px-2 py-2">
+            <button type="button" onClick={() => requestClose()} className={`${iconBtn} h-12 w-12`} aria-label="Cerrar receta">
               <X className="h-7 w-7" />
             </button>
-            <h2 className="min-w-0 flex-1 truncate font-display text-lg font-semibold text-olive-900">{recipe.title}</h2>
+            <p className="min-w-0 flex-1 truncate text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-400">Mediterráneo 5 · Recetario</p>
             {hasWakeLock && (
               <button
                 type="button"
                 onClick={toggleWakeLock}
                 aria-pressed={Boolean(wakeLock)}
                 title="Mantener la pantalla encendida mientras cocinas"
-                className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${
-                  wakeLock ? 'bg-terra-100 text-terra-700' : 'text-stone-500 hover:bg-sand-200'
-                }`}
+                className={`${iconBtn} ${wakeLock ? 'bg-lemon-200 text-ink-900' : ''}`}
                 aria-label="Mantener pantalla encendida"
               >
-                <Sun className="h-6 w-6" />
+                <Sun className="h-5 w-5" />
               </button>
             )}
           </div>
@@ -192,9 +209,7 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
                   setTab(key);
                   scrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className={`min-h-12 rounded-xl text-base font-semibold transition-colors ${
-                  tab === key ? 'bg-olive-600 text-white shadow' : 'bg-sand-100 text-stone-600'
-                }`}
+                className={`min-h-11 rounded-full text-[15px] font-semibold transition-colors ${tab === key ? 'bg-ink-800 text-white' : 'bg-sand-100 text-ink-500'}`}
               >
                 {label}
               </button>
@@ -202,38 +217,69 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
           </div>
         </header>
 
-        <div className="pb-safe flex-1">
-          <RecipeImage src={recipe.image} alt={recipe.title} width={900} sizes="(min-width: 768px) 900px, 100vw" eager className="aspect-[16/9] w-full md:aspect-[21/8]" />
+        <div className="pb-safe flex-1 px-5 pb-6 md:px-10">
+          {/* Página: título + plato */}
+          <div className="pt-2">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-400">
+              {CATEGORY_LABEL[recipe.category]} · {DISH_TYPE_LABEL[recipe.dishType]}
+              {editedIds.has(recipe.id) && ' · editada'}
+              {recipe.origin === 'propia' && ' · receta propia'}
+              {recipe.origin === 'sugerencia' && ' · sugerencia'}
+            </p>
+            <h2 className="mt-1 font-display text-[2rem] font-bold leading-[1.05] tracking-tight text-ink-900 md:text-5xl">
+              {line1}
+              {line2 && (
+                <>
+                  <br />
+                  {line2}
+                </>
+              )}
+            </h2>
+          </div>
 
-          <div className="space-y-4 p-4 md:p-6">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-terra-600">
-                {CATEGORY_LABEL[recipe.category]} · {DISH_TYPE_LABEL[recipe.dishType]} · {recipe.moments.map(capitalize).join(' y ')}
-              </p>
-              <h2 className="mt-1 font-display text-2xl font-semibold leading-tight text-olive-900 md:text-3xl">{recipe.title}</h2>
-              {recipe.tags.length > 0 && (
-                <p className="mt-2 flex flex-wrap gap-1.5">
-                  {recipe.tags.map((t) => (
-                    <span key={t} className="rounded-full bg-terra-50 px-2.5 py-0.5 text-xs font-semibold text-terra-700">
-                      #{t}
-                    </span>
-                  ))}
-                </p>
+          <div className="flex justify-center py-6">
+            <DishArt recipe={recipe} size="lg" />
+          </div>
+
+          {/* Fila de iconos */}
+          <div className="flex items-center justify-between border-b border-sand-200 pb-2">
+            <div className="flex items-center">
+              <button
+                type="button"
+                onClick={() => recipeStore.toggleFavorite(recipe.id)}
+                aria-pressed={isFavorite}
+                aria-label={isFavorite ? 'Quitar de favoritas' : 'Marcar como favorita'}
+                className={iconBtn}
+              >
+                <Heart className={`h-5 w-5 ${isFavorite ? 'fill-ink-900 text-ink-900' : ''}`} />
+              </button>
+              {onEdit && (
+                <button type="button" onClick={() => requestClose(() => onEdit(recipe))} aria-label="Editar receta" title="Editar receta" className={iconBtn}>
+                  <Pencil className="h-5 w-5" />
+                </button>
+              )}
+              {onAddToMenu && (
+                <button type="button" onClick={() => requestClose(() => onAddToMenu(recipe))} aria-label="Añadir al menú" title="Añadir al menú" className={iconBtn}>
+                  <CalendarPlus className="h-5 w-5" />
+                </button>
               )}
             </div>
-
-            <div className="flex flex-wrap gap-2 text-sm">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 font-medium text-stone-700 ring-1 ring-sand-200">
-                <Users className="h-4 w-4 text-olive-600" /> 5 personas
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 font-medium text-stone-700 ring-1 ring-sand-200">
-                <Clock className="h-4 w-4 text-olive-600" /> {recipe.prepTime + recipe.cookTime} min
-                <span className="text-stone-400">({recipe.prepTime} prep.)</span>
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 font-medium text-stone-700 ring-1 ring-sand-200">
-                <ChefHat className="h-4 w-4 text-olive-600" /> {DIFFICULTY_LABEL[recipe.difficulty]}
-              </span>
+            <div className="flex gap-1" aria-hidden>
+              <span className="h-1.5 w-1.5 rounded-full bg-ink-800" />
+              <span className="h-1.5 w-1.5 rounded-full bg-ink-200" />
+              <span className="h-1.5 w-1.5 rounded-full bg-ink-200" />
             </div>
+            <span className="flex h-11 w-11 items-center justify-center text-ink-400" aria-hidden>
+              <UtensilsCrossed className="h-5 w-5" />
+            </span>
+          </div>
+
+          <div className="mt-4 space-y-4">
+            {infoBand}
+            <p className="text-sm text-ink-500">
+              {recipe.moments.map(capitalize).join(' y ')} · Dificultad {DIFFICULTY_LABEL[recipe.difficulty].toLowerCase()}
+              {recipe.tags.length > 0 && <> · {recipe.tags.map((t) => `#${t}`).join(' ')}</>}
+            </p>
 
             {(onAddToList || onSwap) && (
               <div className="flex flex-col gap-2 sm:flex-row">
@@ -245,7 +291,7 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
                       setAdded(true);
                     }}
                     disabled={added}
-                    className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-sea-600 px-4 font-semibold text-white hover:bg-sea-700 disabled:bg-olive-600"
+                    className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full bg-ink-800 px-4 font-semibold text-white hover:bg-ink-700 disabled:bg-ink-500"
                   >
                     {added ? <Check className="h-5 w-5" /> : <ListPlus className="h-5 w-5" />}
                     {added ? 'Añadido a la Lista Común' : 'Añadir ingredientes a la lista'}
@@ -255,7 +301,7 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
                   <button
                     type="button"
                     onClick={() => requestClose(onSwap)}
-                    className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-sand-300 bg-white px-4 font-semibold text-stone-700 hover:bg-sand-100"
+                    className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full border border-ink-200 bg-white px-4 font-semibold text-ink-700 hover:bg-sand-100"
                   >
                     <ArrowLeftRight className="h-5 w-5" /> Cambiar este plato
                   </button>
@@ -263,47 +309,45 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
               </div>
             )}
 
-            {/* Móvil: una pestaña cada vez. Escritorio: dos columnas. */}
+            {/* Móvil: una pestaña cada vez. Escritorio: dos columnas como en una página. */}
             <div className="md:hidden">{tab === 'ingredients' ? ingredientsPanel : stepsPanel}</div>
-            <div className="hidden gap-6 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+            <div className="hidden gap-8 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
               {ingredientsPanel}
               {stepsPanel}
             </div>
 
             {(recipe.notes || recipe.storage || recipe.generates.length > 0 || usage.length > 0) && (
-              <section className="space-y-3 rounded-2xl border border-sand-200 bg-white p-4 text-base text-stone-700">
+              <section className="space-y-3 border-t border-sand-200 pt-4 text-[15px] text-ink-600">
+                <h3 className="font-display text-sm font-bold text-ink-900">Notas</h3>
                 {recipe.notes && (
                   <p className="flex gap-3">
-                    <Info className="mt-0.5 h-5 w-5 shrink-0 text-sea-600" />
-                    <span>
-                      <strong className="font-semibold text-stone-900">Notas: </strong>
-                      {recipe.notes}
-                    </span>
+                    <Info className="mt-0.5 h-4 w-4 shrink-0 text-ink-400" />
+                    <span>{recipe.notes}</span>
                   </p>
                 )}
                 {recipe.storage && (
                   <p className="flex gap-3">
-                    <Refrigerator className="mt-0.5 h-5 w-5 shrink-0 text-sea-600" />
+                    <Refrigerator className="mt-0.5 h-4 w-4 shrink-0 text-ink-400" />
                     <span>
-                      <strong className="font-semibold text-stone-900">Conservación: </strong>
+                      <strong className="font-semibold text-ink-900">Conservación: </strong>
                       {recipe.storage}
                     </span>
                   </p>
                 )}
                 {recipe.generates.length > 0 && (
                   <p className="flex gap-3">
-                    <Recycle className="mt-0.5 h-5 w-5 shrink-0 text-olive-600" />
+                    <Recycle className="mt-0.5 h-4 w-4 shrink-0 text-ink-400" />
                     <span>
-                      <strong className="font-semibold text-stone-900">Reserva para otras recetas: </strong>
+                      <strong className="font-semibold text-ink-900">Reserva para otras recetas: </strong>
                       {recipe.generates.join(', ')}
                     </span>
                   </p>
                 )}
                 {usage.length > 0 && (
                   <div className="flex gap-3">
-                    <CalendarDays className="mt-0.5 h-5 w-5 shrink-0 text-terra-600" />
+                    <CalendarPlus className="mt-0.5 h-4 w-4 shrink-0 text-ink-400" />
                     <div>
-                      <strong className="font-semibold text-stone-900">En el plan: </strong>
+                      <strong className="font-semibold text-ink-900">En el plan: </strong>
                       <span className="mt-1 flex flex-wrap gap-1.5">
                         {usage.map((u) => (
                           <span key={`${u.week}-${u.day}-${u.meal}`} className="rounded-full bg-sand-100 px-2.5 py-0.5 text-sm">
@@ -324,7 +368,7 @@ export function RecipeSheet({ recipe, onClose, onAddToList, onSwap, usage = [] }
                   setTab('steps');
                   scrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="min-h-12 w-full rounded-xl bg-terra-500 font-semibold text-white md:hidden"
+                className="min-h-12 w-full rounded-full bg-lemon-300 font-semibold text-ink-900 md:hidden"
               >
                 Empezar a cocinar →
               </button>

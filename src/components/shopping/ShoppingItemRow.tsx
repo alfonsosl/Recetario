@@ -22,7 +22,7 @@ export function ShoppingItemRow({ item, checked, onToggle, onRemove }: Props) {
       >
         <span
           className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 transition-all duration-300 ${
-            checked ? 'scale-95 border-olive-600 bg-olive-600 text-white' : 'border-sand-300 bg-white'
+            checked ? 'scale-95 border-ink-600 bg-ink-600 text-white' : 'border-sand-300 bg-white'
           }`}
           aria-hidden
         >
@@ -31,17 +31,17 @@ export function ShoppingItemRow({ item, checked, onToggle, onRemove }: Props) {
         <span className="min-w-0 flex-1">
           <span
             data-checked={checked}
-            className={`strike inline text-base font-semibold leading-snug ${checked ? 'text-stone-400' : 'text-stone-800'}`}
+            className={`strike inline text-base font-semibold leading-snug ${checked ? 'text-ink-400' : 'text-ink-800'}`}
           >
             {item.name}
           </span>
-          <span className={`mt-0.5 block truncate text-xs ${checked ? 'text-stone-400' : 'text-stone-500'}`}>
+          <span className={`mt-0.5 block truncate text-xs ${checked ? 'text-ink-400' : 'text-ink-500'}`}>
             {author}
             {checked && item.checkedBy ? ` · comprado por ${item.checkedBy}` : ''}
           </span>
         </span>
         {item.quantity && (
-          <span className={`shrink-0 text-right text-sm font-semibold tabular-nums ${checked ? 'text-stone-400' : 'text-olive-700'}`}>
+          <span className={`shrink-0 text-right text-sm font-semibold tabular-nums ${checked ? 'text-ink-400' : 'text-ink-700'}`}>
             {item.quantity}
           </span>
         )}
@@ -49,7 +49,7 @@ export function ShoppingItemRow({ item, checked, onToggle, onRemove }: Props) {
       <button
         type="button"
         onClick={onRemove}
-        className={`flex w-12 shrink-0 items-center justify-center text-stone-300 hover:text-red-500 active:text-red-600 ${checked ? 'bg-sand-50' : 'bg-white'}`}
+        className={`flex w-12 shrink-0 items-center justify-center text-ink-300 hover:text-red-500 active:text-red-600 ${checked ? 'bg-sand-50' : 'bg-white'}`}
         aria-label={`Eliminar ${item.name}`}
       >
         <Trash2 className="h-5 w-5" />

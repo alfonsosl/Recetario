@@ -21,13 +21,16 @@ export function useBackToClose(onClose: () => void) {
       history.pushState({ med5Overlay: t }, '');
     }
     const onPop = () => {
+      // Con varios overlays apilados, solo se cierra el que ya no está en el historial.
+      if ((history.state as { med5Overlay?: string } | null)?.med5Overlay === t) return;
       onCloseRef.current();
       const after = afterRef.current;
       afterRef.current = null;
       after?.();
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') history.back();
+      // Escape cierra solo el overlay superior.
+      if (e.key === 'Escape' && (history.state as { med5Overlay?: string } | null)?.med5Overlay === t) history.back();
     };
     window.addEventListener('popstate', onPop);
     window.addEventListener('keydown', onKey);

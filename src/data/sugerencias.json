@@ -1,0 +1,1708 @@
+{
+  "sugerencias": [
+    {
+      "id": "lentejas_chorizo",
+      "nombre": "Lentejas estofadas con chorizo",
+      "categoria": "legumbre",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 50,
+      "dificultad": "baja",
+      "etiquetas": [
+        "legumbre",
+        "cuchara",
+        "congelable"
+      ],
+      "origen": "sugerencia",
+      "grupo": "legumbre",
+      "emoji": "🍲",
+      "ingredientes": [
+        {
+          "nombre": "lentejas pardinas",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "chorizo",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento verde",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "laurel",
+          "cantidad": 2,
+          "unidad": "hoja",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 40,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Lavar las lentejas (las pardinas no necesitan remojo).",
+        "Sofreír cebolla, pimiento y ajo picados 8 min en el aceite.",
+        "Añadir el chorizo en rodajas 2 min; fuera del fuego, el pimentón; después el tomate, 3 min.",
+        "Incorporar lentejas, zanahoria en rodajas y laurel; cubrir con ~2 l de agua fría y cocer 25 min a fuego suave.",
+        "Añadir la patata chascada y cocer 15-20 min más. Salar y reposar 5 min."
+      ],
+      "notas": "",
+      "conservacion": "Nevera 4 días; congelan bien sin la patata.",
+      "genera": []
+    },
+    {
+      "id": "garbanzos_bacalao",
+      "nombre": "Garbanzos con bacalao y espinacas",
+      "categoria": "legumbre",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 30,
+      "dificultad": "baja",
+      "etiquetas": [
+        "legumbre",
+        "pescado",
+        "cuchara"
+      ],
+      "origen": "sugerencia",
+      "grupo": "legumbre",
+      "emoji": "🍲",
+      "ingredientes": [
+        {
+          "nombre": "garbanzos cocidos",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "bacalao desalado",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "espinacas frescas",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de pescado",
+          "cantidad": 500,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": true
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pochar cebolla y ajo picados 8 min.",
+        "Fuera del fuego, añadir el pimentón; después el tomate, 5 min.",
+        "Añadir las espinacas y rehogar hasta que reduzcan.",
+        "Incorporar garbanzos escurridos y caldo; cocer 10 min.",
+        "Añadir el bacalao desmigado y cocer 4 min más. Rectificar de sal (el bacalao ya sala).",
+        "Opcional: servir con huevo duro picado."
+      ],
+      "notas": "Si el bacalao es salado, desalar 36-48 h cambiando el agua cada 8 h.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "arroz_cubana",
+      "nombre": "Arroz a la cubana",
+      "categoria": "arroz",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 25,
+      "dificultad": "baja",
+      "etiquetas": [
+        "huevo",
+        "rápido"
+      ],
+      "origen": "sugerencia",
+      "grupo": "huevo",
+      "emoji": "🍳",
+      "ingredientes": [
+        {
+          "nombre": "arroz largo",
+          "cantidad": 450,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate frito",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 5,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "plátano",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": true
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de girasol",
+          "cantidad": 200,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Dorar los ajos chafados en el aceite de oliva, nacarar el arroz 1 min y añadir el doble de agua hirviendo con sal.",
+        "Cocer 18 min tapado a fuego bajo y reposar 5 min.",
+        "Calentar el tomate frito.",
+        "Freír los huevos en el aceite de girasol (y, si se usa, el plátano en rodajas a lo largo).",
+        "Servir el arroz en flanera con tomate y un huevo frito por persona."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "arroz_horno",
+      "nombre": "Arroz al horno",
+      "categoria": "arroz",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 20,
+      "tiempo_coccion_min": 50,
+      "dificultad": "media",
+      "etiquetas": [
+        "carne",
+        "horno",
+        "fin de semana"
+      ],
+      "origen": "sugerencia",
+      "grupo": "carne",
+      "emoji": "🥘",
+      "ingredientes": [
+        {
+          "nombre": "arroz redondo",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "costilla de cerdo",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "morcilla",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "garbanzos cocidos",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 10,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "colorante o azafrán",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de pollo",
+          "cantidad": 1100,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 80,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Precalentar el horno a 220 °C.",
+        "En cazuela de barro, dorar la costilla salada; retirar. Dorar la patata en rodajas y un tomate en rodajas; retirar.",
+        "Dorar la cabeza de ajo entera y la morcilla en trozos; retirar.",
+        "Sofreír el otro tomate rallado y el pimentón; añadir el arroz y los garbanzos, remover 1 min.",
+        "Colocar encima costilla, morcilla, patata, tomate y la cabeza de ajo en el centro; verter el caldo caliente con el colorante.",
+        "Hornear 20 min y reposar 5 min."
+      ],
+      "notas": "Los 10 dientes de ajo son una cabeza entera que se asa en el centro.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "fideua",
+      "nombre": "Fideuá de marisco",
+      "categoria": "pasta",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 20,
+      "tiempo_coccion_min": 30,
+      "dificultad": "media",
+      "etiquetas": [
+        "pescado",
+        "marisco"
+      ],
+      "origen": "sugerencia",
+      "grupo": "pescado",
+      "emoji": "🥘",
+      "ingredientes": [
+        {
+          "nombre": "fideos de fideuá",
+          "cantidad": 450,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "gambas",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "calamar",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "rape",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "colorante o azafrán",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de pescado",
+          "cantidad": 1100,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 60,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "mayonesa",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": true
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pelar las gambas (cabezas al caldo 10 min y colar).",
+        "Tostar los fideos en el aceite hasta dorar; retirar.",
+        "Marcar gambas y rape; retirar. Sofreír el calamar en anillas y el ajo 5 min.",
+        "Añadir tomate y pimentón 3 min; volver los fideos y verter el caldo caliente con colorante. Ajustar sal.",
+        "Cocer 8-10 min hasta que se absorba el caldo; incorporar rape y gambas los últimos 3 min.",
+        "Opcional: gratinar 2 min para que los fideos se ricen. Servir con alioli (mayonesa con ajo)."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "marmitako",
+      "nombre": "Marmitako de bonito",
+      "categoria": "pescado",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 40,
+      "dificultad": "baja",
+      "etiquetas": [
+        "pescado azul",
+        "cuchara"
+      ],
+      "origen": "sugerencia",
+      "grupo": "pescado",
+      "emoji": "🐟",
+      "ingredientes": [
+        {
+          "nombre": "bonito",
+          "cantidad": 800,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 1200,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento verde",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento rojo",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "pimentón dulce",
+          "cantidad": 1,
+          "unidad": "cdta",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de pescado",
+          "cantidad": 1500,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pochar cebolla, pimientos y ajo picados 10 min.",
+        "Añadir pimentón y tomate; 5 min.",
+        "Incorporar la patata chascada, rehogar 2 min y cubrir con el caldo. Cocer 25 min.",
+        "Apagar el fuego, añadir el bonito en tacos salado y tapar 5 min: se hace con el calor residual."
+      ],
+      "notas": "Con atún fresco también funciona. No cocer el bonito o quedará seco.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "magro_tomate",
+      "nombre": "Magro con tomate",
+      "categoria": "carne",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 45,
+      "dificultad": "baja",
+      "etiquetas": [
+        "carne",
+        "congelable"
+      ],
+      "origen": "sugerencia",
+      "grupo": "carne",
+      "emoji": "🥩",
+      "ingredientes": [
+        {
+          "nombre": "magro de cerdo",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate triturado",
+          "cantidad": 800,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento verde",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 3,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "vino blanco",
+          "cantidad": 100,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "laurel",
+          "cantidad": 1,
+          "unidad": "hoja",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "azúcar",
+          "cantidad": 5,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "pimienta negra",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Salpimentar el magro en tacos y dorarlo por tandas; retirar.",
+        "Pochar cebolla, pimiento y ajo 10 min.",
+        "Volver la carne, añadir el vino y reducir 2 min.",
+        "Añadir tomate, azúcar y laurel; guisar 30 min a fuego suave hasta que la carne esté tierna."
+      ],
+      "notas": "Acompaña bien con arroz blanco o patatas fritas.",
+      "conservacion": "Nevera 4 días; congela bien.",
+      "genera": []
+    },
+    {
+      "id": "macarrones_atun",
+      "nombre": "Macarrones con atún y tomate",
+      "categoria": "pasta",
+      "momento": [
+        "comida"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 20,
+      "dificultad": "baja",
+      "etiquetas": [
+        "pescado",
+        "rápido"
+      ],
+      "origen": "sugerencia",
+      "grupo": "pescado",
+      "emoji": "🍝",
+      "ingredientes": [
+        {
+          "nombre": "macarrones",
+          "cantidad": 500,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "atún en aceite",
+          "cantidad": 4,
+          "unidad": "ud",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate frito",
+          "cantidad": 400,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "queso rallado",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "orégano",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cocer la pasta según el paquete.",
+        "Pochar la cebolla picada 8 min, añadir tomate frito y orégano, 3 min.",
+        "Incorporar el atún escurrido y mezclar con la pasta.",
+        "Servir con queso rallado (opcional: gratinar 5 min)."
+      ],
+      "notas": "Atún: latas de ~80 g escurrido.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "merluza_romana",
+      "nombre": "Merluza a la romana",
+      "categoria": "pescado",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 15,
+      "dificultad": "baja",
+      "etiquetas": [
+        "pescado blanco",
+        "frito"
+      ],
+      "origen": "sugerencia",
+      "grupo": "pescado",
+      "emoji": "🐟",
+      "ingredientes": [
+        {
+          "nombre": "merluza en rodajas",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de girasol",
+          "cantidad": 500,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "limón",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Secar y salar la merluza.",
+        "Pasar por harina, sacudir y después por huevo batido.",
+        "Freír en aceite a 175 °C 2-3 min por lado hasta dorar.",
+        "Escurrir en papel absorbente y servir con limón."
+      ],
+      "notas": "El aceite colado se reutiliza.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "sardinas_plancha",
+      "nombre": "Sardinas a la plancha",
+      "categoria": "pescado",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 10,
+      "dificultad": "baja",
+      "etiquetas": [
+        "pescado azul",
+        "rápido",
+        "ligero"
+      ],
+      "origen": "sugerencia",
+      "grupo": "pescado",
+      "emoji": "🐟",
+      "ingredientes": [
+        {
+          "nombre": "sardinas",
+          "cantidad": 1500,
+          "unidad": "g",
+          "seccion": "pescado",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "perejil fresco",
+          "cantidad": 0.25,
+          "unidad": "manojo",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "limón",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Limpiar las sardinas (sin tripa, con escamas fuera) y secar.",
+        "Majar ajo, perejil y aceite.",
+        "Plancha muy caliente con sal gruesa: 2-3 min por lado.",
+        "Servir con el majado y limón."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "tortilla_calabacin",
+      "nombre": "Tortilla de calabacín y cebolla",
+      "categoria": "huevo",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 25,
+      "dificultad": "baja",
+      "etiquetas": [
+        "huevo",
+        "vegetariano",
+        "ligero"
+      ],
+      "origen": "sugerencia",
+      "grupo": "huevo",
+      "emoji": "🥚",
+      "ingredientes": [
+        {
+          "nombre": "calabacín",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 9,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 60,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cortar el calabacín en dados pequeños y la cebolla en juliana.",
+        "Pochar ambos con sal a fuego medio 15 min hasta que evaporen el agua.",
+        "Mezclar con los huevos batidos y reposar 3 min.",
+        "Cuajar 3 min, dar la vuelta con plato y 2 min más."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "huevos_rotos",
+      "nombre": "Huevos rotos con jamón",
+      "categoria": "huevo",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 25,
+      "dificultad": "baja",
+      "etiquetas": [
+        "huevo",
+        "frito",
+        "fin de semana"
+      ],
+      "origen": "sugerencia",
+      "grupo": "huevo",
+      "emoji": "🍳",
+      "ingredientes": [
+        {
+          "nombre": "patata",
+          "cantidad": 1200,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 10,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "jamón serrano en lonchas",
+          "cantidad": 150,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de girasol",
+          "cantidad": 750,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Freír las patatas en rodajas gruesas a fuego medio hasta que estén tiernas y doradas; escurrir y salar.",
+        "Freír los huevos con la yema líquida.",
+        "Colocar los huevos sobre las patatas con el jamón y romperlos al servir."
+      ],
+      "notas": "El aceite colado se reutiliza 2-3 veces.",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "crema_verduras",
+      "nombre": "Crema de verduras",
+      "categoria": "verdura",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "primero",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 30,
+      "dificultad": "baja",
+      "etiquetas": [
+        "vegetariano",
+        "ligero",
+        "congelable",
+        "acompañamiento"
+      ],
+      "origen": "sugerencia",
+      "grupo": null,
+      "emoji": "🥣",
+      "ingredientes": [
+        {
+          "nombre": "calabacín",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "puerro",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "judía verde",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "caldo de verduras",
+          "cantidad": 1200,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Pochar cebolla y puerro 8 min.",
+        "Añadir el resto de verduras y la patata troceadas; rehogar 3 min.",
+        "Cubrir con el caldo y cocer 25 min.",
+        "Triturar fino y ajustar sal."
+      ],
+      "notas": "",
+      "conservacion": "Nevera 3 días; congela bien.",
+      "genera": []
+    },
+    {
+      "id": "salmorejo",
+      "nombre": "Salmorejo",
+      "categoria": "verdura",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "primero",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 0,
+      "dificultad": "baja",
+      "etiquetas": [
+        "vegetariano (sin jamón)",
+        "frío",
+        "temporada verano",
+        "acompañamiento"
+      ],
+      "origen": "sugerencia",
+      "grupo": null,
+      "emoji": "🍅",
+      "ingredientes": [
+        {
+          "nombre": "tomate",
+          "cantidad": 12,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pan",
+          "cantidad": 250,
+          "unidad": "g",
+          "seccion": "panaderia_refrigerados",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 1,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 150,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "vinagre de vino",
+          "cantidad": 15,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "jamón serrano en taquitos",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": true
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cocer los huevos 10 min, enfriar y picar.",
+        "Triturar los tomates (unos 1,5 kg) con el ajo y colar.",
+        "Añadir el pan troceado y dejar 10 min que se empape; triturar.",
+        "Emulsionar añadiendo el aceite en hilo con la batidora; vinagre y sal.",
+        "Enfriar 1 h y servir con huevo picado (y jamón)."
+      ],
+      "notas": "",
+      "conservacion": "Nevera 2 días.",
+      "genera": []
+    },
+    {
+      "id": "ensalada_garbanzos",
+      "nombre": "Ensalada de garbanzos",
+      "categoria": "ensalada",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 10,
+      "dificultad": "baja",
+      "etiquetas": [
+        "legumbre",
+        "frío",
+        "táper"
+      ],
+      "origen": "sugerencia",
+      "grupo": "legumbre",
+      "emoji": "🥗",
+      "ingredientes": [
+        {
+          "nombre": "garbanzos cocidos",
+          "cantidad": 1000,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento rojo",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pimiento verde",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "atún en aceite",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "huevos",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "aceitunas sin hueso",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 50,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "vinagre de vino",
+          "cantidad": 20,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cocer los huevos 10 min y trocear.",
+        "Enjuagar y escurrir los garbanzos.",
+        "Picar en dados pequeños tomate, pimientos y cebolla.",
+        "Mezclar todo con el atún y las aceitunas; aliñar al servir."
+      ],
+      "notas": "",
+      "conservacion": "Nevera 2 días (aliñar al servir).",
+      "genera": []
+    },
+    {
+      "id": "menestra_verduras",
+      "nombre": "Menestra de verduras",
+      "categoria": "verdura",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "primero",
+      "raciones": 5,
+      "tiempo_prep_min": 15,
+      "tiempo_coccion_min": 30,
+      "dificultad": "baja",
+      "etiquetas": [
+        "verdura",
+        "ligero",
+        "acompañamiento"
+      ],
+      "origen": "sugerencia",
+      "grupo": null,
+      "emoji": "🥦",
+      "ingredientes": [
+        {
+          "nombre": "judía verde",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "guisantes congelados",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "congelados",
+          "opcional": false
+        },
+        {
+          "nombre": "corazones de alcachofa",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "congelados",
+          "opcional": false
+        },
+        {
+          "nombre": "zanahoria",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "patata",
+          "cantidad": 300,
+          "unidad": "g",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "ajo",
+          "cantidad": 2,
+          "unidad": "diente",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "jamón serrano en taquitos",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "carne",
+          "opcional": true
+        },
+        {
+          "nombre": "harina de trigo",
+          "cantidad": 10,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 40,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Cocer por separado en agua con sal: judías y zanahoria 12 min, patata 15 min, alcachofas y guisantes 5 min. Reservar 300 ml del agua.",
+        "Sofreír cebolla y ajo picados 8 min (y el jamón 1 min).",
+        "Añadir la harina, tostar 1 min y mojar con el agua de cocción hasta ligar.",
+        "Incorporar las verduras y cocer 3 min."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "calabacines_rellenos",
+      "nombre": "Calabacines rellenos de atún",
+      "categoria": "verdura",
+      "momento": [
+        "cena"
+      ],
+      "tipo_plato": "principal",
+      "raciones": 5,
+      "tiempo_prep_min": 20,
+      "tiempo_coccion_min": 35,
+      "dificultad": "media",
+      "etiquetas": [
+        "verdura",
+        "pescado",
+        "horno"
+      ],
+      "origen": "sugerencia",
+      "grupo": "pescado",
+      "emoji": "🥒",
+      "ingredientes": [
+        {
+          "nombre": "calabacín",
+          "cantidad": 5,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "atún en aceite",
+          "cantidad": 3,
+          "unidad": "ud",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "tomate frito",
+          "cantidad": 200,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "queso rallado",
+          "cantidad": 100,
+          "unidad": "g",
+          "seccion": "huevos_lacteos",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Partir los calabacines a lo largo, vaciar la pulpa dejando 1 cm y hornearlos 15 min a 200 °C.",
+        "Pochar la cebolla y la pulpa picada 10 min.",
+        "Añadir tomate frito y atún escurrido.",
+        "Rellenar, cubrir con queso y gratinar 10 min."
+      ],
+      "notas": "",
+      "conservacion": "",
+      "genera": []
+    },
+    {
+      "id": "ensalada_verde",
+      "nombre": "Ensalada verde",
+      "categoria": "ensalada",
+      "momento": [
+        "comida",
+        "cena"
+      ],
+      "tipo_plato": "guarnicion",
+      "raciones": 5,
+      "tiempo_prep_min": 10,
+      "tiempo_coccion_min": 0,
+      "dificultad": "baja",
+      "etiquetas": [
+        "ligero",
+        "frío",
+        "acompañamiento"
+      ],
+      "origen": "sugerencia",
+      "grupo": null,
+      "emoji": "🥗",
+      "ingredientes": [
+        {
+          "nombre": "lechuga",
+          "cantidad": 2,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "pepino",
+          "cantidad": 1,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "cebolla",
+          "cantidad": 0.5,
+          "unidad": "ud",
+          "seccion": "verdura_fruta",
+          "opcional": false
+        },
+        {
+          "nombre": "aceitunas sin hueso",
+          "cantidad": 80,
+          "unidad": "g",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "aceite de oliva virgen extra",
+          "cantidad": 30,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "vinagre de vino",
+          "cantidad": 15,
+          "unidad": "ml",
+          "seccion": "despensa",
+          "opcional": false
+        },
+        {
+          "nombre": "sal",
+          "cantidad": null,
+          "unidad": "al_gusto",
+          "seccion": "especias",
+          "opcional": false
+        }
+      ],
+      "pasos": [
+        "Lavar y cortar la lechuga, el pepino en rodajas y la cebolla en juliana fina.",
+        "Añadir las aceitunas y aliñar al servir."
+      ],
+      "notas": "Acompañamiento ligero para cualquier segundo plato.",
+      "conservacion": "",
+      "genera": []
+    }
+  ]
+}

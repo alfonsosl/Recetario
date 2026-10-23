@@ -4,6 +4,10 @@ PWA mobile-first (React + TypeScript + Vite + Tailwind CSS 4 + Lucide) con:
 
 - **Calendario** de 4 semanas rotativas (comida + cena, con 1 o 2 platos cada una), con la semana activa calculada automáticamente: `((semanaISO - 1) % 4) + 1`. Selector manual de semana, vista mes, balance semanal (legumbre / pescado / carne / huevo) e intercambio de cualquier plato.
 - **Recetario** de 47 recetas para **5 personas**: ingredientes (opcionales y sobras de otra receta señalados), pasos, notas, conservación y en qué días del plan aparece cada una.
+- **Editor de recetas** en la app: nombre, icono, ingredientes (cantidad, unidad, sección, opcional), pasos y proteína principal. Recetas propias nuevas; las del recetario base se pueden restaurar.
+- **Comidas y cenas de 1-3 platos**: añadir acompañamiento (con recomendados), quitar o cambiar cada plato.
+- **Evaluación del equilibrio** de cada semana (0-100) con los objetivos de tu recetario (2-3 legumbre, 3-4 pescado, 3-5 carne, 2-3 huevo) y dos criterios generales orientativos (verdura en ≥ 9 de 14 comidas, ≤ 3 fritos), comparada con el plan original.
+- **Sugerencias** de 18 platos caseros del mismo estilo (`datos/sugerencias_data.py`), priorizadas según lo que le falta a tu semana, que se aceptan y colocan en el menú.
 - **Lista Común** multiusuario: identificación rápida (nombre + Código de Hogar), creación desde el menú semanal (suma automática de ingredientes) o desde cero, input rápido estilo chat con categoría sugerida, agrupación por pasillo, marcado táctil y **autoarchivado al 100 %** con cuenta atrás de 2 s e historial.
 
 ## Arranque
@@ -23,6 +27,10 @@ La fuente única es `src/data/recetario.json`, generado a partir de:
 - `datos/build.py` — plan mensual, listas de la compra y balance semanal.
 
 Para cambiar recetas o el plan: edita esos archivos y ejecuta `npm run datos` (regenera y copia el JSON). La app adapta el JSON en `src/data/index.ts`.
+
+Las sugerencias están en `datos/sugerencias_data.py` (mismo formato, más `grupo` y `emoji`) y generan `src/data/sugerencias.json`.
+
+Lo que se edita desde la app (recetas, recetas propias, favoritas, sugerencias aceptadas y cambios del menú) se guarda en el propio dispositivo (`localStorage`, `src/store/recipeStore.ts`); no modifica los archivos de `datos/`.
 
 La lista de la compra que genera la app sigue las mismas reglas que `build.py` (comprobado: coincide al 100 % en las 4 semanas): g/ml redondeados a 50 hacia arriba, ajo en cabezas, sin opcionales ni sobras de otras recetas, y especias / "al gusto" como productos a revisar en la despensa.
 
@@ -60,15 +68,18 @@ La lista de la compra que genera la app sigue las mismas reglas que `build.py` (
 ```
 datos/             recetas_data.py, build.py (generan el JSON)
 src/
-  data/            recetario.json, index.ts (adaptador), images.ts
+  data/            recetario.json, sugerencias.json, index.ts (adaptador)
+  store/           recipeStore.ts (ediciones, recetas propias, favoritas)
   services/        shoppingSync.ts (Supabase / local)
   hooks/           usePlanner, useShoppingList, useIdentity, useBackToClose, ...
-  components/      RecipeImage, RecipeSheet (bottom sheet), RecipePicker, MealCard, BottomNav, shopping/*
+  components/      DishArt, RecipeSheet, RecipeEditor, RecipePicker, SlotChooser, BalancePanel, MealCard, BottomNav, shopping/*
   views/           CalendarView, ShoppingView, RecipesView
-  utils/           isoWeek, aggregate (suma de ingredientes), format, search, categoryGuess
+  utils/           isoWeek, aggregate (compra), balance (equilibrio), recommend (acompañamientos y propuestas), format, search, categoryGuess
 supabase_schema.sql
 ```
 
-## Imágenes
+## Estética e imágenes
 
-El recetario no incluye fotos: cada receta usa una fotografía de Unsplash según su tipo de plato (`src/data/images.ts`). `<RecipeImage />` muestra un skeleton mientras carga y un fallback ilustrado si la URL falla o no hay conexión. Para personalizar una foto, cambia el ID en `images.ts` o asigna una URL propia en el campo `image` de la receta.
+Estilo «libro de cocina como app»: papel crema, tipografía Montserrat (incluida en la app, funciona sin conexión), banda amarilla de información y fichas tipo página.
+
+No se usan fotografías: cada plato se representa con una ilustración de plato con un icono (emoji) del alimento (`src/components/DishArt.tsx`). El icono se puede cambiar en el editor de recetas.

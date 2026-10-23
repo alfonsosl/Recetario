@@ -19,7 +19,7 @@ function Badge({ count }: { count: number }) {
   if (count <= 0) return null;
   return (
     <span
-      className="absolute -right-3 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-terra-500 px-1 text-[11px] font-bold leading-none text-white ring-2 ring-white"
+      className="absolute -right-3 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-lemon-400 px-1 text-[11px] font-bold leading-none text-ink-900 ring-2 ring-white"
       aria-label={`${count} productos pendientes`}
     >
       {count > 99 ? '99+' : count}
@@ -44,7 +44,7 @@ export function BottomNav({ tab, onChange, pendingCount, variant }: Props) {
                 onClick={() => onChange(key)}
                 aria-current={tab === key ? 'page' : undefined}
                 className={`flex min-h-11 items-center gap-2 rounded-full px-4 text-sm font-semibold transition-colors ${
-                  tab === key ? 'bg-olive-600 text-white' : 'text-stone-600 hover:bg-olive-50 hover:text-olive-700'
+                  tab === key ? 'bg-ink-600 text-white' : 'text-ink-600 hover:bg-ink-50 hover:text-ink-700'
                 }`}
               >
                 <span className="relative">
@@ -72,11 +72,11 @@ export function BottomNav({ tab, onChange, pendingCount, variant }: Props) {
                 onClick={() => onChange(key)}
                 aria-current={active ? 'page' : undefined}
                 className={`relative flex min-h-16 w-full flex-col items-center justify-center gap-1 px-2 text-xs font-semibold transition-colors ${
-                  active ? 'text-olive-700' : 'text-stone-500'
+                  active ? 'text-ink-700' : 'text-ink-500'
                 }`}
               >
-                {active && <span className="absolute inset-x-8 top-0 h-1 rounded-b-full bg-olive-600" aria-hidden />}
-                <span className={`relative flex h-8 w-14 items-center justify-center rounded-full transition-colors ${active ? 'bg-olive-100' : ''}`}>
+                {active && <span className="absolute inset-x-8 top-0 h-1 rounded-b-full bg-ink-600" aria-hidden />}
+                <span className={`relative flex h-8 w-14 items-center justify-center rounded-full transition-colors ${active ? 'bg-ink-100' : ''}`}>
                   <Icon className="h-6 w-6" strokeWidth={active ? 2.4 : 2} aria-hidden />
                   {key === 'shopping' && <Badge count={pendingCount} />}
                 </span>

@@ -1,4 +1,6 @@
-import { ALL_RECIPES } from '../data';
+import { BASE_RECIPES, SUGGESTIONS } from '../data';
+
+const ALL_RECIPES = [...BASE_RECIPES, ...SUGGESTIONS];
 import type { Category } from '../types';
 import { SECTION_TO_CATEGORY } from './categories';
 import { capitalize } from './format';
