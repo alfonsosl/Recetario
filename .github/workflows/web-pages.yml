@@ -1,0 +1,66 @@
+name: Web (GitHub Pages)
+
+# Publica la app como página web en https://<usuario>.github.io/<repo>/
+# Requisito (una vez): Settings → Pages → Build and deployment → Source: "GitHub Actions".
+# Lista de la compra en la nube: añade los secretos VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY
+# (Settings → Secrets and variables → Actions). Sin ellos, la lista funciona solo en cada dispositivo.
+on:
+  push:
+    branches: [main, master, 'claude/**']
+    paths-ignore: ['**.md']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Comprobar configuración de Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+        run: |
+          if [ -z "$SUPABASE_URL" ]; then
+            echo "::warning title=Supabase sin configurar::Faltan los secretos VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY. La lista de la compra se guardará solo en cada dispositivo."
+          else
+            echo "Supabase configurado: la lista de la compra se compartirá entre dispositivos."
+          fi
+
+      - name: Compilar la web
+        run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

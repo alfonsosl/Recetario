@@ -82,7 +82,7 @@ export default function App() {
       <header className="pt-safe sticky top-0 z-30 bg-sand-50/90 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4 md:h-16">
           <div className="flex items-center gap-2.5">
-            <img src="/icons/icon-192.png" alt="" className="h-9 w-9 rounded-full" width={36} height={36} />
+            <img src={`${import.meta.env.BASE_URL}icons/icon-192.png`} alt="" className="h-9 w-9 rounded-full" width={36} height={36} />
             <div className="leading-none">
               <h1 className="font-display text-xl font-bold tracking-tight text-ink-900">Mediterráneo 5</h1>
               <p className="mt-0.5 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-400 sm:block">Recetario como una app</p>

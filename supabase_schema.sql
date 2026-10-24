@@ -69,6 +69,11 @@ begin
   end if;
 end $$;
 
+-- ---------- Permisos de la API ----------
+-- Necesarios para que la app (rol anon) lea y escriba vía la API de Supabase.
+grant usage on schema public to anon, authenticated;
+grant select, insert, update, delete on public.shopping_lists, public.shopping_items to anon, authenticated;
+
 -- ---------- Seguridad (RLS) ----------
 -- Modelo sencillo para uso familiar: el "Código de Hogar" actúa como secreto compartido.
 -- Cualquiera con la anon key y el código puede leer/escribir esa lista.

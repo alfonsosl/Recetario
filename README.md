@@ -10,6 +10,11 @@ PWA mobile-first (React + TypeScript + Vite + Tailwind CSS 4 + Lucide) con:
 - **Sugerencias** de 18 platos caseros del mismo estilo (`datos/sugerencias_data.py`), priorizadas según lo que le falta a tu semana, que se aceptan y colocan en el menú.
 - **Lista Común** multiusuario: identificación rápida (nombre + Código de Hogar), creación desde el menú semanal (suma automática de ingredientes) o desde cero, input rápido estilo chat con categoría sugerida, agrupación por pasillo, marcado táctil y **autoarchivado al 100 %** con cuenta atrás de 2 s e historial.
 
+## Web publicada + Supabase
+
+Guía paso a paso (gratis, sin instalar nada): **[docs/MONTAR_WEB_Y_SUPABASE.md](docs/MONTAR_WEB_Y_SUPABASE.md)**.
+Web: `https://alfonsosl.github.io/Recetario/` (workflow `.github/workflows/web-pages.yml`).
+
 ## Arranque
 
 ```bash

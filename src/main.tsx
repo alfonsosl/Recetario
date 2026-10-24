@@ -13,7 +13,7 @@ createRoot(document.getElementById('root')!).render(
 const isNativeApp = Boolean((window as { Capacitor?: { isNativePlatform?: () => boolean } }).Capacitor?.isNativePlatform?.());
 if (import.meta.env.PROD && !isNativeApp && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {
+    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`, { scope: import.meta.env.BASE_URL }).catch(() => {
       /* sin SW la app sigue funcionando online */
     });
   });

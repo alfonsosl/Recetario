@@ -4,14 +4,16 @@
  * - Fotos de Unsplash: stale-while-revalidate en una caché limitada.
  * - Nunca intercepta Supabase ni peticiones que no sean GET.
  */
-const VERSION = 'med5-v2';
+const VERSION = 'med5-v3';
 const SHELL = `${VERSION}-shell`;
 const IMAGES = `${VERSION}-img`;
 const MAX_IMAGES = 120;
+// Raíz donde está publicada la app ('/' o '/Recetario/' en GitHub Pages).
+const ROOT = new URL(self.registration.scope).pathname;
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(SHELL).then((c) => c.addAll(['/', '/manifest.json', '/icons/icon-192.png'])).then(() => self.skipWaiting()),
+    caches.open(SHELL).then((c) => c.addAll([ROOT, `${ROOT}manifest.json`, `${ROOT}icons/icon-192.png`])).then(() => self.skipWaiting()),
   );
 });
 
@@ -40,10 +42,10 @@ self.addEventListener('fetch', (event) => {
       fetch(request)
         .then((res) => {
           const copy = res.clone();
-          caches.open(SHELL).then((c) => c.put('/', copy));
+          caches.open(SHELL).then((c) => c.put(ROOT, copy));
           return res;
         })
-        .catch(() => caches.match('/')),
+        .catch(() => caches.match(ROOT)),
     );
     return;
   }
